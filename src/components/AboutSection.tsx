@@ -1,4 +1,5 @@
 import home1 from "../img/home1.png";
+import styled from "styled-components";
 
 const AboutSection = () => {
   return (
@@ -30,5 +31,8 @@ const AboutSection = () => {
     </div>
   );
 };
+
+// styles
+const About = styled.div``;
 
 export default AboutSection;
