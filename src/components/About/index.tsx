@@ -1,11 +1,11 @@
-import home1 from "../img/home1.png";
-import styled from "styled-components";
+import home1 from "../../img/home1.png";
+import { StyledAbout } from "./Styles";
 
-const AboutSection = () => {
+const About = () => {
   return (
-    <div>
-      <div className="description">
-        <div className="title">
+    <StyledAbout>
+      <div className="description" data-testid="about-section">
+        <div className="title" data-testid="about-title">
           <div className="hide">
             <h2>Passionate software developer</h2>
           </div>
@@ -28,11 +28,8 @@ const AboutSection = () => {
       <div className="image">
         <img src={home1} alt="guy with camera" />
       </div>
-    </div>
+    </StyledAbout>
   );
 };
 
-// styles
-const About = styled.div``;
-
-export default AboutSection;
+export default About;

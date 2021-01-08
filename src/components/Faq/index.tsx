@@ -29,7 +29,7 @@ const faqs = [
   },
 ];
 
-const FaqSection = () => {
+const Faq = () => {
   return (
     <div className="faq">
       <h2>
@@ -49,4 +49,4 @@ const FaqSection = () => {
   );
 };
 
-export default FaqSection;
+export default Faq;

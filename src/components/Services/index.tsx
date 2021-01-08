@@ -1,8 +1,8 @@
-import clock from "../img/clock.svg";
-import diaphragm from "../img/diaphragm.svg";
-import money from "../img/money.svg";
-import teamwork from "../img/teamwork.svg";
-import home2 from "../img/home2.png";
+import clock from "../../img/clock.svg";
+import diaphragm from "../../img/diaphragm.svg";
+import money from "../../img/money.svg";
+import teamwork from "../../img/teamwork.svg";
+import home2 from "../../img/home2.png";
 
 const sections = [
   {
@@ -27,7 +27,7 @@ const sections = [
   },
 ];
 
-const ServicesSection = () => {
+const Services = () => {
   return (
     <div className="services">
       <div className="description">
@@ -50,10 +50,10 @@ const ServicesSection = () => {
         </div>
       </div>
       <div className="img">
-        <img src={home2} alt="" />
+        <img src={home2} alt="home2" />
       </div>
     </div>
   );
 };
 
-export default ServicesSection;
+export default Services;

@@ -1,14 +1,12 @@
 import React, { Fragment } from "react";
-import AboutSection from "../components/AboutSection";
-import FaqSection from "../components/FaqSection";
-import ServicesSection from "../components/ServicesSection";
+import { About, Faq, Services } from "../components";
 
 const AboutUs = () => {
   return (
     <Fragment>
-      <AboutSection />
-      <ServicesSection />
-      <FaqSection />
+      <About />
+      <Services />
+      <Faq />
     </Fragment>
   );
 };
