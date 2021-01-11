@@ -3,6 +3,8 @@ import diaphragm from "../../img/diaphragm.svg";
 import money from "../../img/money.svg";
 import teamwork from "../../img/teamwork.svg";
 import home2 from "../../img/home2.png";
+import { StyledDescription, StyledImage } from "../../styles/CommonStyles";
+import { StyledServices, StyledCards, StyledCard } from "./Styles";
 
 const sections = [
   {
@@ -29,14 +31,14 @@ const sections = [
 
 const Services = () => {
   return (
-    <div className="services">
-      <div className="description">
+    <StyledServices data-testid="services-section">
+      <StyledDescription data-testid="services-description">
         <h2>
-          High <span>quality</span> servicves
+          High <span>quality</span> services
         </h2>
-        <div className="cards">
+        <StyledCards>
           {sections.map((section) => (
-            <div className="card">
+            <StyledCard>
               <div className="icon">
                 <img
                   src={section.img}
@@ -45,14 +47,14 @@ const Services = () => {
                 <h3>{section.title}</h3>
               </div>
               <p>{section.paragraph}</p>
-            </div>
+            </StyledCard>
           ))}
-        </div>
-      </div>
-      <div className="img">
+        </StyledCards>
+      </StyledDescription>
+      <StyledImage>
         <img src={home2} alt="home2" />
-      </div>
-    </div>
+      </StyledImage>
+    </StyledServices>
   );
 };
 

@@ -1,5 +1,10 @@
 import home1 from "../../img/home1.png";
-import { StyledAbout, StyledDescription, StyledImage, Hide } from "./Styles";
+import {
+  StyledImage,
+  StyledAbout,
+  StyledDescription,
+  Hide,
+} from "../../styles/CommonStyles";
 
 const About = () => {
   return (
