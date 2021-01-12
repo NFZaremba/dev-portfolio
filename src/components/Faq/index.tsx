@@ -43,11 +43,11 @@ const Faq: React.FC = () => {
         Any Questions <span>FAQ</span>
       </h2>
       {faqs.map(
-        (faq): React.ReactElement => (
-          <div key={faq.question} className="question">
-            <h4>{faq.question}</h4>
+        ({ question, answers }: IFaq): React.ReactElement => (
+          <div key={question} className="question">
+            <h4>{question}</h4>
             <div className="answer">
-              {faq?.answers.map(
+              {answers?.map(
                 (answer, i): React.ReactElement => (
                   <p key={i}>{answer}</p>
                 )

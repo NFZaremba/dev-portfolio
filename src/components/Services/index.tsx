@@ -44,16 +44,13 @@ const Services: React.FC = () => {
         </h2>
         <StyledCards>
           {sections.map(
-            (section: ISection): React.ReactElement => (
-              <StyledCard key={section.title} data-testid="services-card">
+            ({ img, title, paragraph }: ISection): React.ReactElement => (
+              <StyledCard key={title} data-testid="services-card">
                 <div className="icon">
-                  <img
-                    src={section.img}
-                    alt={section.title.toLocaleLowerCase()}
-                  />
-                  <h3>{section.title}</h3>
+                  <img src={img} alt={title.toLocaleLowerCase()} />
+                  <h3>{title}</h3>
                 </div>
-                <p>{section.paragraph}</p>
+                <p>{paragraph}</p>
               </StyledCard>
             )
           )}
