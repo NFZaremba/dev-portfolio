@@ -1,3 +1,5 @@
+import { StyledFaq } from "./Styles";
+
 const faqs = [
   {
     question: "How Do I Start?",
@@ -31,7 +33,7 @@ const faqs = [
 
 const Faq = () => {
   return (
-    <div className="faq">
+    <StyledFaq data-testid="faq-section">
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
@@ -43,9 +45,10 @@ const Faq = () => {
               <p>{answer}</p>
             ))}
           </div>
+          <div className="faq-line"></div>
         </div>
       ))}
-    </div>
+    </StyledFaq>
   );
 };
 

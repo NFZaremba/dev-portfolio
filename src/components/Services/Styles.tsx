@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledAbout } from "../../styles/CommonStyles";
+import { StyledAbout } from "../About/Styles";
 
 export const StyledServices = styled(StyledAbout)`
   h2 {

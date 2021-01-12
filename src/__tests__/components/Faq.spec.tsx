@@ -7,6 +7,6 @@ describe("Faq section", () => {
   });
 
   it("should render without breaking", () => {
-    expect(screen.getByTestId("about-section")).toBeInTheDocument();
+    expect(screen.getByTestId("faq-section")).toBeInTheDocument();
   });
 });

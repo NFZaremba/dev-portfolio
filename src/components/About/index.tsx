@@ -1,8 +1,8 @@
 import home1 from "../../img/home1.png";
+import { StyledAbout } from "./Styles";
 import {
-  StyledImage,
-  StyledAbout,
   StyledDescription,
+  StyledImage,
   Hide,
 } from "../../styles/CommonStyles";
 
