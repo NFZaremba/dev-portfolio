@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { Faq } from "../../components";
+import { render, screen, within } from "@testing-library/react";
+import { Faq, faqs } from "../../components";
 
 describe("Faq section", () => {
   beforeEach(() => {
@@ -8,5 +8,23 @@ describe("Faq section", () => {
 
   it("should render without breaking", () => {
     expect(screen.getByTestId("faq-section")).toBeInTheDocument();
+  });
+
+  it("should display title", () => {
+    expect(screen.getByText(/any questions/i)).toBeInTheDocument();
+    expect(screen.getByText(/any questions/i)).toBeVisible();
+  });
+
+  it("should display all questions and answers", () => {
+    faqs.forEach(({ question, answers }) => {
+      const faq = screen.getByText(question).closest("div");
+      const currentFaq = within(faq as HTMLElement);
+
+      expect(currentFaq.getByText(question)).toBeInTheDocument();
+
+      answers?.forEach((answer) => {
+        expect(currentFaq.getByText(answer)).toBeInTheDocument();
+      });
+    });
   });
 });

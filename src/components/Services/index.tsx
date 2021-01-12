@@ -6,7 +6,13 @@ import home2 from "../../img/home2.png";
 import { StyledDescription, StyledImage } from "../../styles/CommonStyles";
 import { StyledServices, StyledCards, StyledCard } from "./Styles";
 
-export const sections = [
+export interface ISection {
+  img: string;
+  title: string;
+  paragraph: string;
+}
+
+export const sections: ISection[] = [
   {
     img: clock,
     title: "Efficient",
@@ -29,7 +35,7 @@ export const sections = [
   },
 ];
 
-const Services = () => {
+const Services: React.FC = () => {
   return (
     <StyledServices data-testid="services-section">
       <StyledDescription>
@@ -37,18 +43,20 @@ const Services = () => {
           High <span>quality</span> services
         </h2>
         <StyledCards>
-          {sections.map((section) => (
-            <StyledCard key={section.title} data-testid="services-card">
-              <div className="icon">
-                <img
-                  src={section.img}
-                  alt={section.title.toLocaleLowerCase()}
-                />
-                <h3>{section.title}</h3>
-              </div>
-              <p>{section.paragraph}</p>
-            </StyledCard>
-          ))}
+          {sections.map(
+            (section: ISection): React.ReactElement => (
+              <StyledCard key={section.title} data-testid="services-card">
+                <div className="icon">
+                  <img
+                    src={section.img}
+                    alt={section.title.toLocaleLowerCase()}
+                  />
+                  <h3>{section.title}</h3>
+                </div>
+                <p>{section.paragraph}</p>
+              </StyledCard>
+            )
+          )}
         </StyledCards>
       </StyledDescription>
       <StyledImage>

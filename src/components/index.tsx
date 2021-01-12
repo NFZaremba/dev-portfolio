@@ -1,5 +1,5 @@
 import About from "./About";
-import Faq from "./Faq";
+import Faq, { faqs } from "./Faq";
 import Services, { sections } from "./Services";
 
-export { About, Faq, Services, sections };
+export { About, Faq, faqs, Services, sections };

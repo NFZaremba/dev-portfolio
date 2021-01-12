@@ -6,7 +6,7 @@ import {
   Hide,
 } from "../../styles/CommonStyles";
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <StyledAbout>
       <StyledDescription data-testid="about-section">

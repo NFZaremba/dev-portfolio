@@ -1,6 +1,11 @@
 import { StyledFaq } from "./Styles";
 
-const faqs = [
+export interface IFaq {
+  question: string;
+  answers: string[];
+}
+
+export const faqs: IFaq[] = [
   {
     question: "How Do I Start?",
     answers: [
@@ -31,23 +36,27 @@ const faqs = [
   },
 ];
 
-const Faq = () => {
+const Faq: React.FC = () => {
   return (
     <StyledFaq data-testid="faq-section">
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
-      {faqs.map((faq) => (
-        <div className="question">
-          <h4>{faq.question}</h4>
-          <div className="answer">
-            {faq?.answers.map((answer) => (
-              <p>{answer}</p>
-            ))}
+      {faqs.map(
+        (faq): React.ReactElement => (
+          <div key={faq.question} className="question">
+            <h4>{faq.question}</h4>
+            <div className="answer">
+              {faq?.answers.map(
+                (answer, i): React.ReactElement => (
+                  <p key={i}>{answer}</p>
+                )
+              )}
+            </div>
+            <div className="faq-line"></div>
           </div>
-          <div className="faq-line"></div>
-        </div>
-      ))}
+        )
+      )}
     </StyledFaq>
   );
 };
