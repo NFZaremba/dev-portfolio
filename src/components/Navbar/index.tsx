@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { StyledNavbar } from "./Styles";
 
 export interface INavLinks {
@@ -11,7 +12,7 @@ export const navLinks: INavLinks[] = [
     path: "/",
   },
   {
-    text: "Our Work",
+    text: "My Work",
     path: "/work",
   },
   {
@@ -31,7 +32,7 @@ const Navbar: React.FC = () => {
       <ul>
         {navLinks?.map(({ text, path }: INavLinks) => (
           <li key={text}>
-            <a href={path}>{text}</a>
+            <Link to={path}>{text}</Link>
           </li>
         ))}
       </ul>

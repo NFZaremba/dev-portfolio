@@ -1,5 +1,5 @@
 import GlobalStyle from "./styles/GlobalStyles";
-import AboutUs from "./pages/AboutUs";
+import Routes from "./routes";
 import { Navbar } from "./components";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Navbar />
-      <AboutUs />
+      <Routes />
     </div>
   );
 }
