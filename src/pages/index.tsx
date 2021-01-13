@@ -1,5 +1,5 @@
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
-import MyWork from "./MyWork";
+import MyWork, { projects } from "./MyWork";
 
-export { AboutUs, ContactUs, MyWork };
+export { AboutUs, ContactUs, MyWork, projects };

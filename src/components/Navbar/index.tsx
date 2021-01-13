@@ -25,9 +25,9 @@ const Navbar: React.FC = () => {
   return (
     <StyledNavbar data-testid="navbar">
       <h1>
-        <a className="logo" href="#">
+        <Link className="logo" to="/">
           Devfolio
-        </a>
+        </Link>
       </h1>
       <ul>
         {navLinks?.map(({ text, path }: INavLinks) => (

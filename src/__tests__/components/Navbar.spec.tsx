@@ -1,9 +1,14 @@
 import { screen, render, within } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import { Navbar, navLinks } from "../../components";
 
 describe("Navbar", () => {
   beforeEach(() => {
-    render(<Navbar />);
+    render(
+      <BrowserRouter>
+        <Navbar />
+      </BrowserRouter>
+    );
   });
 
   it("should render without breaking", () => {
