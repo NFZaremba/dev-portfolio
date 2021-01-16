@@ -1,6 +1,6 @@
 import About from "./About";
-import Faq, { faqs } from "./Faq";
-import Services, { sections } from "./Services";
-import Navbar, { navLinks } from "./Navbar";
+import Faq from "./Faq";
+import Services from "./Services";
+import Navbar from "./Navbar";
 
-export { About, Faq, faqs, Services, sections, Navbar, navLinks };
+export { About, Faq, Services, Navbar };

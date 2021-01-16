@@ -1,25 +1,6 @@
 import { Link } from "react-router-dom";
 import { StyledNavbar } from "./Styles";
-
-export interface INavLinks {
-  text: string;
-  path: string;
-}
-
-export const navLinks: INavLinks[] = [
-  {
-    text: "About Us",
-    path: "/",
-  },
-  {
-    text: "My Work",
-    path: "/work",
-  },
-  {
-    text: "Contact Us",
-    path: "/contact",
-  },
-];
+import { navLinks, INavLinks } from "./__data__/navLinks";
 
 const Navbar: React.FC = () => {
   return (
