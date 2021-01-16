@@ -38,7 +38,7 @@ const MyWork = () => {
   return (
     <StyledWork data-testid="mywork-section">
       {projects?.map(({ title, img, path, alt }) => (
-        <StyledProject>
+        <StyledProject key={title}>
           <h2>{title}</h2>
           <div className="line"></div>
           <Link to={path}>

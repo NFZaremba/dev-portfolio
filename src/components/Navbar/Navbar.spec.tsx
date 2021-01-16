@@ -1,6 +1,6 @@
 import { screen, render, within } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import { Navbar, navLinks } from "../../components";
+import { Navbar, navLinks } from "..";
 
 describe("Navbar", () => {
   beforeEach(() => {

@@ -1,6 +1,6 @@
 import { screen, render, within } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import { MyWork, projects } from "../../pages";
+import { MyWork, projects } from "..";
 
 describe("My Work", () => {
   beforeEach(() => {
@@ -16,7 +16,6 @@ describe("My Work", () => {
   });
 
   it("should render all projects with correct data", () => {
-    screen.debug();
     projects.forEach(({ title, img, path, alt }) => {
       const project = screen.getByText(title).closest("div");
       const currentProject = within(project as HTMLElement);

@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import { Faq, faqs } from "../../components";
+import { Faq, faqs } from "..";
 
 describe("Faq section", () => {
   beforeEach(() => {

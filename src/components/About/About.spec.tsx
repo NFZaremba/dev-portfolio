@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { About } from "../../components";
+import { About } from "..";
 
 describe("About section", () => {
   beforeEach(() => {
