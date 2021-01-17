@@ -1,5 +1,5 @@
 import { screen, render, within } from "@testing-library/react";
-import { ProjectDetails } from "..";
+import { ProjectDetails } from "../..";
 
 describe("Project Details", () => {
   beforeEach(() => {

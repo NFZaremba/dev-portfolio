@@ -1,6 +1,7 @@
 import { screen, render, within } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import { MyWork, projects } from "..";
+import { MyWork } from "../..";
+import { projects } from "../__data__/projects";
 
 describe("My Work", () => {
   beforeEach(() => {
