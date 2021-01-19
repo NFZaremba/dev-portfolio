@@ -7,8 +7,9 @@ export const StyledNavbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 10rem;
+  background-color: #23d997;
   a {
-    color: white;
+    color: black;
     text-decoration: none;
   }
   ul {

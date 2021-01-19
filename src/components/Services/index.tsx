@@ -1,7 +1,7 @@
-import home2 from "../../img/home2.png";
-import { StyledDescription, StyledImage } from "../../styles/CommonStyles";
+import home2 from "../../assets/img/home2.png";
+import { StyledDescription, StyledImage } from "../../shared/CommonStyles";
 import { StyledServices, StyledCards, StyledCard } from "./Styles";
-import { sections, ISection } from "./__data__/serviceSections";
+import { sections, ISection } from "./serviceSections";
 
 const Services: React.FC = () => {
   return (

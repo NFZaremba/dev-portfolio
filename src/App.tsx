@@ -1,8 +1,9 @@
-import GlobalStyle from "./styles/GlobalStyles";
+import GlobalStyle from "./shared/GlobalStyles";
 import Routes from "./routes";
 import { Navbar } from "./components";
 
 function App() {
+  console.log(process.env.NODE_ENV);
   return (
     <div className="App">
       <GlobalStyle />

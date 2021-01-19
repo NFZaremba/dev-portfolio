@@ -1,10 +1,10 @@
-import home1 from "../../img/home1.png";
+import home1 from "../../assets/img/home1.png";
 import { StyledAbout } from "./Styles";
 import {
   StyledDescription,
   StyledImage,
   Hide,
-} from "../../styles/CommonStyles";
+} from "../../shared/CommonStyles";
 
 const About: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
-import clock from "../../../img/clock.svg";
-import diaphragm from "../../../img/diaphragm.svg";
-import money from "../../../img/money.svg";
-import teamwork from "../../../img/teamwork.svg";
+import clock from "../../assets/img/clock.svg";
+import diaphragm from "../../assets/img/diaphragm.svg";
+import money from "../../assets/img/money.svg";
+import teamwork from "../../assets/img/teamwork.svg";
 
 export interface ISection {
   img: string;

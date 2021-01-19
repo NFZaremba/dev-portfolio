@@ -1,5 +1,5 @@
 import { StyledFaq } from "./Styles";
-import { faqs, IFaq } from "./__data__/faqs";
+import { faqs, IFaq } from "./faqs";
 
 const Faq: React.FC = () => {
   return (

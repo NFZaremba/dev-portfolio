@@ -1,7 +1,7 @@
 import { screen, render, within } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { MyWork } from "../..";
-import { projects } from "../__data__/projects";
+import { projects } from "../../../shared/projects";
 
 describe("My Work", () => {
   beforeEach(() => {
@@ -17,17 +17,25 @@ describe("My Work", () => {
   });
 
   it("should render all projects with correct data", () => {
-    projects.forEach(({ title, img, path, alt }) => {
+    projects.forEach(({ title, subTitle, mainImg, id, techStack }) => {
       const project = screen.getByText(title).closest("div");
       const currentProject = within(project as HTMLElement);
 
       expect(currentProject.getByText(title)).toBeInTheDocument();
-      expect(currentProject.getByAltText(alt)).toBeInTheDocument();
-      expect(currentProject.getByAltText(alt)).toHaveAttribute("src", img);
-      expect(currentProject.getByAltText(alt).parentElement).toHaveAttribute(
-        "href",
-        path
+      expect(currentProject.getByText(subTitle)).toBeInTheDocument();
+      expect(currentProject.getByText(subTitle)).toBeInTheDocument();
+      expect(currentProject.getByAltText(mainImg.alt)).toBeInTheDocument();
+      expect(currentProject.getByAltText(mainImg.alt)).toHaveAttribute(
+        "src",
+        mainImg.src
       );
+      expect(
+        currentProject.getByAltText(mainImg.alt).parentElement
+      ).toHaveAttribute("href", `/work/${id}`);
+
+      techStack?.forEach((tech) => {
+        expect(currentProject.getByText(tech)).toBeInTheDocument();
+      });
     });
   });
 });

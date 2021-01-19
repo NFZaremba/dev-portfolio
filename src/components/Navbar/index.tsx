@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { StyledNavbar } from "./Styles";
-import { navLinks, INavLinks } from "./__data__/navLinks";
+import { navLinks, INavLinks } from "./navLinks";
 
 const Navbar: React.FC = () => {
   return (
