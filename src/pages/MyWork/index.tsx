@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { projects } from "../../shared/projects";
-import { StyledWork, StyledProject } from "./Styles";
+import { StyledWork, StyledProject, StyledTechList } from "./Styles";
 
 const MyWork = () => {
   return (
@@ -9,9 +9,13 @@ const MyWork = () => {
         <StyledProject key={title}>
           <h2>{title}</h2>
           <h4>{subTitle}</h4>
-          {techStack?.map((tech) => (
-            <span key={tech}>{tech}</span>
-          ))}
+          <StyledTechList>
+            {techStack?.map((tech) => (
+              <div className="tech-item" key={tech}>
+                {tech}
+              </div>
+            ))}
+          </StyledTechList>
           <div className="line"></div>
           <Link to={`work/${id}`}>
             <img src={mainImg.src} alt={mainImg.alt} />

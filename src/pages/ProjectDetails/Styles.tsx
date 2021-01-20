@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const StyledDetails = styled.div`
+export const Details = styled.div`
   color: white;
 `;
 
-export const StyledHeadLine = styled.div`
+export const HeadLine = styled.div`
   min-height: 90vh;
   padding-top: 20vh;
   position: relative;
@@ -19,4 +19,8 @@ export const StyledHeadLine = styled.div`
     height: 70vh;
     object-fit: cover;
   }
+`;
+
+export const Description = styled.div`
+  padding: 0rem 3rem;
 `;

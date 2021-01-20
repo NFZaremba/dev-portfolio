@@ -1,4 +1,6 @@
 import { ProjectDetails } from "../..";
+import { Route } from "react-router-dom";
+import { projects } from "../../../shared/projects";
 import {
   renderWithProviders,
   screen,
@@ -6,9 +8,14 @@ import {
 
 describe("Project Details", () => {
   beforeEach(() => {
-    renderWithProviders(<ProjectDetails />, {
-      route: "/work/athlete",
-    });
+    renderWithProviders(
+      <Route path="/work/:id">
+        <ProjectDetails />
+      </Route>,
+      {
+        route: "/work/athlete",
+      }
+    );
   });
 
   it("should render without breaking", async () => {
@@ -16,7 +23,11 @@ describe("Project Details", () => {
     expect(element).toBeInTheDocument();
   });
 
-  it("should display correct content", () => {
-    expect(screen.getByTestId("project-details-section")).toBeInTheDocument();
+  it("should display correct content", async () => {
+    const currentProject = projects.find((project) => project.id === "athlete");
+    const title = await screen.findByText(currentProject?.title as string);
+
+    screen.debug();
+    expect(title).toBeInTheDocument();
   });
 });
