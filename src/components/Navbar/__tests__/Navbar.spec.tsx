@@ -1,15 +1,14 @@
-import { screen, render, within } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import {
+  renderWithProviders,
+  screen,
+  within,
+} from "../../../test-utils/react-router-wrapper";
 import { Navbar } from "../..";
 import { navLinks } from "../navLinks";
 
 describe("Navbar", () => {
   beforeEach(() => {
-    render(
-      <BrowserRouter>
-        <Navbar />
-      </BrowserRouter>
-    );
+    renderWithProviders(<Navbar />);
   });
 
   it("should render without breaking", () => {

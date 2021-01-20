@@ -1,15 +1,14 @@
-import { screen, render, within } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import {
+  screen,
+  renderWithProviders,
+  within,
+} from "../../../test-utils/react-router-wrapper";
 import { MyWork } from "../..";
 import { projects } from "../../../shared/projects";
 
 describe("My Work", () => {
   beforeEach(() => {
-    render(
-      <BrowserRouter>
-        <MyWork />
-      </BrowserRouter>
-    );
+    renderWithProviders(<MyWork />);
   });
 
   it("should render without breaking", () => {

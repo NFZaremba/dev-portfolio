@@ -1,9 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import {
+  renderWithProviders,
+  screen,
+} from "../../../test-utils/react-router-wrapper";
 import { About } from "../..";
 
 describe("About section", () => {
   beforeEach(() => {
-    render(<About />);
+    renderWithProviders(<About />);
   });
 
   it("should render without breaking", () => {

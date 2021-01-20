@@ -1,8 +1,8 @@
-import { screen, render, within } from "@testing-library/react";
-import { BrowserRouter, Route } from "react-router-dom";
-import { useParams, MemoryRouter } from "react-router-dom";
 import { ProjectDetails } from "../..";
-import { renderWithProviders } from "../../../test-utils/react-router-wrapper";
+import {
+  renderWithProviders,
+  screen,
+} from "../../../test-utils/react-router-wrapper";
 
 describe("Project Details", () => {
   beforeEach(() => {

@@ -2,6 +2,7 @@ import { createMemoryHistory, MemoryHistory } from "history";
 import { Router, Route } from "react-router-dom";
 import { render } from "@testing-library/react";
 
+export * from "@testing-library/react";
 export function renderWithProviders(
   ui: React.ReactElement,
   {
