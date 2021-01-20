@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { StyledAbout } from "../About/Styles";
+import { AboutSection } from "../About/Styles";
 
-export const StyledServices = styled(StyledAbout)`
+export const StyledServices = styled(AboutSection)`
   h2 {
     padding-bottom: 5rem;
   }

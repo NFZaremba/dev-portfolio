@@ -1,6 +1,8 @@
 import styled from "styled-components";
+// Animation
+import { motion } from "framer-motion";
 
-export const StyledWork = styled.div`
+export const WorkSection = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;
@@ -10,7 +12,7 @@ export const StyledWork = styled.div`
   }
 `;
 
-export const StyledProject = styled.div`
+export const Project = styled.div`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
@@ -25,7 +27,7 @@ export const StyledProject = styled.div`
   }
 `;
 
-export const StyledTechList = styled.div`
+export const TechList = styled.div`
   display: flex;
   padding: 1rem 0rem;
 

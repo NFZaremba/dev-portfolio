@@ -1,12 +1,12 @@
 import home2 from "../../assets/img/home2.png";
-import { StyledDescription, StyledImage } from "../../shared/CommonStyles";
+import { CommonDescription, Image } from "../../shared/CommonStyles";
 import { StyledServices, StyledCards, StyledCard } from "./Styles";
 import { sections, ISection } from "./serviceSections";
 
 const Services: React.FC = () => {
   return (
     <StyledServices data-testid="services-section">
-      <StyledDescription>
+      <CommonDescription>
         <h2 data-testid="services-title">
           High <span>quality</span> services
         </h2>
@@ -23,10 +23,10 @@ const Services: React.FC = () => {
             )
           )}
         </StyledCards>
-      </StyledDescription>
-      <StyledImage>
+      </CommonDescription>
+      <Image>
         <img src={home2} alt="home2" />
-      </StyledImage>
+      </Image>
     </StyledServices>
   );
 };

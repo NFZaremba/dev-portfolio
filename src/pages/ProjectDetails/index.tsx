@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+// Components
 import { IProject, projects } from "../../shared/projects";
+// Styles
 import { Details, HeadLine, Description } from "./Styles";
+// Animation
+import { pageAnimation } from "../../shared/animation";
 
 const ProjectDetails: React.FC = () => {
   const { id } = useParams<Record<string, string>>();
@@ -21,7 +25,13 @@ const ProjectDetails: React.FC = () => {
   if (!myProjects) return null;
 
   return (
-    <Details data-testid="project-details-section">
+    <Details
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      data-testid="project-details-section"
+    >
       <HeadLine>
         <h2>{currentProject?.title}</h2>
         <img

@@ -1,39 +1,39 @@
+// Components
+import { CommonDescription, Image, Hide } from "../../shared/CommonStyles";
+// Styles
+import { motion } from "framer-motion";
+import { AboutSection } from "./Styles";
+// Iamges
 import home1 from "../../assets/img/home1.png";
-import { StyledAbout } from "./Styles";
-import {
-  StyledDescription,
-  StyledImage,
-  Hide,
-} from "../../shared/CommonStyles";
 
 const About: React.FC = () => {
   return (
-    <StyledAbout>
-      <StyledDescription data-testid="about-section">
-        <div className="title" data-testid="about-title">
+    <AboutSection>
+      <CommonDescription data-testid="about-section">
+        <motion.div>
           <Hide>
-            <h2>Passionate software developer</h2>
+            <motion.h2>Passionate software developer</motion.h2>
           </Hide>
           <Hide>
-            <h2>
+            <motion.h2>
               who <span>loves</span> expanding
-            </h2>
+            </motion.h2>
           </Hide>
           <Hide>
-            <h2>personal growth.</h2>
+            <motion.h2>personal growth.</motion.h2>
           </Hide>
-        </div>
+        </motion.div>
         <p>
           Supportive, enthusiastic team player and leader looking for an
           environment where I may grow and contribute my professional skills and
           passion in engineering to the group’s objective.
         </p>
         <button>Contact Us</button>
-      </StyledDescription>
-      <StyledImage>
+      </CommonDescription>
+      <Image>
         <img src={home1} alt="guy with camera" data-testid="about-image" />
-      </StyledImage>
-    </StyledAbout>
+      </Image>
+    </AboutSection>
   );
 };
 

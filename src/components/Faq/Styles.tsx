@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { StyledAbout } from "../About/Styles";
+import { AboutSection } from "../About/Styles";
 
-export const StyledFaq = styled(StyledAbout)`
+export const StyledFaq = styled(AboutSection)`
   display: block;
   span {
     display: block;

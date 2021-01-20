@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledDescription = styled.div`
+export const CommonDescription = styled.div`
   flex: 1;
   padding-right: 5rem;
   h2 {
@@ -8,7 +8,7 @@ export const StyledDescription = styled.div`
   }
 `;
 
-export const StyledImage = styled.div`
+export const Image = styled.div`
   flex: 1;
   overflow: hidden;
   img {

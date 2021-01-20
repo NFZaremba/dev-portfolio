@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledAbout = styled.div`
+export const AboutSection = styled.div`
   min-height: 90vh;
   display: flex;
   align-items: center;

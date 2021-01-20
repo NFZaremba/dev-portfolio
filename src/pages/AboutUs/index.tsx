@@ -1,13 +1,21 @@
-import React, { Fragment } from "react";
+// Components
 import { About, Faq, Services } from "../../components";
+// Animation
+import { motion } from "framer-motion";
+import { pageAnimation } from "../../shared/animation";
 
 const AboutUs = () => {
   return (
-    <Fragment>
+    <motion.div
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       <About />
       <Services />
       <Faq />
-    </Fragment>
+    </motion.div>
   );
 };
 

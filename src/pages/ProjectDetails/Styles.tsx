@@ -1,6 +1,8 @@
 import styled from "styled-components";
+// Animation
+import { motion } from "framer-motion";
 
-export const Details = styled.div`
+export const Details = styled(motion.div)`
   color: white;
 `;
 
