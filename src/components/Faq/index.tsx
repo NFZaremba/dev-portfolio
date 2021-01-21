@@ -1,5 +1,6 @@
 import { StyledFaq } from "./Styles";
 import { faqs, IFaq } from "./faqs";
+import { Toggle } from "..";
 
 const Faq: React.FC = () => {
   return (
@@ -9,15 +10,17 @@ const Faq: React.FC = () => {
       </h2>
       {faqs.map(
         ({ question, answers }: IFaq): React.ReactElement => (
-          <div key={question} className="question">
+          <div className="question">
             <h4>{question}</h4>
-            <div className="answer">
-              {answers?.map(
-                (answer, i): React.ReactElement => (
-                  <p key={i}>{answer}</p>
-                )
-              )}
-            </div>
+            <Toggle key={question}>
+              <div className="answer">
+                {answers?.map(
+                  (answer, i): React.ReactElement => (
+                    <p key={i}>{answer}</p>
+                  )
+                )}
+              </div>
+            </Toggle>
             <div className="faq-line"></div>
           </div>
         )

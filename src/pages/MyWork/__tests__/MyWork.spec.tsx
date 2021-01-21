@@ -29,7 +29,7 @@ describe("My Work", () => {
         mainImg.src
       );
       expect(
-        currentProject.getByAltText(mainImg.alt).parentElement
+        currentProject.getByAltText(mainImg.alt).parentElement?.parentElement
       ).toHaveAttribute("href", `/work/${id}`);
 
       techStack?.forEach((tech) => {

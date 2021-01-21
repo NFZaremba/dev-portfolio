@@ -4,5 +4,6 @@ import Services from "./Services";
 import Navbar from "./Navbar";
 import Wave from "./Wave";
 import PageTransition from "./PageTransition";
+import Toggle from "./Toggle";
 
-export { About, Faq, Services, Navbar, Wave, PageTransition };
+export { About, Faq, Services, Navbar, Wave, PageTransition, Toggle };

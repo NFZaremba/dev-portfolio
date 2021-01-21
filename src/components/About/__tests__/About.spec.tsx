@@ -13,10 +13,11 @@ describe("About section", () => {
     expect(screen.getByTestId("about-section")).toBeInTheDocument();
   });
 
-  it("should display title and images", () => {
-    expect(screen.getByTestId("about-title")).toBeInTheDocument();
-    expect(screen.getByTestId("about-title")).toBeVisible();
-    expect(screen.getByTestId("about-image")).toBeInTheDocument();
-    expect(screen.getByTestId("about-image")).toBeVisible();
+  it("should display title, subtitle, and images", () => {
+    expect(screen.getByText(/passionate/i)).toBeInTheDocument();
+    expect(screen.getByText(/loves/i)).toBeInTheDocument();
+    expect(screen.getByText(/personal/i)).toBeInTheDocument();
+    expect(screen.getByText(/Supportive/i)).toBeInTheDocument();
+    expect(screen.getByAltText(/camera/i)).toBeInTheDocument();
   });
 });

@@ -11,8 +11,8 @@ import home1 from "../../assets/img/home1.png";
 
 const About: React.FC = () => {
   return (
-    <AboutSection>
-      <CommonDescription data-testid="about-section">
+    <AboutSection data-testid="about-section">
+      <CommonDescription>
         <motion.div>
           <Hide>
             <motion.h2 variants={titleAnim}>
@@ -36,12 +36,7 @@ const About: React.FC = () => {
         <motion.button variants={fade}>Contact Us</motion.button>
       </CommonDescription>
       <Image>
-        <motion.img
-          variants={photoAnim}
-          src={home1}
-          alt="guy with camera"
-          data-testid="about-image"
-        />
+        <motion.img variants={photoAnim} src={home1} alt="guy with camera" />
       </Image>
       <Wave />
     </AboutSection>
