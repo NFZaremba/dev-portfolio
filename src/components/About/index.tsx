@@ -1,5 +1,6 @@
 // Components
 import { CommonDescription, Image, Hide } from "../../shared/CommonStyles";
+import { Wave } from "..";
 // Styles
 import { motion } from "framer-motion";
 import { AboutSection } from "./Styles";
@@ -42,6 +43,7 @@ const About: React.FC = () => {
           data-testid="about-image"
         />
       </Image>
+      <Wave />
     </AboutSection>
   );
 };
