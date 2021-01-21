@@ -14,8 +14,9 @@ export const WorkSection = styled(motion.div)`
 
 export const Project = styled.div`
   padding-bottom: 10rem;
+
   .line {
-    height: 0.5rem;
+    height: 0.2rem;
     background: #23d997;
     margin-bottom: 3rem;
   }
@@ -34,8 +35,9 @@ export const TechList = styled.div`
   .tech-item {
     border: 1px solid black;
     border-radius: 5px;
-    background-color: #23d997;
+    background-color: #464b49;
     padding: 0.5rem;
     margin-right: 1rem;
+    color: #23d997;
   }
 `;
