@@ -15,12 +15,12 @@ import { motion } from "framer-motion";
     A container component that renders different frames for the colorful 
     page transition
 */
-const PageTransition = () => (
-  <motion.div variants={sliderContainer}>
-    <Frame1 variants={slider} />
-    <Frame2 variants={slider} />
-    <Frame3 variants={slider} />
-    <Frame4 variants={slider} />
+const PageTransition: React.FC = () => (
+  <motion.div variants={sliderContainer} data-testid="page-transiion">
+    <Frame1 variants={slider} data-testid="frame" />
+    <Frame2 variants={slider} data-testid="frame" />
+    <Frame3 variants={slider} data-testid="frame" />
+    <Frame4 variants={slider} data-testid="frame" />
   </motion.div>
 );
 

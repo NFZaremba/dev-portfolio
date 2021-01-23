@@ -29,11 +29,10 @@ describe("Services section", () => {
   });
 
   it("should hide children after toggling twice", () => {
-    const answer = screen.queryByText("answer");
-
     userEvent.click(
       screen.getByText("title test").parentElement as HTMLElement
     );
+    const answer = screen.queryByText("answer");
     expect(answer).toBeInTheDocument();
 
     userEvent.click(
