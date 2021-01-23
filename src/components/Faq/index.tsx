@@ -1,6 +1,7 @@
 import { StyledFaq } from "./Styles";
 import { faqs, IFaq } from "./faqs";
 import { Toggle } from "..";
+import { AnimateSharedLayout } from "framer-motion";
 
 const Faq: React.FC = () => {
   return (
@@ -8,11 +9,10 @@ const Faq: React.FC = () => {
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
-      {faqs.map(
-        ({ question, answers }: IFaq): React.ReactElement => (
-          <div className="question">
-            <h4>{question}</h4>
-            <Toggle key={question}>
+      <AnimateSharedLayout>
+        {faqs.map(
+          ({ question, answers }: IFaq): React.ReactElement => (
+            <Toggle key={question} title={question}>
               <div className="answer">
                 {answers?.map(
                   (answer, i): React.ReactElement => (
@@ -21,10 +21,9 @@ const Faq: React.FC = () => {
                 )}
               </div>
             </Toggle>
-            <div className="faq-line"></div>
-          </div>
-        )
-      )}
+          )
+        )}
+      </AnimateSharedLayout>
     </StyledFaq>
   );
 };

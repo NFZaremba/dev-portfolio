@@ -5,6 +5,7 @@ import {
 } from "../../../test-utils/react-router-wrapper";
 import { Faq } from "../..";
 import { faqs } from "../faqs";
+import userEvent from "@testing-library/user-event";
 
 describe("Faq section", () => {
   beforeEach(() => {
@@ -24,6 +25,10 @@ describe("Faq section", () => {
     faqs.forEach(({ question, answers }) => {
       const faq = screen.getByText(question).closest("div");
       const currentFaq = within(faq as HTMLElement);
+
+      userEvent.click(
+        currentFaq.getByText(question).parentElement as HTMLElement
+      );
 
       expect(currentFaq.getByText(question)).toBeInTheDocument();
 
