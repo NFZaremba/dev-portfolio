@@ -2,10 +2,21 @@ import home2 from "../../assets/img/home2.png";
 import { CommonDescription, Image } from "../../shared/CommonStyles";
 import { StyledServices, StyledCards, StyledCard } from "./Styles";
 import { sections, ISection } from "./serviceSections";
+// Animation
+import { scrollFade } from "../../shared/animation";
+// Hooks
+import { useScroll } from "../../hooks";
 
 const Services: React.FC = () => {
+  const [ref, controls] = useScroll();
   return (
-    <StyledServices data-testid="services-section">
+    <StyledServices
+      variants={scrollFade}
+      animate={controls}
+      initial="hidden"
+      ref={ref}
+      data-testid="services-section"
+    >
       <CommonDescription>
         <h2 data-testid="services-title">
           High <span>quality</span> services

@@ -2,10 +2,20 @@ import { StyledFaq } from "./Styles";
 import { faqs, IFaq } from "./faqs";
 import { Toggle } from "..";
 import { AnimateSharedLayout } from "framer-motion";
+import { useScroll } from "../../hooks";
+// Animation
+import { scrollFade } from "../../shared/animation";
 
 const Faq: React.FC = () => {
+  const [ref, controls] = useScroll();
   return (
-    <StyledFaq data-testid="faq-section">
+    <StyledFaq
+      ref={ref}
+      variants={scrollFade}
+      animate={controls}
+      initial="hidden"
+      data-testid="faq-section"
+    >
       <h2>
         Any Questions <span>FAQ</span>
       </h2>

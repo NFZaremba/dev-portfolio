@@ -5,10 +5,12 @@ import {
 } from "../../../test-utils/react-router-wrapper";
 import { Services } from "../..";
 import { sections } from "../serviceSections";
+import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 describe("Services section", () => {
   beforeEach(() => {
     renderWithProviders(<Services />);
+    mockAllIsIntersecting(0.5);
   });
 
   it("should render without breaking", () => {

@@ -6,10 +6,12 @@ import {
 import { Faq } from "../..";
 import { faqs } from "../faqs";
 import userEvent from "@testing-library/user-event";
+import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
 describe("Faq section", () => {
   beforeEach(() => {
     renderWithProviders(<Faq />);
+    mockAllIsIntersecting(0.5);
   });
 
   it("should render without breaking", () => {
@@ -18,7 +20,6 @@ describe("Faq section", () => {
 
   it("should display title", () => {
     expect(screen.getByText(/any questions/i)).toBeInTheDocument();
-    expect(screen.getByText(/any questions/i)).toBeVisible();
   });
 
   it("should display all questions and answers", () => {
