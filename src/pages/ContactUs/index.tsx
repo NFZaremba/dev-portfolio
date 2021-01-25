@@ -1,3 +1,4 @@
+import { contactLinks, IContactLinks } from "./contactLinks";
 // Styles
 import { ContactSection, Title, Circle, SocialLinks } from "./Styles";
 import { Hide } from "../../shared/CommonStyles";
@@ -12,6 +13,7 @@ const ContactUs = () => {
       initial="hidden"
       animate="show"
       exit="exit"
+      data-testid="contact-us"
     >
       <Title>
         <Hide>
@@ -19,24 +21,16 @@ const ContactUs = () => {
         </Hide>
       </Title>
       <div>
-        <Hide>
-          <SocialLinks variants={titleAnim}>
-            <Circle />
-            <h2>Email</h2>
-          </SocialLinks>
-        </Hide>
-        <Hide>
-          <SocialLinks variants={titleAnim}>
-            <Circle />
-            <h2>Github</h2>
-          </SocialLinks>
-        </Hide>
-        <Hide>
-          <SocialLinks variants={titleAnim}>
-            <Circle />
-            <h2>LinkedIn</h2>
-          </SocialLinks>
-        </Hide>
+        {contactLinks?.map((contact: IContactLinks) => (
+          <Hide>
+            <SocialLinks variants={titleAnim}>
+              <Circle />
+              <a href={contact.link} target="blank">
+                {contact.title}
+              </a>
+            </SocialLinks>
+          </Hide>
+        ))}
       </div>
     </ContactSection>
   );

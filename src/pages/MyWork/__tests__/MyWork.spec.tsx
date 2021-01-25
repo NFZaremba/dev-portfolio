@@ -24,7 +24,6 @@ describe("My Work", () => {
 
       expect(currentProject.getByText(title)).toBeInTheDocument();
       expect(currentProject.getByText(subTitle)).toBeInTheDocument();
-      expect(currentProject.getByText(subTitle)).toBeInTheDocument();
       expect(currentProject.getByAltText(mainImg.alt)).toBeInTheDocument();
       expect(currentProject.getByAltText(mainImg.alt)).toHaveAttribute(
         "src",

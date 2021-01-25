@@ -1,33 +1,28 @@
-import { WorkDetails } from "../..";
-import { Route } from "react-router-dom";
-import { projects } from "../../../shared/projects";
+import { ContactUs } from "../..";
+import { contactLinks } from "../contactLinks";
 import {
   renderWithProviders,
   screen,
+  within,
 } from "../../../test-utils/react-router-wrapper";
 
 describe("Work Details", () => {
   beforeEach(() => {
-    renderWithProviders(
-      <Route path="/work/:id">
-        <WorkDetails />
-      </Route>,
-      {
-        route: "/work/athlete",
-      }
-    );
+    renderWithProviders(<ContactUs />);
   });
 
   it("should render without breaking", async () => {
-    const element = await screen.findByTestId("project-details-section");
+    const element = await screen.findByTestId("contact-us");
     expect(element).toBeInTheDocument();
   });
 
   it("should display correct content", async () => {
-    const currentProject = projects.find((project) => project.id === "athlete");
-    const title = await screen.findByText(currentProject?.title as string);
+    contactLinks.forEach(({ title, link }) => {
+      const contact = screen.getByText(title).closest("div");
+      const currentContact = within(contact as HTMLElement);
 
-    screen.debug();
-    expect(title).toBeInTheDocument();
+      expect(currentContact.getByText(title)).toBeInTheDocument();
+      expect(currentContact.getByText(title)).toHaveAttribute("href", link);
+    });
   });
 });

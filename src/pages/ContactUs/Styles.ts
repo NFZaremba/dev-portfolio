@@ -22,7 +22,9 @@ export const Circle = styled.div`
 export const SocialLinks = styled(motion.div)`
   display: flex;
   align-items: center;
-  h2 {
+  a {
+    color: #fff;
     margin: 2rem;
+    text-decoration: none;
   }
 `;
