@@ -7,7 +7,7 @@ import { Details, HeadLine, Description } from "./Styles";
 // Animation
 import { pageAnimation } from "../../shared/animation";
 
-const ProjectDetails: React.FC = () => {
+const WorkDetails: React.FC = () => {
   const { id } = useParams<Record<string, string>>();
   const [myProjects, setProjects] = useState<Array<IProject>>();
   const [currentProject, setCurrentProject] = useState<IProject>();
@@ -46,4 +46,4 @@ const ProjectDetails: React.FC = () => {
   );
 };
 
-export default ProjectDetails;
+export default WorkDetails;

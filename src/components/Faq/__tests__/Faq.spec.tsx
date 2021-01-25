@@ -11,7 +11,7 @@ import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 describe("Faq section", () => {
   beforeEach(() => {
     renderWithProviders(<Faq />);
-    mockAllIsIntersecting(0.5);
+    mockAllIsIntersecting(0.3);
   });
 
   it("should render without breaking", () => {

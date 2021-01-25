@@ -12,7 +12,7 @@ export const WorkSection = styled(motion.div)`
   }
 `;
 
-export const Project = styled.div`
+export const StyledWork = styled(motion.div)`
   padding-bottom: 10rem;
 
   .line {

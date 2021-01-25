@@ -16,7 +16,7 @@ export interface IProject {
   techStack: Array<string>;
   mainImg: Img;
   secondaryImgs?: Array<Img>;
-  description: string;
+  description?: string;
 }
 
 export const projects: IProject[] = [

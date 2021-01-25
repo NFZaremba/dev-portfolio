@@ -1,4 +1,4 @@
-import { ProjectDetails } from "../..";
+import { WorkDetails } from "../..";
 import { Route } from "react-router-dom";
 import { projects } from "../../../shared/projects";
 import {
@@ -6,11 +6,11 @@ import {
   screen,
 } from "../../../test-utils/react-router-wrapper";
 
-describe("Project Details", () => {
+describe("Work Details", () => {
   beforeEach(() => {
     renderWithProviders(
       <Route path="/work/:id">
-        <ProjectDetails />
+        <WorkDetails />
       </Route>,
       {
         route: "/work/athlete",

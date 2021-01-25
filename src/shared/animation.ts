@@ -10,14 +10,14 @@ If a motion component has children, changes in variant will flow down through th
 export const pageAnimation = {
   hidden: {
     opacity: 0,
-    y: 300,
+    // y: 300,
   },
   show: {
     opacity: 1,
-    y: 0,
+    // y: 0,
     transition: {
       duration: 1,
-      when: "beforeChildren",
+      // when: "beforeChildren",
       staggerChildren: 0.25,
     },
   },
@@ -107,9 +107,9 @@ export const lineAnim = {
 export const Frame1 = styled(motion.div)`
   position: fixed;
   left: 0;
-  top: 10%;
+  top: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #fffebf;
   z-index: 2;
 `;
@@ -148,7 +148,7 @@ export const sliderContainer = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
     },
   },
 };

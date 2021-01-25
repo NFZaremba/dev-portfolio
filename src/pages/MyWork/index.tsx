@@ -1,23 +1,17 @@
-import { Link } from "react-router-dom";
 // Components
 import { PageTransition } from "../../components";
+import Work from "./Work";
 import { projects } from "../../shared/projects";
 // Styles
-import { WorkSection, Project, TechList } from "./Styles";
+import { WorkSection } from "./Styles";
 // Animation
-import {
-  pageFastAnimation,
-  fade,
-  photoAnim,
-  lineAnim,
-} from "../../shared/animation";
-import { motion } from "framer-motion";
-import { Hide } from "../../shared/CommonStyles";
+import { pageAnimation } from "../../shared/animation";
 
 const MyWork = () => {
   return (
     <WorkSection
-      variants={pageFastAnimation}
+      variants={pageAnimation}
+      layout="position"
       initial="hidden"
       animate="show"
       exit="exit"
@@ -25,27 +19,13 @@ const MyWork = () => {
     >
       <PageTransition />
       {projects?.map(({ title, mainImg, id, subTitle, techStack }) => (
-        <Project key={title}>
-          <motion.h2 variants={fade}>{title}</motion.h2>
-          <motion.h4 variants={fade}>{subTitle}</motion.h4>
-          <TechList>
-            {techStack?.map((tech) => (
-              <motion.div variants={fade} className="tech-item" key={tech}>
-                {tech}
-              </motion.div>
-            ))}
-          </TechList>
-          <motion.div variants={lineAnim} className="line"></motion.div>
-          <Link to={`work/${id}`}>
-            <Hide>
-              <motion.img
-                variants={photoAnim}
-                src={mainImg.src}
-                alt={mainImg.alt}
-              />
-            </Hide>
-          </Link>
-        </Project>
+        <Work
+          title={title}
+          mainImg={mainImg}
+          id={id}
+          subTitle={subTitle}
+          techStack={techStack}
+        />
       ))}
     </WorkSection>
   );
