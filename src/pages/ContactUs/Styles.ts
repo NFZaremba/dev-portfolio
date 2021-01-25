@@ -5,6 +5,13 @@ export const ContactSection = styled(motion.div)`
   padding: 5rem 10rem;
   color: #fff;
   min-height: 90vh;
+  @media (max-width: 1500px) {
+    padding: 2rem;
+    font-size: 1rem;
+  }
+  h2 {
+    padding: 1rem 0rem;
+  }
 `;
 
 export const Title = styled(motion.div)`

@@ -11,10 +11,9 @@ export const HeadLine = styled.div`
   padding-top: 20vh;
   position: relative;
   h2 {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   img {
     width: 100%;

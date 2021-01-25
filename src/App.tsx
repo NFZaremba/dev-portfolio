@@ -1,6 +1,6 @@
 // Components
 import Routes from "./routes";
-import { Navbar } from "./components";
+import { Navbar, ScrollTop } from "./components";
 // Styles
 import GlobalStyle from "./shared/GlobalStyles";
 
@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Navbar />
+      <ScrollTop />
       <Routes />
     </div>
   );

@@ -5,5 +5,15 @@ import Navbar from "./Navbar";
 import Wave from "./Wave";
 import PageTransition from "./PageTransition";
 import Toggle from "./Toggle";
+import ScrollTop from "./ScrollTop";
 
-export { About, Faq, Services, Navbar, Wave, PageTransition, Toggle };
+export {
+  About,
+  Faq,
+  Services,
+  Navbar,
+  Wave,
+  PageTransition,
+  Toggle,
+  ScrollTop,
+};
