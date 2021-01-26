@@ -1,4 +1,6 @@
 import styled from "styled-components";
+// Animation
+import { motion } from "framer-motion";
 
 export const StyledNavbar = styled.nav`
   position: sticky;
@@ -40,4 +42,10 @@ export const StyledNavbar = styled.nav`
       }
     }
   }
+`;
+
+export const Line = styled(motion.div)`
+  height: 0.1rem;
+  background: black;
+  margin-top: 0.5rem;
 `;
