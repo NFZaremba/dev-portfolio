@@ -1,10 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-// Styles
 import { StyledNavbar, Line } from "./Styles";
 import { navLinks, INavLinks } from "./navLinks";
 
 const Navbar: React.FC = () => {
   const { pathname } = useLocation();
+
   return (
     <StyledNavbar data-testid="navbar">
       <h1>

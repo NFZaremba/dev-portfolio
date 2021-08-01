@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const StyledNavbar = styled.nav`
-  position: sticky;
+  position: absolute;
+  width: 100%;
   z-index: 9999;
   top: 0;
   min-height: 10vh;
@@ -12,9 +13,9 @@ export const StyledNavbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 10rem;
-  background-color: #23d997;
+  /* background-color: #23d997; */
   a {
-    color: black;
+    color: white;
     text-decoration: none;
   }
   ul {
@@ -30,6 +31,8 @@ export const StyledNavbar = styled.nav`
     padding-left: 10rem;
     position: relative;
   }
+
+  // TODO: change this, add hamburger
   @media (max-width: 1300px) {
     flex-direction: column;
     padding: 1rem;

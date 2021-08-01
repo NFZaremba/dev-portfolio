@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-// Components
-import { IProject, projects } from "../../shared/projects";
-// Styles
+import { projects } from "../Home/MyWork";
+import { IProject } from "../Home/MyWork/types";
 import { Details, HeadLine, Description } from "./Styles";
-// Animation
 import { pageAnimation } from "../../shared/animation";
 
 const WorkDetails: React.FC = () => {

@@ -5,9 +5,9 @@ const useScroll = (
   inViewObj: IntersectionOptions = { threshold: 0.3 }
 ): [(node?: Element | null) => void, AnimationControls] => {
   const controls = useAnimation();
-  const [ref, inVIew] = useInView(inViewObj);
+  const [ref, inView] = useInView(inViewObj);
 
-  if (inVIew) {
+  if (inView) {
     controls.start("show");
   } else {
     controls.start("hidden");

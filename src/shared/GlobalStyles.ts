@@ -14,25 +14,10 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: #1b1b1b;
+        background: #050025;
         font-family: "Inter", sans-serif;
-        overflow-x: hidden
-    }
-
-    button {
-        font-family: "Inter", sans-serif;
-        font-weight: bold;
-        font-size: 1.1 rem;
-        cursor: pointer;
-        padding: 1rem 2rem;
-        border: 3px solid #23d997;
-        background: transparent;
-        color: white;
-        transition: all 0.5s ease; 
-        &:hover {
-            background-color: #23d997;
-            color: white;
-        }
+        overflow-x: hidden;
+        position: relative;
     }
 
     h2 {
@@ -58,12 +43,52 @@ const GlobalStyle = createGlobalStyle`
         color: #23d997;
     }
 
-    p {
-        padding: 3rem 0rem;
-        color: #ccc;
-        font-size: 1.4rem;
-        line-height: 150%;
+
+    .main {
+        background: #050025;
+        z-index: 1;
     }
+
+    // Parallax testing
+    .parallax {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+        /* overflow: hidden; */
+    }
+
+    .stars, .twinkling {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        width:100%;
+        height: 30rem;
+        display:block;
+    }
+    .stars {
+        background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+        z-index: -5;
+    }
+
+    /* .twinkling{
+        background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+        z-index: -4;
+
+        -moz-animation:move-twink-back 200s linear infinite;
+        -ms-animation:move-twink-back 200s linear infinite;
+        -o-animation:move-twink-back 200s linear infinite;
+        -webkit-animation:move-twink-back 200s linear infinite;
+        animation:move-twink-back 200s linear infinite;
+    }
+
+    @keyframes move-twink-back {
+        from {background-position:0 0;}
+        to {background-position:-10000px 5000px;}
+    } */
 `;
 
 export default GlobalStyle;
