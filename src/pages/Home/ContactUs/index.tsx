@@ -1,17 +1,22 @@
-import { ContactSection, Title, Circle, SocialLinks } from "./Styles";
-import { Hide } from "../../../shared/Styles";
-import { pageAnimation, titleAnim } from "../../../shared/animation";
-import { motion } from "framer-motion";
+import { Divider } from "../../../shared/Styles";
+import {
+  fullpageAnimation,
+  lineAnim,
+  photoAnim,
+  titleAnim,
+} from "../../../shared/animation";
 import { PageSlider } from "../../../components";
+import { useScroll } from "../../../hooks";
+import webdev from "../../../assets/img/webdev.svg";
 
 export interface IContactLinks {
   title: string;
   link: string;
 }
 
-export const contactLinks = [
+export const contactLinks: IContactLinks[] = [
   {
-    title: "Email",
+    title: "nfzaremba@gmail.com",
     link: "/",
   },
   {
@@ -25,33 +30,36 @@ export const contactLinks = [
 ];
 
 const ContactUs = () => {
+  const [ref, controls] = useScroll();
+
   return (
-    <PageSlider>
-      <ContactSection
-        variants={pageAnimation}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-        data-testid="contact-us"
-      >
-        <Title>
-          <Hide>
-            <motion.h2 variants={titleAnim}>Get in Touch</motion.h2>
-          </Hide>
-        </Title>
-        <div>
-          {contactLinks?.map((contact: IContactLinks) => (
-            <Hide>
-              <SocialLinks variants={titleAnim}>
-                <Circle />
-                <a href={contact.link} target="blank">
-                  {contact.title}
-                </a>
-              </SocialLinks>
-            </Hide>
-          ))}
-        </div>
-      </ContactSection>
+    <PageSlider
+      ref={ref}
+      variants={fullpageAnimation}
+      initial="hidden"
+      animate={controls}
+    >
+      <PageSlider.Title>
+        <PageSlider.Header variants={titleAnim}>Contact</PageSlider.Header>
+        <Divider variants={lineAnim} />
+        {contactLinks?.map((contact: IContactLinks) => (
+          <PageSlider.Text variants={titleAnim}>
+            <a href={contact.link} target="blank">
+              {contact.title}
+            </a>
+          </PageSlider.Text>
+        ))}
+      </PageSlider.Title>
+      <PageSlider.Content>
+        <PageSlider.Image
+          animate={controls}
+          initial="hidden"
+          variants={photoAnim}
+          to="aboutme"
+          src={webdev}
+          alt="guy with camera"
+        />
+      </PageSlider.Content>
     </PageSlider>
   );
 };

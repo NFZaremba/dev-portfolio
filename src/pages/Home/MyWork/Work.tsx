@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { Hide, Divider } from "../../../shared/Styles";
 import { useScroll } from "../../../hooks";
 
+// TODO: create card
 const Work: React.FC<IProject> = ({ title, mainImg, id, techStack }) => {
   const [ref, controls] = useScroll();
 
@@ -30,7 +31,7 @@ const Work: React.FC<IProject> = ({ title, mainImg, id, techStack }) => {
           </motion.div>
         ))}
       </TechList>
-      <Divider variants={lineAnim}></Divider>
+      <Divider variants={lineAnim} />
       <Link to={`work/${id}`}>
         <Hide>
           <motion.img

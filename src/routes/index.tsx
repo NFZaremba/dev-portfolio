@@ -11,9 +11,15 @@ const Routes = () => {
     <Fragment>
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
-          <Route exact path="/" render={() => <Home />} />
-          <Route path="/aboutme" render={() => <AboutMe />} />
-          <Route path="/work/:id" render={() => <WorkDetails />} />
+          <Route path="/aboutme">
+            <AboutMe />
+          </Route>
+          <Route path="/work/:id">
+            <WorkDetails />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
         </Switch>
       </AnimatePresence>
     </Fragment>

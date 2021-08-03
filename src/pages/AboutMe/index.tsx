@@ -1,12 +1,21 @@
 import { Banner } from "../../components";
+import { pageAnimation } from "../../shared/animation";
+import { Details, HeadLine } from "../WorkDetails/Styles";
 import Services from "./Services";
 
 const AboutMe = () => {
   return (
-    <>
-      <Banner />
-      <Services />
-    </>
+    <Details
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      data-testid="project-details-section"
+    >
+      <HeadLine>
+        <h2>About Me</h2>
+      </HeadLine>
+    </Details>
   );
 };
 

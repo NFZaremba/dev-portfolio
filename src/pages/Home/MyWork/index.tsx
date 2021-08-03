@@ -54,7 +54,12 @@ const MyWork = () => {
         <PageSlider.Header variants={titleAnim}>Projects</PageSlider.Header>
         <PageSlider.Text variants={fade}>Most recent work</PageSlider.Text>
       </PageSlider.Title>
-      <WorkSection
+      <PageSlider.Content>
+        {projects?.map(({ title, mainImg, id, techStack }) => (
+          <Work title={title} mainImg={mainImg} id={id} techStack={techStack} />
+        ))}
+      </PageSlider.Content>
+      {/* <WorkSection
         variants={pageAnimation}
         layout="position"
         initial="hidden"
@@ -65,7 +70,7 @@ const MyWork = () => {
         {projects?.map(({ title, mainImg, id, techStack }) => (
           <Work title={title} mainImg={mainImg} id={id} techStack={techStack} />
         ))}
-      </WorkSection>
+      </WorkSection> */}
     </PageSlider>
   );
 };

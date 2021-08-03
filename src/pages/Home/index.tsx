@@ -7,7 +7,9 @@ const Home = () => {
   return (
     <ReactFullpage
       licenseKey={"YOUR_KEY_HERE"}
-      scrollingSpeed={1000} /* Options here */
+      scrollingSpeed={1000}
+      navigation
+      anchors={["firstPage", "secondPage", "thirdPage"]}
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>

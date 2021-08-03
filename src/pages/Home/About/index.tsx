@@ -1,14 +1,18 @@
+import { useHistory } from "react-router";
 import { PageSlider } from "../../../components";
 import {
   titleAnim,
   photoAnim,
   fullpageAnimation,
+  lineAnim,
 } from "../../../shared/animation";
-import home1 from "../../../assets/img/home1.png";
+import programmer from "../../../assets/img/programmer.svg";
 import { useScroll } from "../../../hooks";
+import { Divider } from "../../../shared/Styles";
 
 const About: React.FC = () => {
   const [ref, controls] = useScroll();
+  const history = useHistory();
 
   return (
     <PageSlider
@@ -22,26 +26,24 @@ const About: React.FC = () => {
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Nick</PageSlider.Header>
         <PageSlider.Header variants={titleAnim}>Zaremba</PageSlider.Header>
-        {/* <PageSlider.Header variants={titleAnim}>
-          who <span>loves</span> expanding
-        </PageSlider.Header>
-        <PageSlider.Header variants={titleAnim}>
-          personal growth.
-        </PageSlider.Header> */}
+        <Divider variants={lineAnim} />
         <PageSlider.Text variants={titleAnim}>
-          Supportive, enthusiastic team player and leader looking for an
-          environment where I may grow and contribute my professional skills and
-          passion in engineering to the group’s objective.
+          Learn more about me
         </PageSlider.Text>
-        <PageSlider.Button variants={titleAnim}>Contact Us</PageSlider.Button>
+        <PageSlider.Button
+          variants={titleAnim}
+          onClick={() => history.push("aboutme")}
+        >
+          Learn More
+        </PageSlider.Button>
       </PageSlider.Title>
       <PageSlider.Content>
         <PageSlider.Image
           animate={controls}
           initial="hidden"
           variants={photoAnim}
-          to="/"
-          src={home1}
+          to="aboutme"
+          src={programmer}
           alt="guy with camera"
         />
       </PageSlider.Content>
