@@ -1,10 +1,23 @@
 import styled from "styled-components";
-// Animation
 import { motion } from "framer-motion";
 /**
  Propogation 
 If a motion component has children, changes in variant will flow down through the component hierarchy. These changes in variant will flow down until a child component defines its own animate property.
  */
+
+// Initial fullpage animation
+export const fullpageAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.17,
+      delayChildren: 0.06,
+    },
+  },
+};
 
 // Initial Page Animations
 export const pageAnimation = {
@@ -29,6 +42,7 @@ export const pageAnimation = {
   },
 };
 
+// TODO: Delete if not used
 export const pageFastAnimation = {
   hidden: {
     opacity: 0,
@@ -55,14 +69,16 @@ export const pageFastAnimation = {
 export const titleAnim = {
   hidden: {
     opacity: 0,
-    y: 300,
+    x: -300,
+    transition: {
+      x: { stiffness: 1000 },
+    },
   },
   show: {
+    x: 0,
     opacity: 1,
-    y: 0,
     transition: {
-      duration: 0.75,
-      ease: "easeOut",
+      x: { stiffness: 1000, velocity: -100 },
     },
   },
 };
@@ -80,14 +96,35 @@ export const fade = {
   },
 };
 
+export const scrollFade = {
+  hidden: {
+    opacity: 0,
+    scale: 1.2,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duiration: 1,
+    },
+  },
+};
+
 export const photoAnim = {
   hidden: {
-    scale: 1.5,
+    scale: 0.9,
     opacity: 0,
+    x: 200,
+    y: 50,
   },
   show: {
     scale: 1,
     opacity: 1,
+    x: 0,
+    y: 0,
     transition: {
       ease: "easeOut",
       duration: 0.75,
@@ -103,6 +140,7 @@ export const lineAnim = {
   },
 };
 
+// TODO: Delete
 // Page Transition
 export const Frame1 = styled(motion.div)`
   position: fixed;
@@ -149,23 +187,6 @@ export const sliderContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
-    },
-  },
-};
-
-export const scrollFade = {
-  hidden: {
-    opacity: 0,
-    scale: 1.2,
-    transition: {
-      duration: 0.5,
-    },
-  },
-  show: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duiration: 1,
     },
   },
 };

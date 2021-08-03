@@ -1,29 +1,24 @@
 import styled from "styled-components";
-// Animation
 import { motion } from "framer-motion";
 
 export const WorkSection = styled(motion.div)`
-  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
   overflow: hidden;
-  padding: 5rem 10rem;
+  padding: 5rem 0;
   color: white;
-  h2 {
-    padding: 1rem 0rem;
-  }
 `;
 
 export const StyledWork = styled(motion.div)`
-  padding-bottom: 10rem;
-
-  .line {
-    height: 0.2rem;
-    background: #23d997;
-    margin-bottom: 3rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-self: flex-start;
 
   img {
     width: 100%;
-    height: 70vh;
+    /* height: 70vh; */
     object-fit: cover;
   }
 `;

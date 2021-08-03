@@ -1,21 +1,29 @@
 import About from "./About";
 import MyWork from "./MyWork";
-import { motion } from "framer-motion";
-import { pageAnimation } from "../../shared/animation";
 import ContactUs from "./ContactUs";
+import ReactFullpage from "@fullpage/react-fullpage";
 
 const Home = () => {
   return (
-    <motion.div
-      variants={pageAnimation}
-      initial="hidden"
-      animate="show"
-      exit="exit"
-    >
-      <About />
-      <MyWork />
-      <ContactUs />
-    </motion.div>
+    <ReactFullpage
+      licenseKey={"YOUR_KEY_HERE"}
+      scrollingSpeed={1000} /* Options here */
+      render={({ state, fullpageApi }) => {
+        return (
+          <ReactFullpage.Wrapper>
+            <div className="section">
+              <About />
+            </div>
+            <div className="section">
+              <MyWork />
+            </div>
+            <div className="section">
+              <ContactUs />
+            </div>
+          </ReactFullpage.Wrapper>
+        );
+      }}
+    />
   );
 };
 

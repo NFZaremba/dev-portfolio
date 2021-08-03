@@ -9,6 +9,7 @@ const useScroll = (
 
   if (inView) {
     controls.start("show");
+    console.log("inView");
   } else {
     controls.start("hidden");
   }

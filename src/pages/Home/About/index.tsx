@@ -1,42 +1,50 @@
-import { PageSlider, Wave } from "../../../components";
-import { Hide } from "../../../shared/Styles";
-import { titleAnim, fade, photoAnim } from "../../../shared/animation";
+import { PageSlider } from "../../../components";
+import {
+  titleAnim,
+  photoAnim,
+  fullpageAnimation,
+} from "../../../shared/animation";
 import home1 from "../../../assets/img/home1.png";
+import { useScroll } from "../../../hooks";
 
 const About: React.FC = () => {
+  const [ref, controls] = useScroll();
+
   return (
-    <PageSlider data-testid="about-section">
+    <PageSlider
+      ref={ref}
+      variants={fullpageAnimation}
+      initial="hidden"
+      animate={controls}
+      // exit="exit"
+      data-testid="about-section"
+    >
       <PageSlider.Title>
-        <Hide>
-          <PageSlider.Header variants={titleAnim}>
-            Passionate software developer
-          </PageSlider.Header>
-        </Hide>
-        <Hide>
-          <PageSlider.Header variants={titleAnim}>
-            who <span>loves</span> expanding
-          </PageSlider.Header>
-        </Hide>
-        <Hide>
-          <PageSlider.Header variants={titleAnim}>
-            personal growth.
-          </PageSlider.Header>
-        </Hide>
-        <PageSlider.Text variants={fade}>
+        <PageSlider.Header variants={titleAnim}>Nick</PageSlider.Header>
+        <PageSlider.Header variants={titleAnim}>Zaremba</PageSlider.Header>
+        {/* <PageSlider.Header variants={titleAnim}>
+          who <span>loves</span> expanding
+        </PageSlider.Header>
+        <PageSlider.Header variants={titleAnim}>
+          personal growth.
+        </PageSlider.Header> */}
+        <PageSlider.Text variants={titleAnim}>
           Supportive, enthusiastic team player and leader looking for an
           environment where I may grow and contribute my professional skills and
           passion in engineering to the group’s objective.
         </PageSlider.Text>
-        <PageSlider.Button variants={fade}>Contact Us</PageSlider.Button>
+        <PageSlider.Button variants={titleAnim}>Contact Us</PageSlider.Button>
       </PageSlider.Title>
-      <PageSlider.ImageLink to="/">
+      <PageSlider.Content>
         <PageSlider.Image
+          animate={controls}
+          initial="hidden"
           variants={photoAnim}
+          to="/"
           src={home1}
           alt="guy with camera"
         />
-      </PageSlider.ImageLink>
-      <Wave />
+      </PageSlider.Content>
     </PageSlider>
   );
 };

@@ -1,6 +1,4 @@
-// Styles
 import { WaveSvg } from "./Styles";
-// Animation
 import { motion } from "framer-motion";
 
 const Wave = () => {

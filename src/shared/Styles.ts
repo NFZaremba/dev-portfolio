@@ -1,14 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const Text = styled(motion.p)`
-  padding: 3rem 0rem;
-  color: #ccc;
-  font-size: 1.4rem;
-  line-height: 150%;
-`;
-
-const Button = styled(motion.button)`
+export const Button = styled(motion.button)`
   font-family: "Inter", sans-serif;
   font-weight: bold;
   font-size: 1.1 rem;
@@ -18,14 +11,19 @@ const Button = styled(motion.button)`
   background: transparent;
   color: white;
   transition: all 0.5s ease;
+
   &:hover {
     background-color: #23d997;
     color: white;
   }
 `;
 
-const Hide = styled.div`
+export const Hide = styled.div`
   overflow: hidden;
 `;
 
-export { Hide, Text, Button };
+export const Divider = styled(motion.div)`
+  height: 0.2rem;
+  background: #23d997;
+  margin-bottom: 3rem;
+`;

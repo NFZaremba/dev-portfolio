@@ -1,20 +1,17 @@
-import { PageTransition } from "../../../components";
+import { PageSlider } from "../../../components";
 import Work from "./Work";
 import { WorkSection } from "./Styles";
-import { pageAnimation } from "../../../shared/animation";
+import { fade, pageAnimation, titleAnim } from "../../../shared/animation";
 import { IProject } from "./types";
 
 import athlete from "../../../assets/img/athlete-small.png";
 import theracer from "../../../assets/img/theracer-small.png";
 
 // TODO: change to include personal projects
-
 export const projects: IProject[] = [
   {
     id: "athlete",
     title: "The Athlete",
-    subTitle:
-      "This is a subtitle that will describe the project. Sweeeeeeeetness.",
     techStack: [
       "react",
       "typescript",
@@ -33,8 +30,6 @@ export const projects: IProject[] = [
   {
     id: "racer",
     title: "The Racer",
-    subTitle:
-      "This is a subtitle that will describe the project. Sweeeeeeeetness.",
     techStack: [
       "react",
       "typescript",
@@ -54,25 +49,24 @@ export const projects: IProject[] = [
 
 const MyWork = () => {
   return (
-    <WorkSection
-      variants={pageAnimation}
-      layout="position"
-      initial="hidden"
-      animate="show"
-      exit="exit"
-      data-testid="mywork-section"
-    >
-      <PageTransition />
-      {projects?.map(({ title, mainImg, id, subTitle, techStack }) => (
-        <Work
-          title={title}
-          mainImg={mainImg}
-          id={id}
-          subTitle={subTitle}
-          techStack={techStack}
-        />
-      ))}
-    </WorkSection>
+    <PageSlider>
+      <PageSlider.Title>
+        <PageSlider.Header variants={titleAnim}>Projects</PageSlider.Header>
+        <PageSlider.Text variants={fade}>Most recent work</PageSlider.Text>
+      </PageSlider.Title>
+      <WorkSection
+        variants={pageAnimation}
+        layout="position"
+        initial="hidden"
+        animate="show"
+        exit="exit"
+        data-testid="mywork-section"
+      >
+        {projects?.map(({ title, mainImg, id, techStack }) => (
+          <Work title={title} mainImg={mainImg} id={id} techStack={techStack} />
+        ))}
+      </WorkSection>
+    </PageSlider>
   );
 };
 

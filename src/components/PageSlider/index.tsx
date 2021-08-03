@@ -1,40 +1,56 @@
-import { ReactNode } from "react";
-import { Section, Header, Title, Image, ImageLink } from "./Styles";
-import { Text, Button } from "../../shared/Styles";
+import { forwardRef, ReactNode } from "react";
+import { Section, Header, Title, Image, Content, Text } from "./Styles";
+import { Button } from "../../shared/Styles";
 import classnames from "classnames";
 import { HTMLMotionProps } from "framer-motion";
-import { LinkProps } from "react-router-dom";
+import { Link, LinkProps } from "react-router-dom";
 
 interface IPageSliderProps extends HTMLMotionProps<any> {
   children?: ReactNode;
   classes?: string;
 }
 
-interface IPageSliderImageProps extends Omit<IPageSliderProps, "children"> {
+interface IPageSliderImageProps extends LinkProps {
   src: string;
   alt: string;
 }
 
-type IPageSliderLinkProps = Omit<IPageSliderProps, "children"> & LinkProps;
+type IPageSliderLinkProps = Omit<IPageSliderProps, "children"> &
+  IPageSliderImageProps;
 
-// interface IPageSliderComp {
-//   Title: React.FC<IPageSliderProps>;
-//   Header: React.FC<IPageSliderProps>;
-//   Image: React.FC<IPageSliderProps>;
-//   Text: React.FC<IPageSliderProps>;
-//   Button: React.FC<IPageSliderProps>;
-//   Anchor: React.FC<IPageSliderProps>;
-// }
+interface IPageSliderComp
+  extends React.ForwardRefExoticComponent<
+    IPageSliderProps & React.RefAttributes<HTMLDivElement>
+  > {
+  Title: React.FC<IPageSliderProps>;
+  Header: React.FC<IPageSliderProps>;
+  Text: React.FC<IPageSliderProps>;
+  Content: React.FC<IPageSliderProps>;
+  Image: React.FC<IPageSliderLinkProps>;
+  Button: React.FC<IPageSliderProps>;
+}
 
-const PageSlider = ({ children, classes }: IPageSliderProps): JSX.Element => {
+const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
+  ({ children, classes, ...props }: IPageSliderProps, ref): JSX.Element => {
+    return (
+      <Section
+        ref={ref}
+        {...props}
+        className={classnames("page-slider", classes)}
+      >
+        {children}
+      </Section>
+    );
+  }
+) as IPageSliderComp;
+
+PageSlider.Title = ({
+  children,
+  classes,
+  ...props
+}: IPageSliderProps): JSX.Element => {
   return (
-    <Section className={classnames("page-slider", classes)}>{children}</Section>
-  );
-};
-
-PageSlider.Title = ({ children, classes }: IPageSliderProps): JSX.Element => {
-  return (
-    <Title className={classnames("page-slider__title", classes)}>
+    <Title {...props} className={classnames("page-slider__title", classes)}>
       {children}
     </Title>
   );
@@ -64,20 +80,15 @@ PageSlider.Text = ({
   );
 };
 
-PageSlider.ImageLink = ({
+PageSlider.Content = ({
   children,
   classes,
-  to,
   ...props
-}: IPageSliderLinkProps): JSX.Element => {
+}: IPageSliderProps): JSX.Element => {
   return (
-    <ImageLink
-      {...props}
-      to={to}
-      className={classnames("page-slider__text", classes)}
-    >
+    <Content {...props} className={classnames("page-slider__content", classes)}>
       {children}
-    </ImageLink>
+    </Content>
   );
 };
 
@@ -85,15 +96,18 @@ PageSlider.Image = ({
   classes,
   src,
   alt,
+  to,
   ...props
-}: IPageSliderImageProps): JSX.Element => {
+}: IPageSliderLinkProps): JSX.Element => {
   return (
-    <Image
-      {...props}
-      src={src}
-      alt={alt}
-      className={classnames("page-slider__image", classes)}
-    />
+    <Link to={to}>
+      <Image
+        {...props}
+        src={src}
+        alt={alt}
+        className={classnames("page-slider__image", classes)}
+      />
+    </Link>
   );
 };
 

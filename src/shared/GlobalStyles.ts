@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: #050025;
         font-family: "Inter", sans-serif;
         overflow-x: hidden;
         position: relative;
@@ -32,21 +31,6 @@ const GlobalStyle = createGlobalStyle`
     h4 {
         font-weight: bold;
         font-size: 2rem;
-    }
-
-    a {
-        font-size: 1.1.rem;
-    }
-
-    span {
-        font-weight: bold;
-        color: #23d997;
-    }
-
-
-    .main {
-        background: #050025;
-        z-index: 1;
     }
 
     // Parallax testing
