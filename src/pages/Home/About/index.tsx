@@ -1,5 +1,5 @@
 import { useHistory } from "react-router";
-import { PageSlider } from "../../../components";
+import { Button, PageSlider, Image } from "../../../components";
 import {
   titleAnim,
   photoAnim,
@@ -9,6 +9,7 @@ import {
 import programmer from "../../../assets/img/programmer.svg";
 import { useScroll } from "../../../hooks";
 import { Divider } from "../../../shared/Styles";
+import { Link } from "react-router-dom";
 
 const About: React.FC = () => {
   const [ref, controls] = useScroll();
@@ -20,7 +21,6 @@ const About: React.FC = () => {
       variants={fullpageAnimation}
       initial="hidden"
       animate={controls}
-      // exit="exit"
       data-testid="about-section"
     >
       <PageSlider.Title>
@@ -30,22 +30,19 @@ const About: React.FC = () => {
         <PageSlider.Text variants={titleAnim}>
           Learn more about me
         </PageSlider.Text>
-        <PageSlider.Button
-          variants={titleAnim}
-          onClick={() => history.push("aboutme")}
-        >
+        <Button variants={titleAnim} onClick={() => history.push("aboutme")}>
           Learn More
-        </PageSlider.Button>
+        </Button>
       </PageSlider.Title>
-      <PageSlider.Content>
-        <PageSlider.Image
-          animate={controls}
-          initial="hidden"
-          variants={photoAnim}
-          to="aboutme"
-          src={programmer}
-          alt="guy with camera"
-        />
+      <PageSlider.Content
+        animate={controls}
+        initial="hidden"
+        variants={photoAnim}
+        shadow
+      >
+        <Link to="aboutme">
+          <Image src={programmer} alt="guy with camera" />
+        </Link>
       </PageSlider.Content>
     </PageSlider>
   );

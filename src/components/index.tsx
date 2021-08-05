@@ -6,6 +6,10 @@ import ScrollTop from "./ScrollTop";
 import Banner from "./Banner";
 import Parallax from "./Parallax";
 import PageSlider from "./PageSlider";
+import Button from "./Button";
+import Card from "./Card";
+import Image from "./Image";
+import Shadow from "./Shadow";
 
 export {
   Navbar,
@@ -16,4 +20,8 @@ export {
   Banner,
   Parallax,
   PageSlider,
+  Button,
+  Card,
+  Image,
+  Shadow,
 };

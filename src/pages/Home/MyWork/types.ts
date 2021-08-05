@@ -1,13 +1,12 @@
-interface Img {
-  src: string;
-  alt: string;
-}
+import { Img } from "../../../shared/types";
 
 export interface IProject {
   id: string;
   title: string;
   techStack: Array<string>;
-  mainImg: Img;
-  secondaryImgs?: Array<Img>;
+  image: Img;
+  secondImg?: Img;
+  thirdImg?: Img;
+  preview?: string;
   description?: string;
 }

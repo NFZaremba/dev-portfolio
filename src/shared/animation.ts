@@ -119,6 +119,10 @@ export const photoAnim = {
     opacity: 0,
     x: 200,
     y: 50,
+    transition: {
+      ease: "easeOut",
+      duration: 1,
+    },
   },
   show: {
     scale: 1,

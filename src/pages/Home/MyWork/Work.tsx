@@ -8,11 +8,11 @@ import {
   scrollFade,
 } from "../../../shared/animation";
 import { motion } from "framer-motion";
-import { Hide, Divider } from "../../../shared/Styles";
+import { Divider } from "../../../shared/Styles";
 import { useScroll } from "../../../hooks";
 
 // TODO: create card
-const Work: React.FC<IProject> = ({ title, mainImg, id, techStack }) => {
+const Work: React.FC<IProject> = ({ title, image, id, techStack }) => {
   const [ref, controls] = useScroll();
 
   return (
@@ -33,13 +33,7 @@ const Work: React.FC<IProject> = ({ title, mainImg, id, techStack }) => {
       </TechList>
       <Divider variants={lineAnim} />
       <Link to={`work/${id}`}>
-        <Hide>
-          <motion.img
-            variants={photoAnim}
-            src={mainImg.src}
-            alt={mainImg.alt}
-          />
-        </Hide>
+        <motion.img variants={photoAnim} src={image.src} alt={image.alt} />
       </Link>
     </StyledWork>
   );

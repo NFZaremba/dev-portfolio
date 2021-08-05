@@ -33,6 +33,11 @@ const GlobalStyle = createGlobalStyle`
         font-size: 2rem;
     }
 
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
     // Parallax testing
     .parallax {
         position: absolute;

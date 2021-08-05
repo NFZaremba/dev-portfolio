@@ -5,9 +5,10 @@ import {
   photoAnim,
   titleAnim,
 } from "../../../shared/animation";
-import { PageSlider } from "../../../components";
+import { Image, PageSlider } from "../../../components";
 import { useScroll } from "../../../hooks";
 import webdev from "../../../assets/img/webdev.svg";
+import { Link } from "react-router-dom";
 
 export interface IContactLinks {
   title: string;
@@ -50,15 +51,22 @@ const ContactUs = () => {
           </PageSlider.Text>
         ))}
       </PageSlider.Title>
-      <PageSlider.Content>
-        <PageSlider.Image
+      <PageSlider.Content
+        animate={controls}
+        initial="hidden"
+        variants={photoAnim}
+      >
+        {/* <PageSlider.Image
           animate={controls}
           initial="hidden"
           variants={photoAnim}
           to="aboutme"
           src={webdev}
           alt="guy with camera"
-        />
+        /> */}
+        <Link to="aboutme">
+          <Image src={webdev} alt="guy with camera" />
+        </Link>
       </PageSlider.Content>
     </PageSlider>
   );

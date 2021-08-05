@@ -32,10 +32,7 @@ const WorkDetails: React.FC = () => {
     >
       <HeadLine>
         <h2>{currentProject?.title}</h2>
-        <img
-          src={currentProject?.mainImg.src}
-          alt={currentProject?.mainImg.alt}
-        />
+        <img src={currentProject?.image.src} alt={currentProject?.image.alt} />
       </HeadLine>
       <Description>
         <p>{currentProject?.description}</p>
