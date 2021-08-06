@@ -1,103 +1,142 @@
 import classnames from "classnames";
-import { motion } from "framer-motion";
+import { AnimateSharedLayout, motion } from "framer-motion";
 import styled from "styled-components";
-import { Divider } from "../../shared/Styles";
+import { lineAnim } from "../../shared/animation";
 import { Img } from "../../shared/types";
 import { IBaseComponentPropsWithMotion } from "../types";
 
-interface ICardProps extends IBaseComponentPropsWithMotion {
+type ICardContainerProps = IBaseComponentPropsWithMotion;
+
+interface ICardProps extends ICardContainerProps {
   image: Img;
+  isSelected?: boolean;
+  color?: string;
 }
 
-interface ICardHeaderProps extends Omit<ICardProps, "image"> {}
+interface ICardContentProps extends Omit<ICardProps, "image"> {}
 
-interface ICardBodyProps extends Omit<ICardProps, "image"> {}
+interface ICardHeaderProps extends Omit<ICardProps, "image" | "isSelected"> {}
+
+interface ICardBodyProps extends Omit<ICardProps, "image" | "isSelected"> {}
+
+const StyledCardContainer = styled(motion.div)`
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+  /* padding: 1rem 0; */
+`;
 
 const StyledCard = styled(motion.div)<{ image: Img }>`
+  position: relative;
   padding: 10rem;
   background-image: url(${(props) => props.image.src});
   background-size: cover;
   padding: 15rem 0 0;
   min-width: 500px;
-  box-shadow: 0 80px 140px -40px rgb(0 0 0 / 60%);
+  box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
   border-radius: 1rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 
-  /* &:hover {
-    transform: scale(1.02);
-  } */
-
-  .card__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-    padding: 1.5em;
-    background: linear-gradient(
-      hsl(0 0% 0% / 0),
-      hsl(20 0% 0% / 0.3) 20%,
-      hsl(0 0% 0% / 1)
-    );
-    /* transform: translateY(65%); */
-  }
-
-  .card__header {
-    font-size: 3em;
-  }
-
-  .card__body {
-    padding-bottom: 3em;
+  .outline {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border: 10px solid white;
+    border-radius: 1em;
   }
 `;
 
-const hoverAnim = {
-  hidden: {
-    y: "65%",
-  },
-  show: {
-    y: 0,
-    transition: { duration: 0.25 },
-  },
-};
+const StyledContent = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: 1.5em;
+  background: linear-gradient(
+    hsl(0 0% 0% / 0),
+    hsl(20 0% 0% / 0.3) 20%,
+    hsl(0 0% 0% / 1)
+  );
+`;
+
+const StyledHeader = styled(motion.h2)`
+  font-size: 3em;
+`;
+
+const StyledBody = styled(motion.div)`
+  padding-bottom: 3em;
+`;
 
 const Card = ({
   children,
   classes,
   image,
+  isSelected,
+  color,
   ...props
 }: ICardProps): JSX.Element => {
   return (
     <StyledCard
       {...props}
-      whileHover="show"
-      initial="hidden"
-      image={image}
       className={classnames("card", classes)}
+      image={image}
     >
-      <motion.div variants={hoverAnim} className="card__content">
-        {children}
-      </motion.div>
+      {/* {isSelected && (
+        <StyledContent
+          layoutId="outline"
+          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+          className="card__content"
+        >
+          {children}
+        </StyledContent>
+      )} */}
+      {children}
     </StyledCard>
   );
 };
 
-Card.Header = ({ children, classes, ...props }: ICardHeaderProps) => {
+const Content = ({ children, classes, ...props }: ICardContentProps) => {
   return (
-    <>
-      <motion.h2 {...props} className={classnames("card__header", classes)}>
-        {children}
-      </motion.h2>
-      <Divider />
-    </>
+    <StyledContent {...props} className={classnames("card__content", classes)}>
+      {children}
+    </StyledContent>
   );
 };
 
-Card.Body = ({ children, classes, ...props }: ICardBodyProps) => {
+const Header = ({ children, classes, ...props }: ICardHeaderProps) => {
   return (
-    <motion.div {...props} className={classnames("card__body", classes)}>
+    <StyledHeader {...props} className={classnames("card__header", classes)}>
       {children}
-    </motion.div>
+    </StyledHeader>
   );
 };
+
+const Body = ({ children, classes, ...props }: ICardBodyProps) => {
+  return (
+    <StyledBody {...props} className={classnames("card__body", classes)}>
+      {children}
+    </StyledBody>
+  );
+};
+
+const Container = ({ children, classes, ...props }: ICardContainerProps) => {
+  return (
+    <AnimateSharedLayout>
+      <StyledCardContainer
+        {...props}
+        className={classnames("card__Container", classes)}
+      >
+        {children}
+      </StyledCardContainer>
+    </AnimateSharedLayout>
+  );
+};
+
+Card.Content = Content;
+Card.Container = Container;
+Card.Header = Header;
+Card.Body = Body;
 
 export default Card;

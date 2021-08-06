@@ -1,5 +1,5 @@
 import { useHistory } from "react-router";
-import { Button, PageSlider, Image } from "../../../components";
+import { Button, PageSlider, Image, Divider } from "../../../components";
 import {
   titleAnim,
   photoAnim,
@@ -8,7 +8,6 @@ import {
 } from "../../../shared/animation";
 import programmer from "../../../assets/img/programmer.svg";
 import { useScroll } from "../../../hooks";
-import { Divider } from "../../../shared/Styles";
 import { Link } from "react-router-dom";
 
 const About: React.FC = () => {
@@ -41,7 +40,28 @@ const About: React.FC = () => {
         shadow
       >
         <Link to="aboutme">
-          <Image src={programmer} alt="guy with camera" />
+          <Image
+            src={programmer}
+            // variants={{
+            //   hidden: {
+            //     opacity: 1,
+            //     x: "100%",
+            //     transition: {
+            //       ease: "easeOut",
+            //       duration: 1,
+            //     },
+            //   },
+            //   show: {
+            //     opacity: 1,
+            //     x: 0,
+            //     transition: {
+            //       ease: "easeOut",
+            //       duration: 1,
+            //     },
+            //   },
+            // }}
+            alt="guy with camera"
+          />
         </Link>
       </PageSlider.Content>
     </PageSlider>

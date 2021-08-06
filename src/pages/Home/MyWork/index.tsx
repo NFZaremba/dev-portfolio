@@ -1,24 +1,27 @@
-import { PageSlider, Card, Button } from "../../../components";
+import { PageSlider, Card, Button, Divider } from "../../../components";
 import Work from "./Work";
 import {
   fade,
   fullpageAnimation,
+  lineAnim,
   photoAnim,
   titleAnim,
 } from "../../../shared/animation";
 import { IProject } from "./types";
 import { useScroll } from "../../../hooks";
 import { useHistory } from "react-router-dom";
-import { Row } from "../../../shared/Styles";
 
 import athlete from "../../../assets/img/athlete-small.png";
 import theracer from "../../../assets/img/theracer-small.png";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 // TODO: change to include personal projects
 export const projects: IProject[] = [
   {
     id: "athlete",
     title: "The Athlete",
+    themeColor: "#ff0055",
     techStack: [
       "react",
       "typescript",
@@ -38,6 +41,7 @@ export const projects: IProject[] = [
   {
     id: "racer",
     title: "The Racer",
+    themeColor: "#0099ff",
     techStack: [
       "react",
       "typescript",
@@ -59,6 +63,7 @@ export const projects: IProject[] = [
 const MyWork = () => {
   const [ref, controls] = useScroll();
   const history = useHistory();
+  const [selected, setSelected] = useState(projects[0].id);
 
   return (
     <PageSlider
@@ -76,17 +81,71 @@ const MyWork = () => {
         initial="hidden"
         variants={photoAnim}
       >
-        <Row>
-          {projects?.map(({ title, image, id, preview }) => (
-            <Card id={id} image={image}>
-              <Card.Header>{title}</Card.Header>
-              <Card.Body>{preview}</Card.Body>
-              <Button onClick={() => history.push(`work/${id}`)}>
-                Learn more
-              </Button>
-            </Card>
-          ))}
-        </Row>
+        <Card.Container>
+          {projects?.map(({ title, image, id, preview, themeColor }) => {
+            const isSelected = selected === id;
+            return (
+              <Card
+                key={id}
+                id={id}
+                color={themeColor}
+                // style={{ border: `3px solid ${themeColor}` }}
+                isSelected={isSelected}
+                image={image}
+                onMouseOver={() => setSelected(id)}
+                animate={isSelected ? "show" : "hidden"}
+                initial="hidden"
+                variants={{
+                  hidden: {
+                    // scale: 1,
+                    transition: {
+                      // duration: 0.1,
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                    },
+                  },
+                  show: {
+                    // scale: 1.02,
+                    borderColor: themeColor,
+                    transition: {
+                      // duration: 0.1,
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                    },
+                  },
+                }}
+              >
+                {isSelected && (
+                  <>
+                    {/* <motion.div className="outline"></motion.div> */}
+                    <Card.Content
+                      classes="outline"
+                      layoutId="outline"
+                      animate={{ borderColor: themeColor }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
+                    >
+                      <Card.Header>{title}</Card.Header>
+                      <Divider color={themeColor} variants={lineAnim} />
+                      <Card.Body>{preview}</Card.Body>
+                      <Button
+                        color={themeColor}
+                        onClick={() => history.push(`work/${id}`)}
+                      >
+                        Learn more
+                      </Button>
+                    </Card.Content>
+                  </>
+                )}
+              </Card>
+            );
+          })}
+        </Card.Container>
       </PageSlider.Content>
       {/* <WorkSection
         variants={pageAnimation}

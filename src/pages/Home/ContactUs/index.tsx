@@ -1,11 +1,10 @@
-import { Divider } from "../../../shared/Styles";
 import {
   fullpageAnimation,
   lineAnim,
   photoAnim,
   titleAnim,
 } from "../../../shared/animation";
-import { Image, PageSlider } from "../../../components";
+import { Image, PageSlider, Divider } from "../../../components";
 import { useScroll } from "../../../hooks";
 import webdev from "../../../assets/img/webdev.svg";
 import { Link } from "react-router-dom";

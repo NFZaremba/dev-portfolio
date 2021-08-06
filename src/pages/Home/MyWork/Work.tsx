@@ -8,7 +8,6 @@ import {
   scrollFade,
 } from "../../../shared/animation";
 import { motion } from "framer-motion";
-import { Divider } from "../../../shared/Styles";
 import { useScroll } from "../../../hooks";
 
 // TODO: create card
@@ -31,7 +30,7 @@ const Work: React.FC<IProject> = ({ title, image, id, techStack }) => {
           </motion.div>
         ))}
       </TechList>
-      <Divider variants={lineAnim} />
+      {/* <Divider variants={lineAnim} /> */}
       <Link to={`work/${id}`}>
         <motion.img variants={photoAnim} src={image.src} alt={image.alt} />
       </Link>

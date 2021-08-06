@@ -117,11 +117,11 @@ export const photoAnim = {
   hidden: {
     scale: 0.9,
     opacity: 0,
-    x: 200,
+    x: "100%",
     y: 50,
     transition: {
       ease: "easeOut",
-      duration: 1,
+      duration: 1.2,
     },
   },
   show: {
@@ -147,13 +147,13 @@ export const lineAnim = {
 // TODO: Delete
 // Page Transition
 export const Frame1 = styled(motion.div)`
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background: #fffebf;
-  z-index: 2;
+  z-index: 999;
 `;
 
 export const Frame2 = styled(Frame1)`

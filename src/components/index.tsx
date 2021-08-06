@@ -10,6 +10,7 @@ import Button from "./Button";
 import Card from "./Card";
 import Image from "./Image";
 import Shadow from "./Shadow";
+import Divider from "./Divider";
 
 export {
   Navbar,
@@ -24,4 +25,5 @@ export {
   Card,
   Image,
   Shadow,
+  Divider,
 };

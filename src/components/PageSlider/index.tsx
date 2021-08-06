@@ -3,6 +3,7 @@ import classnames from "classnames";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { IBaseComponentPropsWithMotion } from "../types";
+import { PageTransition } from "..";
 
 type IPageSliderProps = IBaseComponentPropsWithMotion;
 
@@ -20,7 +21,7 @@ interface IPageSliderComp
   Content: React.FC<IPageSliderContentProps>;
 }
 
-export const Section = styled(motion.section)`
+export const StyledPageSlider = styled(motion.section)`
   height: 100vh;
   display: flex;
   align-items: center;
@@ -33,7 +34,7 @@ export const Section = styled(motion.section)`
   }
 `;
 
-export const Title = styled(motion.div)`
+export const StyledTitle = styled(motion.div)`
   position: absolute;
   z-index: 999;
   overflow: hidden;
@@ -51,7 +52,7 @@ export const Title = styled(motion.div)`
   }
 `;
 
-export const Header = styled(motion.h2)`
+export const StyledHeader = styled(motion.h2)`
   font-size: 8rem;
   line-height: 1;
   letter-spacing: 0.1em;
@@ -60,87 +61,103 @@ export const Header = styled(motion.h2)`
   text-shadow: 2px 3px 16px rgb(0 0 0);
 `;
 
-export const Content = styled(motion.div)<{ shadow: boolean }>`
+export const StyledContent = styled(motion.div)<{ shadow: boolean }>`
+  position: relative;
   width: 60%;
   height: 70vh;
   overflow: hidden;
   margin: 0px 8% 0 auto;
   align-items: center;
   justify-content: center;
-  box-shadow: ${(props) =>
-    props.shadow ? "0 80px 140px -40px rgb(0 0 0 / 60%)" : "none"};
+  padding: 2em;
+  /* box-shadow: ${(props) =>
+    props.shadow ? "0 80px 140px -40px rgb(0 0 0 / 60%)" : "none"}; */
 `;
 
-export const Text = styled(motion.p)`
+export const StyledText = styled(motion.p)`
   padding-bottom: 3rem;
   color: #ccc;
   font-size: 1.4rem;
   line-height: 150%;
 `;
 
+/**
+ * PageSlider
+ *
+ *  Component that utilizez the full page library
+ */
 const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
   ({ children, classes, ...props }: IPageSliderProps, ref): JSX.Element => {
     return (
-      <Section
+      <StyledPageSlider
         ref={ref}
         {...props}
         className={classnames("page-slider", classes)}
       >
         {children}
-      </Section>
+      </StyledPageSlider>
     );
   }
 ) as IPageSliderComp;
 
-PageSlider.Title = ({
+const Title = ({
   children,
   classes,
   ...props
 }: IPageSliderProps): JSX.Element => (
-  <Title {...props} className={classnames("page-slider__title", classes)}>
+  <StyledTitle {...props} className={classnames("page-slider__title", classes)}>
     {children}
-  </Title>
+  </StyledTitle>
 );
 
-PageSlider.Header = ({
+const Header = ({
   children,
   classes,
   ...props
 }: IPageSliderProps): JSX.Element => {
   return (
-    <Header {...props} className={classnames("page-slider__header", classes)}>
+    <StyledHeader
+      {...props}
+      className={classnames("page-slider__header", classes)}
+    >
       {children}
-    </Header>
+    </StyledHeader>
   );
 };
 
-PageSlider.Text = ({
+const Text = ({
   children,
   classes,
   ...props
 }: IPageSliderProps): JSX.Element => {
   return (
-    <Text {...props} className={classnames("page-slider__text", classes)}>
+    <StyledText {...props} className={classnames("page-slider__text", classes)}>
       {children}
-    </Text>
+    </StyledText>
   );
 };
 
-PageSlider.Content = ({
+const Content = ({
   children,
   classes,
   shadow = false,
   ...props
 }: IPageSliderContentProps): JSX.Element => {
   return (
-    <Content
+    <StyledContent
       shadow={shadow}
       {...props}
       className={classnames("page-slider__content", classes)}
     >
       {children}
-    </Content>
+      {/* <PageTransition /> */}
+    </StyledContent>
   );
 };
+
+PageSlider.Title = Title;
+PageSlider.Text = Text;
+PageSlider.Header = Header;
+PageSlider.Content = Content;
 
 export default PageSlider;

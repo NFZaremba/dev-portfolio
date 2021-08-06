@@ -1,4 +1,3 @@
-// Animation
 import {
   Frame1,
   Frame2,
