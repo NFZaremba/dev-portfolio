@@ -45,7 +45,7 @@ const Button = ({
   classes,
   onClick,
   size = "small",
-  color = "#23d997",
+  color = "#ff0055",
   ...props
 }: IButtonProps): JSX.Element => {
   return (

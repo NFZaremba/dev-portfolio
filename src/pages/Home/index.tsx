@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <ReactFullpage
       licenseKey={"YOUR_KEY_HERE"}
+      navigationPosition="left"
       scrollingSpeed={1000}
       navigation
       anchors={["firstPage", "secondPage", "thirdPage"]}

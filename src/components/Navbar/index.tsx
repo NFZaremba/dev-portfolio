@@ -1,12 +1,15 @@
-import { Link, useLocation } from "react-router-dom";
-import { StyledNavbar, Line } from "./Styles";
+import { Link } from "react-router-dom";
+import { StyledNavbar } from "./Styles";
 import { navLinks, INavLinks } from "./navLinks";
 
 const Navbar: React.FC = () => {
-  const { pathname } = useLocation();
-
   return (
-    <StyledNavbar data-testid="navbar">
+    <StyledNavbar
+      data-testid="navbar"
+      transition={{ duration: 1 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+    >
       <h1>
         <Link className="logo" to="/">
           Devfolio
@@ -16,11 +19,6 @@ const Navbar: React.FC = () => {
         {navLinks?.map(({ text, path }: INavLinks) => (
           <li key={text}>
             <Link to={path}>{text}</Link>
-            <Line
-              transition={{ duration: 0.75 }}
-              initial={{ width: "0%" }}
-              animate={{ width: pathname === path ? "100%" : "0%" }}
-            />
           </li>
         ))}
       </ul>

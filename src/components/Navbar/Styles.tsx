@@ -1,8 +1,7 @@
 import styled from "styled-components";
-// Animation
 import { motion } from "framer-motion";
 
-export const StyledNavbar = styled.nav`
+export const StyledNavbar = styled(motion.nav)`
   position: absolute;
   width: 100%;
   z-index: 9999;
@@ -12,8 +11,8 @@ export const StyledNavbar = styled.nav`
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5rem;
-  /* background-color: #23d997; */
+  padding: 1rem 2rem;
+
   a {
     color: white;
     text-decoration: none;
@@ -28,7 +27,7 @@ export const StyledNavbar = styled.nav`
     font-weight: lighter;
   }
   li {
-    padding-left: 10rem;
+    padding-left: 4rem;
     position: relative;
   }
 
@@ -45,10 +44,4 @@ export const StyledNavbar = styled.nav`
       }
     }
   }
-`;
-
-export const Line = styled(motion.div)`
-  height: 0.1rem;
-  background: black;
-  margin-top: 0.5rem;
 `;

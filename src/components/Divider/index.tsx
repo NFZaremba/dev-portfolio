@@ -13,7 +13,7 @@ const StyledDivider = styled(motion.div)<{ color: string }>`
   margin-bottom: 3rem;
 `;
 
-const Divider = ({ color = "#23d997", ...props }: IDividerProps) => {
+const Divider = ({ color = "#ff0055", ...props }: IDividerProps) => {
   return <StyledDivider {...props} color={color} />;
 };
 

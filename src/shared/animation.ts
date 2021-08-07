@@ -13,6 +13,7 @@ export const fullpageAnimation = {
   show: {
     opacity: 1,
     transition: {
+      duration: 1,
       staggerChildren: 0.17,
       delayChildren: 0.06,
     },
@@ -32,29 +33,6 @@ export const pageAnimation = {
       duration: 1,
       // when: "beforeChildren",
       staggerChildren: 0.25,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
-// TODO: Delete if not used
-export const pageFastAnimation = {
-  hidden: {
-    opacity: 0,
-    y: 300,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      when: "beforeChildren",
-      staggerChildren: 0.1,
     },
   },
   exit: {
@@ -116,9 +94,11 @@ export const scrollFade = {
 export const photoAnim = {
   hidden: {
     scale: 0.9,
-    opacity: 0,
-    x: "100%",
+    // opacity: 0,
+    x: 50,
     y: 50,
+    perspective: "1000px",
+    rotateY: "360deg",
     transition: {
       ease: "easeOut",
       duration: 1.2,
@@ -126,9 +106,11 @@ export const photoAnim = {
   },
   show: {
     scale: 1,
-    opacity: 1,
+    // opacity: 1,
     x: 0,
     y: 0,
+    perspective: "2000px",
+    rotateY: "341deg",
     transition: {
       ease: "easeOut",
       duration: 0.75,

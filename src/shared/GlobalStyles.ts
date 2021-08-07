@@ -38,6 +38,32 @@ const GlobalStyle = createGlobalStyle`
         color: #fff;
     }
 
+    // Overrides
+    #fp-nav {
+        padding-left: 2rem;
+    }
+
+    #fp-nav ul li a span {
+        display: none;
+    }
+
+    #fp-nav ul li {
+        height: 3px;
+        margin: 0 0 40px;
+    }
+
+    #fp-nav ul li .active {
+        width: 40px;
+        background-color: rgb(255, 0, 85);
+    }
+
+    #fp-nav ul li a {
+        width: 24px;
+        height: 100%;
+        background: #fff;
+        transition: .3s; 
+    }
+
     // Parallax testing
     .parallax {
         position: absolute;

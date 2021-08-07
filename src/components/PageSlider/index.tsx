@@ -3,13 +3,10 @@ import classnames from "classnames";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { IBaseComponentPropsWithMotion } from "../types";
-import { PageTransition } from "..";
 
 type IPageSliderProps = IBaseComponentPropsWithMotion;
 
-interface IPageSliderContentProps extends IPageSliderProps {
-  shadow?: boolean;
-}
+interface IPageSliderContentProps extends IPageSliderProps {}
 
 interface IPageSliderComp
   extends React.ForwardRefExoticComponent<
@@ -61,17 +58,15 @@ export const StyledHeader = styled(motion.h2)`
   text-shadow: 2px 3px 16px rgb(0 0 0);
 `;
 
-export const StyledContent = styled(motion.div)<{ shadow: boolean }>`
+export const StyledContent = styled(motion.div)`
   position: relative;
   width: 60%;
-  height: 70vh;
+  height: 80vh;
   overflow: hidden;
   margin: 0px 8% 0 auto;
   align-items: center;
   justify-content: center;
   padding: 2em;
-  /* box-shadow: ${(props) =>
-    props.shadow ? "0 80px 140px -40px rgb(0 0 0 / 60%)" : "none"}; */
 `;
 
 export const StyledText = styled(motion.p)`
@@ -140,12 +135,10 @@ const Text = ({
 const Content = ({
   children,
   classes,
-  shadow = false,
   ...props
 }: IPageSliderContentProps): JSX.Element => {
   return (
     <StyledContent
-      shadow={shadow}
       {...props}
       className={classnames("page-slider__content", classes)}
     >

@@ -89,7 +89,6 @@ const MyWork = () => {
                 key={id}
                 id={id}
                 color={themeColor}
-                // style={{ border: `3px solid ${themeColor}` }}
                 isSelected={isSelected}
                 image={image}
                 onMouseOver={() => setSelected(id)}

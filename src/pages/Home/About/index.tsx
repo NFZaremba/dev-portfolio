@@ -5,6 +5,7 @@ import {
   photoAnim,
   fullpageAnimation,
   lineAnim,
+  slider,
 } from "../../../shared/animation";
 import programmer from "../../../assets/img/programmer.svg";
 import { useScroll } from "../../../hooks";
@@ -37,15 +38,14 @@ const About: React.FC = () => {
         animate={controls}
         initial="hidden"
         variants={photoAnim}
-        shadow
       >
         <Link to="aboutme">
           <Image
             src={programmer}
+            variants={slider}
             // variants={{
             //   hidden: {
             //     opacity: 1,
-            //     x: "100%",
             //     transition: {
             //       ease: "easeOut",
             //       duration: 1,
@@ -53,7 +53,6 @@ const About: React.FC = () => {
             //   },
             //   show: {
             //     opacity: 1,
-            //     x: 0,
             //     transition: {
             //       ease: "easeOut",
             //       duration: 1,

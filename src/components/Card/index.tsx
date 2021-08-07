@@ -28,10 +28,10 @@ const StyledCardContainer = styled(motion.div)`
 
 const StyledCard = styled(motion.div)<{ image: Img }>`
   position: relative;
-  padding: 10rem;
+  /* padding: 10rem; */
   background-image: url(${(props) => props.image.src});
   background-size: cover;
-  padding: 15rem 0 0;
+  /* padding: 15rem 0 0; */
   min-width: 500px;
   box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
   border-radius: 1rem;
@@ -43,8 +43,10 @@ const StyledCard = styled(motion.div)<{ image: Img }>`
     left: -20px;
     right: -20px;
     bottom: -20px;
-    border: 10px solid white;
+    border: 5px solid white;
     border-radius: 1em;
+    margin: 1em;
+    z-index: 999;
   }
 `;
 
@@ -52,7 +54,7 @@ const StyledContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100%;
+  /* height: 100%; */
   padding: 1.5em;
   background: linear-gradient(
     hsl(0 0% 0% / 0),
