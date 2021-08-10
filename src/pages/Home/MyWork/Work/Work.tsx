@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { IProject } from "./types";
-import { StyledWork, TechList } from "./Styles";
+import { StyledWork, TechList } from "../Styles";
 import {
   fade,
-  photoAnim,
+  contentAnim,
   lineAnim,
   scrollFade,
-} from "../../../shared/animation";
+} from "../../../../shared/animation";
 import { motion } from "framer-motion";
-import { useScroll } from "../../../hooks";
+import { useScroll } from "../../../../hooks";
+import { IProject } from "../types";
 
 // TODO: create card
 const Work: React.FC<IProject> = ({ title, image, id, techStack }) => {
@@ -32,7 +32,7 @@ const Work: React.FC<IProject> = ({ title, image, id, techStack }) => {
       </TechList>
       {/* <Divider variants={lineAnim} /> */}
       <Link to={`work/${id}`}>
-        <motion.img variants={photoAnim} src={image.src} alt={image.alt} />
+        <motion.img variants={contentAnim} src={image.src} alt={image.alt} />
       </Link>
     </StyledWork>
   );

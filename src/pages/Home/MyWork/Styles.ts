@@ -1,15 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const WorkSection = styled(motion.div)`
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  overflow: hidden;
-  padding: 5rem 0;
-  color: white;
-`;
-
 export const StyledWork = styled(motion.div)`
   display: flex;
   flex-direction: column;

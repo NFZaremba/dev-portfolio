@@ -8,7 +8,8 @@ const Home = () => {
     <ReactFullpage
       licenseKey={"YOUR_KEY_HERE"}
       navigationPosition="left"
-      scrollingSpeed={1000}
+      scrollingSpeed={1500}
+      easing="easeInOutCubic"
       navigation
       anchors={["firstPage", "secondPage", "thirdPage"]}
       render={({ state, fullpageApi }) => {

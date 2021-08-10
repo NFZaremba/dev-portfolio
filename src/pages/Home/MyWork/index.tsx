@@ -1,10 +1,10 @@
 import { PageSlider, Card, Button, Divider } from "../../../components";
-import Work from "./Work";
+import Work from "./Work/Work";
 import {
   fade,
   fullpageAnimation,
   lineAnim,
-  photoAnim,
+  contentAnim,
   titleAnim,
 } from "../../../shared/animation";
 import { IProject } from "./types";
@@ -14,7 +14,6 @@ import { useHistory } from "react-router-dom";
 import athlete from "../../../assets/img/athlete-small.png";
 import theracer from "../../../assets/img/theracer-small.png";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 // TODO: change to include personal projects
 export const projects: IProject[] = [
@@ -79,7 +78,7 @@ const MyWork = () => {
       <PageSlider.Content
         animate={controls}
         initial="hidden"
-        variants={photoAnim}
+        variants={contentAnim}
       >
         <Card.Container>
           {projects?.map(({ title, image, id, preview, themeColor }) => {
@@ -93,22 +92,21 @@ const MyWork = () => {
                 image={image}
                 onMouseOver={() => setSelected(id)}
                 animate={isSelected ? "show" : "hidden"}
+                style={{ zIndex: isSelected ? 1 : 0 }}
                 initial="hidden"
                 variants={{
                   hidden: {
-                    // scale: 1,
+                    scale: 0.99,
                     transition: {
-                      // duration: 0.1,
                       type: "spring",
                       stiffness: 500,
                       damping: 30,
                     },
                   },
                   show: {
-                    // scale: 1.02,
+                    // scale: 1.01,
                     borderColor: themeColor,
                     transition: {
-                      // duration: 0.1,
                       type: "spring",
                       stiffness: 500,
                       damping: 30,
@@ -118,7 +116,6 @@ const MyWork = () => {
               >
                 {isSelected && (
                   <>
-                    {/* <motion.div className="outline"></motion.div> */}
                     <Card.Content
                       classes="outline"
                       layoutId="outline"
@@ -146,18 +143,6 @@ const MyWork = () => {
           })}
         </Card.Container>
       </PageSlider.Content>
-      {/* <WorkSection
-        variants={pageAnimation}
-        layout="position"
-        initial="hidden"
-        animate="show"
-        exit="exit"
-        data-testid="mywork-section"
-      >
-        {projects?.map(({ title, mainImg, id, techStack }) => (
-          <Work title={title} mainImg={mainImg} id={id} techStack={techStack} />
-        ))}
-      </WorkSection> */}
     </PageSlider>
   );
 };

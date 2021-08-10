@@ -1,7 +1,4 @@
-export interface INavLinks {
-  text: string;
-  path: string;
-}
+import { INavLinks } from "./types";
 
 export const navLinks: INavLinks[] = [
   {

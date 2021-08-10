@@ -1,7 +1,7 @@
 import {
   fullpageAnimation,
   lineAnim,
-  photoAnim,
+  contentAnim,
   titleAnim,
 } from "../../../shared/animation";
 import { Image, PageSlider, Divider } from "../../../components";
@@ -53,7 +53,7 @@ const ContactUs = () => {
       <PageSlider.Content
         animate={controls}
         initial="hidden"
-        variants={photoAnim}
+        variants={contentAnim}
       >
         {/* <PageSlider.Image
           animate={controls}

@@ -56,7 +56,7 @@ export const titleAnim = {
     x: 0,
     opacity: 1,
     transition: {
-      x: { stiffness: 1000, velocity: -100 },
+      x: { stiffness: 1000, velocity: 100 },
     },
   },
 };
@@ -91,22 +91,22 @@ export const scrollFade = {
   },
 };
 
-export const photoAnim = {
+export const contentAnim = {
   hidden: {
     scale: 0.9,
-    // opacity: 0,
+    opacity: 0,
     x: 50,
     y: 50,
     perspective: "1000px",
     rotateY: "360deg",
     transition: {
       ease: "easeOut",
-      duration: 1.2,
+      duration: 1.1,
     },
   },
   show: {
     scale: 1,
-    // opacity: 1,
+    opacity: 1,
     x: 0,
     y: 0,
     perspective: "2000px",

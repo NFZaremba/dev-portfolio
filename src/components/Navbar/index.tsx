@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { StyledNavbar } from "./Styles";
-import { navLinks, INavLinks } from "./navLinks";
+import { StyledNavbar } from "./styles";
+import { navLinks } from "./navLinks";
+import { INavLinks } from "./types";
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   return (
     <StyledNavbar
       data-testid="navbar"

@@ -2,7 +2,7 @@ import { useHistory } from "react-router";
 import { Button, PageSlider, Image, Divider } from "../../../components";
 import {
   titleAnim,
-  photoAnim,
+  contentAnim,
   fullpageAnimation,
   lineAnim,
   slider,
@@ -24,9 +24,9 @@ const About: React.FC = () => {
       data-testid="about-section"
     >
       <PageSlider.Title>
-        <PageSlider.Header variants={titleAnim}>Nick</PageSlider.Header>
-        <PageSlider.Header variants={titleAnim}>Zaremba</PageSlider.Header>
-        <Divider variants={lineAnim} />
+        <PageSlider.Header variants={titleAnim}>About Me</PageSlider.Header>
+        <Divider width={18} variants={lineAnim} />
+        <Divider width={10} variants={lineAnim} />
         <PageSlider.Text variants={titleAnim}>
           Learn more about me
         </PageSlider.Text>
@@ -37,12 +37,12 @@ const About: React.FC = () => {
       <PageSlider.Content
         animate={controls}
         initial="hidden"
-        variants={photoAnim}
+        variants={contentAnim}
       >
         <Link to="aboutme">
           <Image
             src={programmer}
-            variants={slider}
+            // variants={slider}
             // variants={{
             //   hidden: {
             //     opacity: 1,

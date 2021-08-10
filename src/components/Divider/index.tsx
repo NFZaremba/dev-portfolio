@@ -1,20 +1,20 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
-import { IBaseComponentPropsWithMotion } from "../types";
+import { StyledDivider } from "./styles";
+import { IDividerProps } from "./types";
 
-interface IDividerProps
-  extends Omit<IBaseComponentPropsWithMotion, "children"> {
-  color?: string;
-}
-
-const StyledDivider = styled(motion.div)<{ color: string }>`
-  height: 0.2rem;
-  background: ${(props) => props.color};
-  margin-bottom: 3rem;
-`;
-
-const Divider = ({ color = "#ff0055", ...props }: IDividerProps) => {
-  return <StyledDivider {...props} color={color} />;
+const Divider = ({
+  color = "#ff0055",
+  width = 10,
+  ...props
+}: IDividerProps) => {
+  return (
+    <div
+      style={{
+        width: `${width}rem`,
+      }}
+    >
+      <StyledDivider {...props} color={color} />
+    </div>
+  );
 };
 
 export default Divider;
