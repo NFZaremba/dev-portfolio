@@ -1,5 +1,6 @@
 import classnames from "classnames";
 import { AnimateSharedLayout } from "framer-motion";
+import Image from "../Image";
 import {
   StyledBody,
   StyledCard,
@@ -27,7 +28,7 @@ const Card = ({
     <StyledCard
       {...props}
       className={classnames("card", classes)}
-      image={image}
+      // image={image}
     >
       {children}
     </StyledCard>

@@ -1,11 +1,12 @@
-import { PageSlider, Card, Button, Divider } from "../../../components";
+import { PageSlider, Card, Button, Divider, Image } from "../../../components";
 import Work from "./Work/Work";
 import {
-  fade,
   fullpageAnimation,
   lineAnim,
   contentAnim,
   titleAnim,
+  cardAnim,
+  springType,
 } from "../../../shared/animation";
 import { IProject } from "./types";
 import { useScroll } from "../../../hooks";
@@ -14,6 +15,7 @@ import { useHistory } from "react-router-dom";
 import athlete from "../../../assets/img/athlete-small.png";
 import theracer from "../../../assets/img/theracer-small.png";
 import { useState } from "react";
+import { setImageAnimClass } from "../../../shared/helpers";
 
 // TODO: change to include personal projects
 export const projects: IProject[] = [
@@ -60,7 +62,7 @@ export const projects: IProject[] = [
 ];
 
 const MyWork = () => {
-  const [ref, controls] = useScroll();
+  const [ref, controls, inView] = useScroll();
   const history = useHistory();
   const [selected, setSelected] = useState(projects[0].id);
 
@@ -73,7 +75,7 @@ const MyWork = () => {
     >
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Projects</PageSlider.Header>
-        <PageSlider.Text variants={fade}>Most recent work</PageSlider.Text>
+        <PageSlider.Text variants={titleAnim}>Most recent work</PageSlider.Text>
       </PageSlider.Title>
       <PageSlider.Content
         animate={controls}
@@ -94,37 +96,20 @@ const MyWork = () => {
                 animate={isSelected ? "show" : "hidden"}
                 style={{ zIndex: isSelected ? 1 : 0 }}
                 initial="hidden"
-                variants={{
-                  hidden: {
-                    scale: 0.99,
-                    transition: {
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 30,
-                    },
-                  },
-                  show: {
-                    // scale: 1.01,
-                    borderColor: themeColor,
-                    transition: {
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 30,
-                    },
-                  },
-                }}
+                variants={cardAnim}
               >
+                <Image
+                  src={image.src}
+                  alt=""
+                  classes={setImageAnimClass(inView)}
+                />
                 {isSelected && (
                   <>
                     <Card.Content
                       classes="outline"
                       layoutId="outline"
                       animate={{ borderColor: themeColor }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30,
-                      }}
+                      transition={springType}
                     >
                       <Card.Header>{title}</Card.Header>
                       <Divider color={themeColor} variants={lineAnim} />

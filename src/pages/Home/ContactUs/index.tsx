@@ -8,6 +8,7 @@ import { Image, PageSlider, Divider } from "../../../components";
 import { useScroll } from "../../../hooks";
 import webdev from "../../../assets/img/webdev.svg";
 import { Link } from "react-router-dom";
+import { setImageAnimClass } from "../../../shared/helpers";
 
 export interface IContactLinks {
   title: string;
@@ -30,7 +31,7 @@ export const contactLinks: IContactLinks[] = [
 ];
 
 const ContactUs = () => {
-  const [ref, controls] = useScroll();
+  const [ref, controls, inVIew] = useScroll();
 
   return (
     <PageSlider
@@ -55,16 +56,12 @@ const ContactUs = () => {
         initial="hidden"
         variants={contentAnim}
       >
-        {/* <PageSlider.Image
-          animate={controls}
-          initial="hidden"
-          variants={photoAnim}
-          to="aboutme"
-          src={webdev}
-          alt="guy with camera"
-        /> */}
         <Link to="aboutme">
-          <Image src={webdev} alt="guy with camera" />
+          <Image
+            src={webdev}
+            alt="guy with camera"
+            classes={setImageAnimClass(inVIew)}
+          />
         </Link>
       </PageSlider.Content>
     </PageSlider>

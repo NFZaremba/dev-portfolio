@@ -17,15 +17,17 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Inter", sans-serif;
         overflow-x: hidden;
         position: relative;
+        background-color: #181927;
     }
 
     h2 {
+        color: #fff;
         font-weight: lighter;
         font-size: 4rem;
     }
 
     h3 {
-        color: white;
+        color: #fff;
     }
 
     h4 {
@@ -35,6 +37,10 @@ const GlobalStyle = createGlobalStyle`
 
     a {
         text-decoration: none;
+        color: #fff;
+    }
+
+    p {
         color: #fff;
     }
 

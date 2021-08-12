@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { StyledWork, TechList } from "../Styles";
 import {
-  fade,
   contentAnim,
   lineAnim,
   scrollFade,
+  titleAnim,
 } from "../../../../shared/animation";
 import { motion } from "framer-motion";
 import { useScroll } from "../../../../hooks";
@@ -22,10 +22,10 @@ const Work: React.FC<IProject> = ({ title, image, id, techStack }) => {
       initial="hidden"
       variants={scrollFade}
     >
-      <motion.h2 variants={fade}>{title}</motion.h2>
+      <motion.h2 variants={titleAnim}>{title}</motion.h2>
       <TechList>
         {techStack?.map((tech) => (
-          <motion.div variants={fade} className="tech-item" key={tech}>
+          <motion.div variants={titleAnim} className="tech-item" key={tech}>
             {tech}
           </motion.div>
         ))}

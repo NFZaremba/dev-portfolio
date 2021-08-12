@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Navbar />
-      <Wave />
+      {/* <Wave /> */}
       {/* <ScrollTop /> */}
       <Routes />
     </div>

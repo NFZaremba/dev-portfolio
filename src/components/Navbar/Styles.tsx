@@ -14,7 +14,6 @@ export const StyledNavbar = styled(motion.nav)`
   padding: 1rem 2rem;
 
   a {
-    color: white;
     text-decoration: none;
   }
   ul {

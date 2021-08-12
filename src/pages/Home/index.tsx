@@ -1,6 +1,7 @@
 import About from "./About";
 import MyWork from "./MyWork";
 import ContactUs from "./ContactUs";
+import Intro from "./Intro";
 import ReactFullpage from "@fullpage/react-fullpage";
 
 const Home = () => {
@@ -15,6 +16,9 @@ const Home = () => {
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
+            <div className="section">
+              <Intro />
+            </div>
             <div className="section">
               <About />
             </div>

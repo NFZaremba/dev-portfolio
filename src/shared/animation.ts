@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-/**
- Propogation 
-If a motion component has children, changes in variant will flow down through the component hierarchy. These changes in variant will flow down until a child component defines its own animate property.
- */
+
+// base animation objects
+export const springType = {
+  type: "spring",
+  stiffness: 500,
+  damping: 30,
+};
 
 // Initial fullpage animation
 export const fullpageAnimation = {
@@ -49,6 +52,7 @@ export const titleAnim = {
     opacity: 0,
     x: -300,
     transition: {
+      duration: 1,
       x: { stiffness: 1000 },
     },
   },
@@ -56,20 +60,8 @@ export const titleAnim = {
     x: 0,
     opacity: 1,
     transition: {
+      duration: 1,
       x: { stiffness: 1000, velocity: 100 },
-    },
-  },
-};
-
-export const fade = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      ease: "easeOut",
-      duration: 0.75,
     },
   },
 };
@@ -96,12 +88,11 @@ export const contentAnim = {
     scale: 0.9,
     opacity: 0,
     x: 50,
-    y: 50,
-    perspective: "1000px",
-    rotateY: "360deg",
+    y: 100,
+    // perspective: "1000px",
+    // rotateY: "360deg",
     transition: {
       ease: "easeOut",
-      duration: 1.1,
     },
   },
   show: {
@@ -109,11 +100,11 @@ export const contentAnim = {
     opacity: 1,
     x: 0,
     y: 0,
-    perspective: "2000px",
-    rotateY: "341deg",
+    // perspective: "2000px",
+    // rotateY: "341deg",
     transition: {
       ease: "easeOut",
-      duration: 0.75,
+      duration: 2,
     },
   },
 };
@@ -123,6 +114,22 @@ export const lineAnim = {
   show: {
     width: "100%",
     transition: { duration: 1 },
+  },
+};
+
+export const cardAnim = {
+  hidden: {
+    scale: 0.99,
+    transition: {
+      type: "spring",
+      stiffness: 500,
+      damping: 30,
+    },
+  },
+  show: {
+    transition: {
+      ...springType,
+    },
   },
 };
 
