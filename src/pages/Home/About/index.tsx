@@ -61,7 +61,7 @@ export const projects = [
 const Intro = () => {
   const [ref, controls, inView] = useScroll();
   const history = useHistory();
-  const [selected, setSelected] = useState(projects[0].id);
+  const [hovered, setHovered] = useState(projects[0].id);
 
   return (
     <PageSlider
@@ -80,21 +80,21 @@ const Intro = () => {
       >
         <Card.Container>
           {projects?.map(({ title, image, id, preview, themeColor }) => {
-            const isSelected = selected === id;
+            const isHovered = hovered === id;
             return (
               <Card
                 key={id}
                 id={id}
                 color={themeColor}
-                isSelected={isSelected}
+                isHovered={isHovered}
                 image={image}
-                onMouseOver={() => setSelected(id)}
-                animate={isSelected ? "show" : "hidden"}
-                style={{ zIndex: isSelected ? 1 : 0 }}
+                onMouseOver={() => setHovered(id)}
+                animate={isHovered ? "show" : "hidden"}
+                style={{ zIndex: isHovered ? 1 : 0 }}
                 initial="hidden"
                 variants={cardAnim}
               >
-                {isSelected && (
+                {isHovered && (
                   <>
                     <Card.Content
                       classes="outline"

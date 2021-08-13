@@ -14,6 +14,7 @@ export const ImageContainer = styled(motion.div)`
   height: 100%;
   box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
   border-radius: 1rem;
+
   .mask {
     width: 100%;
     height: 100%;

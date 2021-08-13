@@ -1,5 +1,4 @@
 import { PageSlider, Card, Button, Divider, Image } from "../../../components";
-import Work from "./Work/Work";
 import {
   fullpageAnimation,
   lineAnim,
@@ -10,12 +9,12 @@ import {
 } from "../../../shared/animation";
 import { IProject } from "./types";
 import { useScroll } from "../../../hooks";
-import { useHistory } from "react-router-dom";
-
+import { useHistory, useRouteMatch } from "react-router-dom";
 import athlete from "../../../assets/img/athlete-small.png";
 import theracer from "../../../assets/img/theracer-small.png";
 import { useState } from "react";
 import { setImageAnimClass } from "../../../shared/helpers";
+import CardList from "./CardList";
 
 // TODO: change to include personal projects
 export const projects: IProject[] = [
@@ -63,8 +62,10 @@ export const projects: IProject[] = [
 
 const MyWork = () => {
   const [ref, controls, inView] = useScroll();
-  const history = useHistory();
-  const [selected, setSelected] = useState(projects[0].id);
+
+  // Distance in pixels a user has to scroll a card down before we recognise
+  // a swipe-to dismiss action.
+  const dismissDistance = 150;
 
   return (
     <PageSlider
@@ -82,51 +83,7 @@ const MyWork = () => {
         initial="hidden"
         variants={contentAnim}
       >
-        <Card.Container>
-          {projects?.map(({ title, image, id, preview, themeColor }) => {
-            const isSelected = selected === id;
-            return (
-              <Card
-                key={id}
-                id={id}
-                color={themeColor}
-                isSelected={isSelected}
-                image={image}
-                onMouseOver={() => setSelected(id)}
-                animate={isSelected ? "show" : "hidden"}
-                style={{ zIndex: isSelected ? 1 : 0 }}
-                initial="hidden"
-                variants={cardAnim}
-              >
-                <Image
-                  src={image.src}
-                  alt=""
-                  classes={setImageAnimClass(inView)}
-                />
-                {isSelected && (
-                  <>
-                    <Card.Content
-                      classes="outline"
-                      layoutId="outline"
-                      animate={{ borderColor: themeColor }}
-                      transition={springType}
-                    >
-                      <Card.Header>{title}</Card.Header>
-                      <Divider color={themeColor} variants={lineAnim} />
-                      <Card.Body>{preview}</Card.Body>
-                      <Button
-                        color={themeColor}
-                        onClick={() => history.push(`work/${id}`)}
-                      >
-                        Learn more
-                      </Button>
-                    </Card.Content>
-                  </>
-                )}
-              </Card>
-            );
-          })}
-        </Card.Container>
+        <CardList projects={projects} inView={inView} />
       </PageSlider.Content>
     </PageSlider>
   );

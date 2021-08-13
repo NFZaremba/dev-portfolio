@@ -9,7 +9,7 @@ const Divider = ({
   return (
     <div
       style={{
-        width: `${width}rem`,
+        width: `${width}%`,
       }}
     >
       <StyledDivider {...props} color={color} />

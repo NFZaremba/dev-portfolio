@@ -11,7 +11,7 @@ const Routes = () => {
     <Fragment>
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
-          <Route path="/aboutme">
+          <Route path="/about/:id">
             <AboutMe />
           </Route>
           <Route path="/work/:id">

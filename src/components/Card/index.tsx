@@ -1,6 +1,5 @@
 import classnames from "classnames";
 import { AnimateSharedLayout } from "framer-motion";
-import Image from "../Image";
 import {
   StyledBody,
   StyledCard,
@@ -20,7 +19,7 @@ const Card = ({
   children,
   classes,
   image,
-  isSelected,
+  isHovered,
   color,
   ...props
 }: ICardProps): JSX.Element => {

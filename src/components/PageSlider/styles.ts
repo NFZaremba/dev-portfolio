@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const StyledPageSlider = styled(motion.section)`
+export const Container = styled(motion.section)`
   height: 100vh;
   display: flex;
   align-items: center;
@@ -13,7 +13,7 @@ export const StyledPageSlider = styled(motion.section)`
   }
 `;
 
-export const StyledTitle = styled(motion.div)`
+export const Title = styled(motion.div)`
   position: absolute;
   z-index: 999;
   overflow: hidden;
@@ -31,7 +31,7 @@ export const StyledTitle = styled(motion.div)`
   }
 `;
 
-export const StyledHeader = styled(motion.h2)`
+export const Header = styled(motion.h2)`
   font-size: 8rem;
   line-height: 1;
   letter-spacing: 0.1em;
@@ -40,7 +40,7 @@ export const StyledHeader = styled(motion.h2)`
   text-shadow: 2px 3px 16px rgb(0 0 0);
 `;
 
-export const StyledContent = styled(motion.div)`
+export const Content = styled(motion.div)`
   position: relative;
   width: 60%;
   height: 80vh;
@@ -51,7 +51,7 @@ export const StyledContent = styled(motion.div)`
   padding: 2em;
 `;
 
-export const StyledText = styled(motion.p)`
+export const Text = styled(motion.p)`
   padding-bottom: 3rem;
   font-size: 1.4rem;
   line-height: 150%;

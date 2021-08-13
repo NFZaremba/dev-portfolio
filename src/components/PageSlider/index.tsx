@@ -1,94 +1,76 @@
 import { forwardRef } from "react";
 import classnames from "classnames";
-
 import {
   IPageSliderComp,
   IPageSliderContentProps,
   IPageSliderProps,
 } from "./types";
-import {
-  StyledContent,
-  StyledHeader,
-  StyledPageSlider,
-  StyledText,
-  StyledTitle,
-} from "./styles";
+import { Content, Header, Container, Text, Title } from "./styles";
 
-/**
- * PageSlider
- *
- *  Component that utilizez the full page library
- */
 const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
   ({ children, classes, ...props }: IPageSliderProps, ref): JSX.Element => {
     return (
-      <StyledPageSlider
+      <Container
         ref={ref}
-        {...props}
         className={classnames("page-slider", classes)}
+        {...props}
       >
         {children}
-      </StyledPageSlider>
+      </Container>
     );
   }
 ) as IPageSliderComp;
 
-const Title = ({
+const PageSliderTitle = ({
   children,
   classes,
   ...props
 }: IPageSliderProps): JSX.Element => (
-  <StyledTitle {...props} className={classnames("page-slider__title", classes)}>
+  <Title className={classnames("page-slider__title", classes)} {...props}>
     {children}
-  </StyledTitle>
+  </Title>
 );
 
-const Header = ({
+const PageSliderHeader = ({
   children,
   classes,
   ...props
 }: IPageSliderProps): JSX.Element => {
   return (
-    <StyledHeader
-      {...props}
-      className={classnames("page-slider__header", classes)}
-    >
+    <Header className={classnames("page-slider__header", classes)} {...props}>
       {children}
-    </StyledHeader>
+    </Header>
   );
 };
 
-const Text = ({
+const PageSliderText = ({
   children,
   classes,
   ...props
 }: IPageSliderProps): JSX.Element => {
   return (
-    <StyledText {...props} className={classnames("page-slider__text", classes)}>
+    <Text className={classnames("page-slider__text", classes)} {...props}>
       {children}
-    </StyledText>
+    </Text>
   );
 };
 
-const Content = ({
+const PageSliderContent = ({
   children,
   classes,
   ...props
 }: IPageSliderContentProps): JSX.Element => {
   return (
-    <StyledContent
-      {...props}
-      className={classnames("page-slider__content", classes)}
-    >
+    <Content className={classnames("page-slider__content", classes)} {...props}>
       {children}
       {/* <PageTransition /> */}
-    </StyledContent>
+    </Content>
   );
 };
 
-PageSlider.Title = Title;
-PageSlider.Text = Text;
-PageSlider.Header = Header;
-PageSlider.Content = Content;
+PageSlider.Title = PageSliderTitle;
+PageSlider.Text = PageSliderText;
+PageSlider.Header = PageSliderHeader;
+PageSlider.Content = PageSliderContent;
 
 export default PageSlider;
