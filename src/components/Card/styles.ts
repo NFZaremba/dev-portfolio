@@ -1,21 +1,20 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Img } from "../../shared/types";
 
-export const StyledCardContainer = styled(motion.div)`
+export const Group = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
   height: 100%;
 `;
 
-export const StyledCard = styled(motion.div)<{ image?: Img }>`
+export const Container = styled(motion.div)<{ color: string }>`
   position: relative;
-  background-image: url(${(props) => props.image?.src});
   background-size: cover;
   min-width: 30rem;
   box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
   border-radius: 1rem;
   margin: 1em;
+  flex: 1;
 
   &:after {
     content: "";
@@ -24,7 +23,11 @@ export const StyledCard = styled(motion.div)<{ image?: Img }>`
     left: 0;
     width: 100%;
     position: absolute;
-    background-image: linear-gradient(135deg, #0100ec, #fb36f4);
+    background-image: linear-gradient(
+      135deg,
+      #0100ec,
+      ${(props) => props.color}
+    );
     border-radius: 1rem;
     opacity: 0.7;
   }
@@ -36,7 +39,7 @@ export const StyledCard = styled(motion.div)<{ image?: Img }>`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0100ec, #fb36f4);
+    background: linear-gradient(135deg, #0100ec, ${(props) => props.color});
     transform: translateY(30px) scale(0.9);
     filter: blur(25px);
   }
@@ -54,7 +57,7 @@ export const StyledCard = styled(motion.div)<{ image?: Img }>`
   }
 `;
 
-export const StyledContent = styled(motion.div)`
+export const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -67,10 +70,10 @@ export const StyledContent = styled(motion.div)`
   );
 `;
 
-export const StyledHeader = styled(motion.h2)`
+export const Header = styled(motion.h2)`
   font-size: 3em;
 `;
 
-export const StyledBody = styled(motion.p)`
+export const Body = styled(motion.p)`
   padding-bottom: 3em;
 `;

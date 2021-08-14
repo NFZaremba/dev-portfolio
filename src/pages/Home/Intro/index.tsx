@@ -7,9 +7,9 @@ import {
   lineAnim,
 } from "../../../shared/animation";
 import programmer from "../../../assets/img/programmer.svg";
-import { useScroll } from "../../../hooks";
 import { Link } from "react-router-dom";
 import { setImageAnimClass } from "../../../shared/helpers";
+import useScroll from "../../../hooks/useScroll";
 
 const Intro: React.FC = () => {
   const [ref, controls, inView] = useScroll();

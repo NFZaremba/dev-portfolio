@@ -1,7 +1,6 @@
 import { Banner } from "../../components";
 import { pageAnimation } from "../../shared/animation";
 import { Details, HeadLine } from "../WorkDetails/Styles";
-import Services from "./Services";
 
 const AboutMe = () => {
   return (

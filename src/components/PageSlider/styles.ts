@@ -47,7 +47,7 @@ export const Content = styled(motion.div)`
   overflow: hidden;
   margin: 0px 8% 0 auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 2em;
 `;
 

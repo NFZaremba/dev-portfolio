@@ -1,12 +1,7 @@
 import classnames from "classnames";
-import { AnimateSharedLayout } from "framer-motion";
-import {
-  StyledBody,
-  StyledCard,
-  StyledCardContainer,
-  StyledContent,
-  StyledHeader,
-} from "./styles";
+import Button from "../Button";
+import ImageFrame from "../Image";
+import { Body, Container, Content, Header, Group } from "./styles";
 import {
   ICardBodyProps,
   ICardContainerProps,
@@ -18,62 +13,54 @@ import {
 const Card = ({
   children,
   classes,
-  image,
   isHovered,
   color,
   ...props
 }: ICardProps): JSX.Element => {
   return (
-    <StyledCard
-      {...props}
-      className={classnames("card", classes)}
-      // image={image}
-    >
+    <Container {...props} className={classnames("card", classes)} color={color}>
       {children}
-    </StyledCard>
+    </Container>
   );
 };
 
-const Content = ({ children, classes, ...props }: ICardContentProps) => {
+const CardContent = ({ children, classes, ...props }: ICardContentProps) => {
   return (
-    <StyledContent {...props} className={classnames("card__content", classes)}>
+    <Content {...props} className={classnames("card__content", classes)}>
       {children}
-    </StyledContent>
+    </Content>
   );
 };
 
-const Header = ({ children, classes, ...props }: ICardHeaderProps) => {
+const CardHeader = ({ children, classes, ...props }: ICardHeaderProps) => {
   return (
-    <StyledHeader {...props} className={classnames("card__header", classes)}>
+    <Header {...props} className={classnames("card__header", classes)}>
       {children}
-    </StyledHeader>
+    </Header>
   );
 };
 
-const Body = ({ children, classes, ...props }: ICardBodyProps) => {
+const CardBody = ({ children, classes, ...props }: ICardBodyProps) => {
   return (
-    <StyledBody {...props} className={classnames("card__body", classes)}>
+    <Body {...props} className={classnames("card__body", classes)}>
       {children}
-    </StyledBody>
+    </Body>
   );
 };
 
-const Container = ({ children, classes, ...props }: ICardContainerProps) => {
+const CardGroup = ({ children, classes, ...props }: ICardContainerProps) => {
   return (
-    <AnimateSharedLayout>
-      <StyledCardContainer
-        {...props}
-        className={classnames("card__Container", classes)}
-      >
-        {children}
-      </StyledCardContainer>
-    </AnimateSharedLayout>
+    <Group {...props} className={classnames("card__Container", classes)}>
+      {children}
+    </Group>
   );
 };
 
-Card.Content = Content;
-Card.Container = Container;
-Card.Header = Header;
-Card.Body = Body;
+Card.Content = CardContent;
+Card.Group = CardGroup;
+Card.Header = CardHeader;
+Card.Body = CardBody;
+Card.Image = ImageFrame;
+Card.Button = Button;
 
 export default Card;

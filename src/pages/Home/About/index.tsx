@@ -1,25 +1,22 @@
-import { PageSlider, Card, Button, Divider } from "../../../components";
+import { useState } from "react";
+import { useHistory, useRouteMatch } from "react-router-dom";
+import { PageSlider } from "../../../components";
+import CardList from "../CardList";
 import {
   fullpageAnimation,
-  lineAnim,
   contentAnim,
   titleAnim,
-  cardAnim,
-  springType,
 } from "../../../shared/animation";
-import { useScroll } from "../../../hooks";
-import { useHistory } from "react-router-dom";
-
-import athlete from "../../../assets/img/athlete-small.png";
-import theracer from "../../../assets/img/theracer-small.png";
-import { useState } from "react";
+import athlete from "../../../assets/img/athlete2.png";
+import theracer from "../../../assets/img/the-racer2.jpg";
+import useScroll from "../../../hooks/useScroll";
 
 // TODO: change to include personal projects
 export const projects = [
   {
-    id: "athlete",
-    title: "The Athlete",
-    themeColor: "#ff0055",
+    id: "aboutme",
+    title: "About Me",
+    themeColor: "#00ff00",
     techStack: [
       "react",
       "typescript",
@@ -37,9 +34,9 @@ export const projects = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
   },
   {
-    id: "racer",
-    title: "The Racer",
-    themeColor: "#0099ff",
+    id: "skills",
+    title: "Skills",
+    themeColor: "#ff0000",
     techStack: [
       "react",
       "typescript",
@@ -58,10 +55,9 @@ export const projects = [
   },
 ];
 
-const Intro = () => {
+const About = () => {
   const [ref, controls, inView] = useScroll();
   const history = useHistory();
-  const [hovered, setHovered] = useState(projects[0].id);
 
   return (
     <PageSlider
@@ -72,55 +68,19 @@ const Intro = () => {
     >
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>About Me</PageSlider.Header>
+        <PageSlider.Text variants={titleAnim}>
+          Software Developer
+        </PageSlider.Text>
       </PageSlider.Title>
       <PageSlider.Content
         animate={controls}
         initial="hidden"
         variants={contentAnim}
       >
-        <Card.Container>
-          {projects?.map(({ title, image, id, preview, themeColor }) => {
-            const isHovered = hovered === id;
-            return (
-              <Card
-                key={id}
-                id={id}
-                color={themeColor}
-                isHovered={isHovered}
-                image={image}
-                onMouseOver={() => setHovered(id)}
-                animate={isHovered ? "show" : "hidden"}
-                style={{ zIndex: isHovered ? 1 : 0 }}
-                initial="hidden"
-                variants={cardAnim}
-              >
-                {isHovered && (
-                  <>
-                    <Card.Content
-                      classes="outline"
-                      layoutId="outline"
-                      animate={{ borderColor: themeColor }}
-                      transition={springType}
-                    >
-                      <Card.Header>{title}</Card.Header>
-                      <Divider color={themeColor} variants={lineAnim} />
-                      <Card.Body>{preview}</Card.Body>
-                      <Button
-                        color={themeColor}
-                        onClick={() => history.push(`work/${id}`)}
-                      >
-                        Learn more
-                      </Button>
-                    </Card.Content>
-                  </>
-                )}
-              </Card>
-            );
-          })}
-        </Card.Container>
+        <CardList history={history} projects={projects} inView={inView} />
       </PageSlider.Content>
     </PageSlider>
   );
 };
 
-export default Intro;
+export default About;

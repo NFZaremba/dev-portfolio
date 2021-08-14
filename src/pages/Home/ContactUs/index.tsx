@@ -5,10 +5,10 @@ import {
   titleAnim,
 } from "../../../shared/animation";
 import { Image, PageSlider, Divider } from "../../../components";
-import { useScroll } from "../../../hooks";
 import webdev from "../../../assets/img/webdev.svg";
 import { Link } from "react-router-dom";
 import { setImageAnimClass } from "../../../shared/helpers";
+import useScroll from "../../../hooks/useScroll";
 
 export interface IContactLinks {
   title: string;

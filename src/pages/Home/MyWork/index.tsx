@@ -1,20 +1,15 @@
-import { PageSlider, Card, Button, Divider, Image } from "../../../components";
+import { PageSlider } from "../../../components";
 import {
   fullpageAnimation,
-  lineAnim,
   contentAnim,
   titleAnim,
-  cardAnim,
-  springType,
 } from "../../../shared/animation";
 import { IProject } from "./types";
-import { useScroll } from "../../../hooks";
-import { useHistory, useRouteMatch } from "react-router-dom";
 import athlete from "../../../assets/img/athlete-small.png";
 import theracer from "../../../assets/img/theracer-small.png";
-import { useState } from "react";
-import { setImageAnimClass } from "../../../shared/helpers";
-import CardList from "./CardList";
+import CardList from "../CardList";
+import useScroll from "../../../hooks/useScroll";
+import { useHistory } from "react-router-dom";
 
 // TODO: change to include personal projects
 export const projects: IProject[] = [
@@ -60,12 +55,10 @@ export const projects: IProject[] = [
   },
 ];
 
+// sdfsdf
 const MyWork = () => {
   const [ref, controls, inView] = useScroll();
-
-  // Distance in pixels a user has to scroll a card down before we recognise
-  // a swipe-to dismiss action.
-  const dismissDistance = 150;
+  const history = useHistory();
 
   return (
     <PageSlider
@@ -83,7 +76,7 @@ const MyWork = () => {
         initial="hidden"
         variants={contentAnim}
       >
-        <CardList projects={projects} inView={inView} />
+        <CardList history={history} projects={projects} inView={inView} />
       </PageSlider.Content>
     </PageSlider>
   );

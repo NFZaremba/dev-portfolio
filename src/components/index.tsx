@@ -7,7 +7,7 @@ import Parallax from "./Parallax";
 import PageSlider from "./PageSlider";
 import Button from "./Button";
 import Card from "./Card";
-import Image from "./Image";
+import ImageFrame from "./Image";
 import Divider from "./Divider";
 
 export {
@@ -20,6 +20,6 @@ export {
   PageSlider,
   Button,
   Card,
-  Image,
+  ImageFrame as Image,
   Divider,
 };
