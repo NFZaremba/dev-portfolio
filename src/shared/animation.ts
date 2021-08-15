@@ -49,19 +49,16 @@ export const pageAnimation = {
 // Component Animations
 export const titleAnim = {
   hidden: {
-    opacity: 0,
     x: -300,
-    transition: {
-      duration: 1,
-      x: { stiffness: 1000 },
-    },
   },
   show: {
     x: 0,
-    opacity: 1,
     transition: {
       duration: 1,
-      x: { stiffness: 1000, velocity: 100 },
+      type: "spring",
+      stiffness: 40,
+      mass: 1,
+      damping: 10,
     },
   },
 };

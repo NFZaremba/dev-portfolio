@@ -12,12 +12,12 @@ const Home = () => {
       scrollingSpeed={1500}
       easing="easeInOutCubic"
       navigation
-      anchors={["firstPage", "secondPage", "thirdPage"]}
+      // anchors={["firstPage", "secondPage", "thirdPage"]}
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
             <div className="section">
-              <Intro />
+              <Intro moveDown={() => fullpageApi.moveTo(2, 0)} />
             </div>
             <div className="section">
               <About />

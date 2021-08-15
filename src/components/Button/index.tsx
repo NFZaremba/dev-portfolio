@@ -16,6 +16,7 @@ const Button = ({
       color={color}
       {...props}
       className={classnames("button", classes)}
+      onClick={onClick}
     >
       {children}
     </StyledButton>

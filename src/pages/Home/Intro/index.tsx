@@ -1,4 +1,3 @@
-import { useHistory } from "react-router";
 import { Button, PageSlider, Image, Divider } from "../../../components";
 import {
   titleAnim,
@@ -10,10 +9,14 @@ import programmer from "../../../assets/img/programmer.svg";
 import { Link } from "react-router-dom";
 import { setImageAnimClass } from "../../../shared/helpers";
 import useScroll from "../../../hooks/useScroll";
+import { fullpageApi } from "@fullpage/react-fullpage";
 
-const Intro: React.FC = () => {
+interface IIntroProps {
+  moveDown: fullpageApi["moveSectionDown"];
+}
+
+const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
   const [ref, controls, inView] = useScroll();
-  const history = useHistory();
 
   return (
     <PageSlider
@@ -26,8 +29,8 @@ const Intro: React.FC = () => {
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Nick</PageSlider.Header>
         <PageSlider.Header variants={titleAnim}>Zaremba</PageSlider.Header>
-        <Divider width={18} variants={lineAnim} />
-        <Button variants={titleAnim} onClick={() => history.push("aboutme")}>
+        <Divider width={100} variants={lineAnim} />
+        <Button variants={titleAnim} onClick={moveDown}>
           Learn More
         </Button>
       </PageSlider.Title>

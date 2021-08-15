@@ -1,16 +1,35 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { Img } from "../../shared/types";
 
 export const Group = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
   height: 100%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    button {
+      /* width: 50%; */
+      font-size: 1rem;
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    button {
+      /* width: 50%; */
+      font-size: 1rem;
+      padding: 1rem;
+    }
+  }
 `;
 
-export const Container = styled(motion.div)<{ color: string }>`
+export const Container = styled(motion.div)<{ color: string; image: Img }>`
   position: relative;
   background-size: cover;
-  min-width: 30rem;
+  /* min-width: 30rem; */
+  background-image: url(${(props) => props.image.src});
   box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
   border-radius: 1rem;
   margin: 1em;
@@ -29,10 +48,10 @@ export const Container = styled(motion.div)<{ color: string }>`
       ${(props) => props.color}
     );
     border-radius: 1rem;
-    opacity: 0.7;
+    opacity: 0.4;
   }
 
-  &:before {
+  /* &:before {
     content: "";
     position: absolute;
     top: 0;
@@ -40,9 +59,9 @@ export const Container = styled(motion.div)<{ color: string }>`
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #0100ec, ${(props) => props.color});
-    transform: translateY(30px) scale(0.9);
+    transform: translateY(20px) scale(0.9);
     filter: blur(25px);
-  }
+  } */
 
   .outline {
     position: absolute;
@@ -72,6 +91,10 @@ export const Content = styled(motion.div)`
 
 export const Header = styled(motion.h2)`
   font-size: 3em;
+
+  @media (max-width: 800px) {
+    font-size: 2em;
+  }
 `;
 
 export const Body = styled(motion.p)`

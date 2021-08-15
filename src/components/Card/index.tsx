@@ -15,10 +15,16 @@ const Card = ({
   classes,
   isHovered,
   color,
+  image,
   ...props
 }: ICardProps): JSX.Element => {
   return (
-    <Container {...props} className={classnames("card", classes)} color={color}>
+    <Container
+      image={image}
+      {...props}
+      className={classnames("card", classes)}
+      color={color}
+    >
       {children}
     </Container>
   );
@@ -50,7 +56,7 @@ const CardBody = ({ children, classes, ...props }: ICardBodyProps) => {
 
 const CardGroup = ({ children, classes, ...props }: ICardContainerProps) => {
   return (
-    <Group {...props} className={classnames("card__Container", classes)}>
+    <Group {...props} className={classnames("card__Group", classes)}>
       {children}
     </Group>
   );

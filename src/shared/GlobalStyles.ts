@@ -45,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     // Overrides
-    #fp-nav {
+    #fp-nav.fp-left {
         padding-left: 2rem;
         animation: fadeIn 3s;
 
@@ -53,20 +53,47 @@ const GlobalStyle = createGlobalStyle`
             0% {opacity:0;}
             100% {opacity:1;}
         }
+
+        @media (max-width: 1300px) {
+            width: auto;
+            top: auto;
+            left: 50%;
+            bottom: 32px;
+            transform: translate3d(-50%, 0, 0);
+        }
     }
 
-    #fp-nav ul li a span {
-        display: none;
+    // Full-Page nav
+    #fp-nav ul {
+        @media (max-width: 1300px) {
+            display: flex;
+            align-items: flex-end;
+        }
     }
+
 
     #fp-nav ul li {
         height: 3px;
         margin: 0 0 40px;
+
+        @media (max-width: 1300px) {
+            height: auto;
+            margin: 0 28px;
+        }
+
+        @media screen and (max-width: 420px) {
+            margin: 0 12px;
+        }
     }
 
     #fp-nav ul li .active {
         width: 40px;
         background-color: rgb(255, 0, 85);
+
+        @media (max-width: 1300px) {
+            width: 3px;
+            height: 40px;
+        }
     }
 
     #fp-nav ul li a {
@@ -74,6 +101,20 @@ const GlobalStyle = createGlobalStyle`
         height: 100%;
         background: #fff;
         transition: .3s; 
+
+        @media (max-width: 1300px) {
+            width: 3px;
+            height: 24px;
+        }
+
+        @media (max-width: 420px){ 
+            width: 2px;
+            height: 16px;
+        }
+    }
+
+    #fp-nav ul li a span {
+        display: none;
     }
 
     // Parallax testing

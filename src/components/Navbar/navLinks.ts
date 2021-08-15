@@ -2,15 +2,15 @@ import { INavLinks } from "./types";
 
 export const navLinks: INavLinks[] = [
   {
-    text: "About Us",
+    text: "Github",
     path: "/",
   },
   {
-    text: "My Work",
-    path: "/work",
+    text: "LinkedIn",
+    path: "/",
   },
   {
-    text: "Contact Us",
-    path: "/contact",
+    text: "Email",
+    path: "/",
   },
 ];

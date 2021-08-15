@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import { PageSlider } from "../../../components";
+import { Divider, PageSlider } from "../../../components";
 import CardList from "../CardList";
 import {
   fullpageAnimation,
   contentAnim,
   titleAnim,
+  lineAnim,
 } from "../../../shared/animation";
 import athlete from "../../../assets/img/athlete2.png";
 import theracer from "../../../assets/img/the-racer2.jpg";
@@ -68,6 +69,7 @@ const About = () => {
     >
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>About Me</PageSlider.Header>
+        <Divider width={100} variants={lineAnim} />
         <PageSlider.Text variants={titleAnim}>
           Software Developer
         </PageSlider.Text>

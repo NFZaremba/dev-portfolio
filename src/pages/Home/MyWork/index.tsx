@@ -1,8 +1,9 @@
-import { PageSlider } from "../../../components";
+import { Divider, PageSlider } from "../../../components";
 import {
   fullpageAnimation,
   contentAnim,
   titleAnim,
+  lineAnim,
 } from "../../../shared/animation";
 import { IProject } from "./types";
 import athlete from "../../../assets/img/athlete-small.png";
@@ -69,6 +70,7 @@ const MyWork = () => {
     >
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Projects</PageSlider.Header>
+        <Divider width={100} variants={lineAnim} />
         <PageSlider.Text variants={titleAnim}>Most recent work</PageSlider.Text>
       </PageSlider.Title>
       <PageSlider.Content

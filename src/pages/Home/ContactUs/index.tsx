@@ -42,7 +42,7 @@ const ContactUs = () => {
     >
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Contact</PageSlider.Header>
-        <Divider variants={lineAnim} />
+        <Divider width={100} variants={lineAnim} />
         {contactLinks?.map((contact: IContactLinks) => (
           <PageSlider.Text variants={titleAnim}>
             <a href={contact.link} target="blank">

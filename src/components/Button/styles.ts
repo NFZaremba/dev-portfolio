@@ -17,7 +17,8 @@ export const StyledButton = styled(motion.button)<{
   font-size: 1.1 rem;
   cursor: pointer;
   padding: 1rem 2rem;
-  border: 3px solid ${(props) => props.color};
+  border: 2px solid ${(props) => props.color};
+  border-radius: 1rem;
   background: transparent;
   color: white;
   transition: all 0.5s ease;

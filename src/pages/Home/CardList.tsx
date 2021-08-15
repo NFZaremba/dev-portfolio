@@ -38,12 +38,13 @@ const CardList = ({ projects, inView, history }: ICardListProps) => {
               style={{ zIndex: isHovered ? 1 : 0 }}
               initial="hidden"
               variants={cardAnim}
+              image={image}
             >
-              <Card.Image
+              {/* <Card.Image
                 src={image.src}
                 alt={image.alt}
                 classes={setImageAnimClass(inView)}
-              />
+              /> */}
               {isHovered && (
                 <Card.Content
                   classes="outline"
@@ -63,7 +64,7 @@ const CardList = ({ projects, inView, history }: ICardListProps) => {
                     color={themeColor}
                     onClick={() => history.push(`work/${id}`)}
                   >
-                    Learn more
+                    🠚
                   </Card.Button>
                 </Card.Content>
               )}
