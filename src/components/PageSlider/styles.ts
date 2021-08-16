@@ -47,6 +47,10 @@ export const Title = styled(motion.div)`
     h2 {
       font-size: 4rem;
     }
+    h3,
+    a {
+      font-size: 3rem;
+    }
     button {
       margin: 2rem 0rem 5rem 0rem;
     }
@@ -61,6 +65,10 @@ export const Title = styled(motion.div)`
     h2 {
       font-size: 3rem;
     }
+    h3,
+    a {
+      font-size: 2rem;
+    }
     button {
       margin: 0 0 5rem 0;
     }
@@ -71,13 +79,17 @@ export const Header = styled(motion.h2)`
   font-size: 8rem;
   line-height: 1;
   letter-spacing: 0.1em;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1rem;
   font-weight: normal;
   text-shadow: 2px 3px 16px rgb(0 0 0);
+  background: linear-gradient(hsl(0deg 0% 52%), hsl(206, 4%, 8%));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 `;
 
-export const Text = styled(motion.p)`
-  padding-bottom: 3rem;
-  font-size: 1.4rem;
+export const SubHeader = styled(motion.h3)`
+  padding: 0 2rem 3rem 2rem;
+  font-size: 3rem;
   line-height: 150%;
 `;

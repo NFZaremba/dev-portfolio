@@ -5,7 +5,7 @@ import {
   IPageSliderContentProps,
   IPageSliderProps,
 } from "./types";
-import { Content, Header, Container, Text, Title } from "./styles";
+import { Content, Header, Container, SubHeader, Title } from "./styles";
 
 const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
   ({ children, classes, ...props }: IPageSliderProps, ref): JSX.Element => {
@@ -43,15 +43,15 @@ const PageSliderHeader = ({
   );
 };
 
-const PageSliderText = ({
+const PageSliderSubHeader = ({
   children,
   classes,
   ...props
 }: IPageSliderProps): JSX.Element => {
   return (
-    <Text className={classnames("page-slider__text", classes)} {...props}>
+    <SubHeader className={classnames("page-slider__text", classes)} {...props}>
       {children}
-    </Text>
+    </SubHeader>
   );
 };
 
@@ -69,7 +69,7 @@ const PageSliderContent = ({
 };
 
 PageSlider.Title = PageSliderTitle;
-PageSlider.Text = PageSliderText;
+PageSlider.SubHeader = PageSliderSubHeader;
 PageSlider.Header = PageSliderHeader;
 PageSlider.Content = PageSliderContent;
 

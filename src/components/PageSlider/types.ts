@@ -10,6 +10,6 @@ export interface IPageSliderComp
   > {
   Title: React.FC<IPageSliderProps>;
   Header: React.FC<IPageSliderProps>;
-  Text: React.FC<IPageSliderProps>;
+  SubHeader: React.FC<IPageSliderProps>;
   Content: React.FC<IPageSliderContentProps>;
 }

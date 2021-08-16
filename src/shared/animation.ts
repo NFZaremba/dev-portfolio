@@ -116,16 +116,17 @@ export const lineAnim = {
 
 export const cardAnim = {
   hidden: {
-    scale: 0.99,
+    scale: 1,
     transition: {
-      type: "spring",
-      stiffness: 500,
-      damping: 30,
+      ease: "easeOut",
     },
   },
   show: {
+    scale: 1.01,
     transition: {
-      ...springType,
+      ease: "easeOut",
+      delay: 0.15,
+      duration: 0.5,
     },
   },
 };

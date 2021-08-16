@@ -49,17 +49,17 @@ const CardList = ({ projects, inView, history }: ICardListProps) => {
                 <Card.Content
                   classes="outline"
                   layoutId="outline"
-                  animate={{ borderColor: themeColor }}
+                  // animate={{ borderColor: "#000" }}
                   transition={springType}
                 >
                   <Card.Header>{title}</Card.Header>
-                  <Divider
+                  {/* <Divider
                     width={100}
                     color={themeColor}
                     variants={lineAnim}
                     initial="hidden"
-                  />
-                  <Card.Body>{preview}</Card.Body>
+                  /> */}
+                  {/* <Card.Body>{preview}</Card.Body> */}
                   <Card.Button
                     color={themeColor}
                     onClick={() => history.push(`work/${id}`)}

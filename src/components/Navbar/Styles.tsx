@@ -11,7 +11,7 @@ export const StyledNavbar = styled(motion.nav)`
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 10rem;
 
   a {
     text-decoration: none;

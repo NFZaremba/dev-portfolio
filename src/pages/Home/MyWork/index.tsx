@@ -70,8 +70,9 @@ const MyWork = () => {
     >
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Projects</PageSlider.Header>
-        <Divider width={100} variants={lineAnim} />
-        <PageSlider.Text variants={titleAnim}>Most recent work</PageSlider.Text>
+        <PageSlider.SubHeader variants={titleAnim}>
+          Most recent work
+        </PageSlider.SubHeader>
       </PageSlider.Title>
       <PageSlider.Content
         animate={controls}

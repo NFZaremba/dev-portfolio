@@ -69,7 +69,7 @@ export const Container = styled(motion.div)<{ color: string; image: Img }>`
     left: -1rem;
     right: -1rem;
     bottom: -1rem;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     border-radius: 1em;
     margin: 1em;
     z-index: 9999;
@@ -84,7 +84,7 @@ export const Content = styled(motion.div)`
   padding: 1.5em;
   background: linear-gradient(
     hsl(0 0% 0% / 0),
-    hsl(20 0% 0% / 0.3) 20%,
+    hsl(0 0% 0% / 1) 65%,
     hsl(0 0% 0% / 1)
   );
 `;

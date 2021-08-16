@@ -69,10 +69,9 @@ const About = () => {
     >
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>About Me</PageSlider.Header>
-        <Divider width={100} variants={lineAnim} />
-        <PageSlider.Text variants={titleAnim}>
+        <PageSlider.SubHeader variants={titleAnim}>
           Software Developer
-        </PageSlider.Text>
+        </PageSlider.SubHeader>
       </PageSlider.Title>
       <PageSlider.Content
         animate={controls}

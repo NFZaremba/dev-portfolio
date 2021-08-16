@@ -14,10 +14,10 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-family: "Inter", sans-serif;
+        font-family: "Poppins", sans-serif;
         overflow-x: hidden;
         position: relative;
-        background-color: #181927;
+        background-color: hsl(206, 4%, 6%);
     }
 
     h2 {
