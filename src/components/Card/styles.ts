@@ -26,16 +26,23 @@ export const Group = styled(motion.div)`
 `;
 
 export const Container = styled(motion.div)<{ color: string; image: Img }>`
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   background-size: cover;
-  /* min-width: 30rem; */
+  overflow: hidden;
   background-image: url(${(props) => props.image.src});
   box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
   border-radius: 1rem;
-  margin: 1em;
-  flex: 1;
+  height: 90%;
+  width: 100%;
+  transition: transform 0.8s ease 0s;
+  /* flex: 1; */
 
-  &:after {
+  // overlay
+  /* &:after {
     content: "";
     height: 100%;
     top: 0;
@@ -49,8 +56,9 @@ export const Container = styled(motion.div)<{ color: string; image: Img }>`
     );
     border-radius: 1rem;
     opacity: 0.4;
-  }
+  } */
 
+  // Glow effect
   /* &:before {
     content: "";
     position: absolute;
@@ -63,28 +71,30 @@ export const Container = styled(motion.div)<{ color: string; image: Img }>`
     filter: blur(25px);
   } */
 
-  .outline {
+  // Border Effect
+  /* .outline {
     position: absolute;
     top: -1rem;
     left: -1rem;
     right: -1rem;
     bottom: -1rem;
-    /* border: 2px solid white; */
+    border: 2px solid white;
     border-radius: 1em;
     margin: 1em;
     z-index: 9999;
-  }
+  } */
 `;
 
 export const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* height: 100%; */
+  height: 100%;
   padding: 1.5em;
+  border-radius: 1rem;
   background: linear-gradient(
     hsl(0 0% 0% / 0),
-    hsl(0 0% 0% / 1) 65%,
+    hsl(20 0% 0% / 0.3) 20%,
     hsl(0 0% 0% / 1)
   );
 `;

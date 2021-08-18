@@ -14,7 +14,7 @@ const Card = ({
   children,
   classes,
   isHovered,
-  color,
+  color = "",
   image,
   ...props
 }: ICardProps): JSX.Element => {

@@ -5,7 +5,7 @@ export type ICardContainerProps = IBaseComponentPropsWithMotion;
 
 export interface ICardProps extends ICardContainerProps {
   isHovered?: boolean;
-  color: string;
+  color?: string;
   image: Img;
 }
 

@@ -15,8 +15,10 @@ export const Container = styled(motion.section)`
 
 export const Content = styled(motion.div)`
   position: relative;
-  width: 60%;
-  height: 75%;
+  /* width: 60%;
+  height: 75%; */
+  width: 53.125%;
+  height: 74.81%;
   overflow: hidden;
   margin: 0px 8% 0 auto;
   align-items: center;
@@ -58,6 +60,10 @@ export const Title = styled(motion.div)`
 
   @media (max-width: 800px) {
     margin-left: 5%;
+    h3,
+    a {
+      font-size: 2rem;
+    }
   }
 
   @media (max-width: 420px) {
@@ -82,10 +88,11 @@ export const Header = styled(motion.h2)`
   margin-bottom: 1rem;
   font-weight: normal;
   text-shadow: 2px 3px 16px rgb(0 0 0);
-  background: linear-gradient(hsl(0deg 0% 52%), hsl(206, 4%, 8%));
+  background: linear-gradient(hsl(0deg 0% 77%), hsl(206, 4%, 8%));
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+  z-index: 999;
 `;
 
 export const SubHeader = styled(motion.h3)`

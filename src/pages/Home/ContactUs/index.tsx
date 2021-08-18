@@ -3,34 +3,25 @@ import {
   lineAnim,
   contentAnim,
   titleAnim,
+  subAnim,
 } from "../../../shared/animation";
-import { Image, PageSlider, Divider } from "../../../components";
+import { Image, PageSlider, Divider, Button } from "../../../components";
 import webdev from "../../../assets/img/webdev.svg";
 import { Link } from "react-router-dom";
 import { setImageAnimClass } from "../../../shared/helpers";
 import useScroll from "../../../hooks/useScroll";
+import { fullpageApi } from "@fullpage/react-fullpage";
 
 export interface IContactLinks {
   title: string;
   link: string;
 }
 
-export const contactLinks: IContactLinks[] = [
-  {
-    title: "nfzaremba@gmail.com",
-    link: "/",
-  },
-  {
-    title: "Github",
-    link: "/",
-  },
-  {
-    title: "LinkedIn",
-    link: "/",
-  },
-];
+interface IContactProps {
+  moveUp: fullpageApi["moveSectionUp"];
+}
 
-const ContactUs = () => {
+const ContactUs: React.FC<IContactProps> = ({ moveUp }) => {
   const [ref, controls, inVIew] = useScroll();
 
   return (
@@ -42,13 +33,13 @@ const ContactUs = () => {
     >
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Contact</PageSlider.Header>
-        {contactLinks?.map((contact: IContactLinks) => (
-          <PageSlider.SubHeader variants={titleAnim}>
-            <a href={contact.link} target="blank">
-              {contact.title}
-            </a>
-          </PageSlider.SubHeader>
-        ))}
+        <Button
+          variants={subAnim}
+          onClick={moveUp}
+          style={{ position: "relative" }}
+        >
+          Up
+        </Button>
       </PageSlider.Title>
       <PageSlider.Content
         animate={controls}

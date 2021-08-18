@@ -4,6 +4,7 @@ import {
   contentAnim,
   fullpageAnimation,
   lineAnim,
+  subAnim,
 } from "../../../shared/animation";
 import programmer from "../../../assets/img/programmer.svg";
 import { Link } from "react-router-dom";
@@ -29,8 +30,11 @@ const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Nick</PageSlider.Header>
         <PageSlider.Header variants={titleAnim}>Zaremba</PageSlider.Header>
-        <Divider width={100} variants={lineAnim} />
-        <Button variants={titleAnim} onClick={moveDown}>
+        <Button
+          variants={subAnim}
+          onClick={moveDown}
+          style={{ position: "relative" }}
+        >
           Learn More
         </Button>
       </PageSlider.Title>

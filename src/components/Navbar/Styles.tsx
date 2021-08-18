@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const StyledNavbar = styled(motion.nav)`
+export const Container = styled(motion.nav)`
   position: absolute;
   width: 100%;
   z-index: 9999;
@@ -11,26 +11,33 @@ export const StyledNavbar = styled(motion.nav)`
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 10rem;
+  padding: 1rem 12rem;
 
   a {
     text-decoration: none;
+    &:hover {
+      background: hsl(0deg 0% 29% / 21%);
+      box-shadow: 0 0px 15px -6px rgb(255 255 255 / 40%);
+      transition: 0.4s;
+      color: #000;
+    }
   }
   ul {
     display: flex;
     list-style: none;
   }
   .logo {
+    position: relative;
     font-size: 1.5rem;
     font-family: "Lobster", cursive;
     font-weight: lighter;
   }
   li {
-    padding-left: 4rem;
+    padding-left: 2.5rem;
     position: relative;
+    font-size: 1.5rem;
   }
 
-  // TODO: change this, add hamburger
   @media (max-width: 1300px) {
     flex-direction: column;
     padding: 1rem;

@@ -63,6 +63,19 @@ export const titleAnim = {
   },
 };
 
+export const subAnim = {
+  hidden: { scale: 0, top: -70 },
+  show: {
+    scale: 1,
+    top: 0,
+    transition: {
+      type: "spring",
+      stiffness: 500,
+      damping: 20,
+    },
+  },
+};
+
 export const scrollFade = {
   hidden: {
     opacity: 0,

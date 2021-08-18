@@ -26,7 +26,7 @@ const Home = () => {
               <MyWork />
             </div>
             <div className="section">
-              <ContactUs />
+              <ContactUs moveUp={() => fullpageApi.moveTo(1, 0)} />
             </div>
           </ReactFullpage.Wrapper>
         );

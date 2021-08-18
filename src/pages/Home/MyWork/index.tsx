@@ -11,6 +11,7 @@ import theracer from "../../../assets/img/theracer-small.png";
 import CardList from "../CardList";
 import useScroll from "../../../hooks/useScroll";
 import { useHistory } from "react-router-dom";
+import CardGallery from "../CardGallery";
 
 // TODO: change to include personal projects
 export const projects: IProject[] = [
@@ -79,7 +80,8 @@ const MyWork = () => {
         initial="hidden"
         variants={contentAnim}
       >
-        <CardList history={history} projects={projects} inView={inView} />
+        {/* <CardList history={history} projects={projects} inView={inView} /> */}
+        <CardGallery projects={projects} />
       </PageSlider.Content>
     </PageSlider>
   );

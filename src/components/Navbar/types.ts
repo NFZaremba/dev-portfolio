@@ -1,4 +1,4 @@
 export interface INavLinks {
-  text: string;
-  path: string;
+  href: string;
+  icon: string;
 }
