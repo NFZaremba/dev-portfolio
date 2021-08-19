@@ -11,7 +11,7 @@ export const Container = styled(motion.nav)`
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 12rem;
+  padding: 1rem 10%;
 
   a {
     text-decoration: none;
@@ -19,7 +19,7 @@ export const Container = styled(motion.nav)`
       background: hsl(0deg 0% 29% / 21%);
       box-shadow: 0 0px 15px -6px rgb(255 255 255 / 40%);
       transition: 0.4s;
-      color: #000;
+      color: #c1b;
     }
   }
   ul {
@@ -35,7 +35,7 @@ export const Container = styled(motion.nav)`
   li {
     padding-left: 2.5rem;
     position: relative;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   @media (max-width: 1300px) {

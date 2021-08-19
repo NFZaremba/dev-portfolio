@@ -32,14 +32,12 @@ export const Container = styled(motion.div)<{ color: string; image: Img }>`
   margin-left: auto;
   margin-right: auto;
   background-size: cover;
-  overflow: hidden;
   background-image: url(${(props) => props.image.src});
-  box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
+  /* box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%); */
+  /* box-shadow: 40px 35px 26px -44px rgb(159 26 223); */
   border-radius: 1rem;
   height: 90%;
   width: 100%;
-  transition: transform 0.8s ease 0s;
-  /* flex: 1; */
 
   // overlay
   /* &:after {

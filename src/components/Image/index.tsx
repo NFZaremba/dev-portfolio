@@ -4,9 +4,9 @@ import { ImageContainer, ImageFrame } from "./styles";
 
 const Image = ({ src, alt, classes, ...props }: IImageProps): JSX.Element => {
   return (
-    <ImageContainer className={classnames("image", classes)}>
+    <ImageContainer {...props} className={classnames("image", classes)}>
       <div className="mask">
-        <ImageFrame {...props} src={src} alt={alt} />
+        <ImageFrame src={src} alt={alt} />
       </div>
     </ImageContainer>
   );

@@ -106,6 +106,17 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
+    // Page Indicators
+    .page-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #c1b;
+        flex: 1;
+        margin: .5rem;
+        opacity: 0.3;
+    }
+
     // Full-Page nav
     #fp-nav ul {
         @media (max-width: 1300px) {
@@ -131,7 +142,7 @@ const GlobalStyle = createGlobalStyle`
 
     #fp-nav ul li .active {
         width: 40px;
-        background-color: rgb(255, 0, 85);
+        background-color: #c1b;
 
         @media (max-width: 1300px) {
             width: 3px;

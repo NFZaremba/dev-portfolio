@@ -1,16 +1,13 @@
-import { Divider, PageSlider } from "../../../components";
+import { PageSlider } from "../../../components";
 import {
   fullpageAnimation,
   contentAnim,
   titleAnim,
-  lineAnim,
 } from "../../../shared/animation";
 import { IProject } from "./types";
 import athlete from "../../../assets/img/athlete-small.png";
 import theracer from "../../../assets/img/theracer-small.png";
-import CardList from "../CardList";
 import useScroll from "../../../hooks/useScroll";
-import { useHistory } from "react-router-dom";
 import CardGallery from "../CardGallery";
 
 // TODO: change to include personal projects
@@ -57,10 +54,8 @@ export const projects: IProject[] = [
   },
 ];
 
-// sdfsdf
 const MyWork = () => {
-  const [ref, controls, inView] = useScroll();
-  const history = useHistory();
+  const [ref, controls] = useScroll();
 
   return (
     <PageSlider

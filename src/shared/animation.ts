@@ -129,17 +129,20 @@ export const lineAnim = {
 
 export const cardAnim = {
   hidden: {
-    scale: 1,
+    // scale: 1,
+    boxShadow: "none",
     transition: {
-      ease: "easeOut",
+      // ease: "easeOut",
     },
   },
   show: {
-    scale: 1.01,
+    // scale: 1.01,
+    boxShadow: "hsl(280deg 100% 22% / 55%) 5px 3px 0px",
     transition: {
-      ease: "easeOut",
-      delay: 0.15,
-      duration: 0.5,
+      // ease: "easeOut",
+      // delay: 0.15,
+      // duration: 0.5,
+      duration: 3,
     },
   },
 };

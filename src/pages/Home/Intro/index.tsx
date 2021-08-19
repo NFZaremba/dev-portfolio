@@ -48,6 +48,18 @@ const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
             src={programmer}
             alt="guy with camera"
             classes={setImageAnimClass(inView)} // trigger image animation
+            initial="hidden"
+            variants={{
+              hidden: {
+                boxShadow: "none",
+              },
+              show: {
+                boxShadow: "hsl(280deg 100% 22% / 55%) 5px 3px 0px",
+                transition: {
+                  duration: 3,
+                },
+              },
+            }}
           />
         </Link>
       </PageSlider.Content>

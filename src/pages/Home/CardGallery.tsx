@@ -2,26 +2,29 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Card } from "../../components";
 import { IProject } from "./MyWork/types";
+import { wrap } from "@popmotion/popcorn";
 
 const cardVariants = {
-  initial: (next: boolean) => ({
-    x: next ? -1200 : 1200,
-  }),
-  animate: {
+  enter: (direction: number) => {
+    return {
+      boxShadow: "none",
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    };
+  },
+  center: {
     zIndex: 1,
     x: 0,
-    transition: {
-      duration: 0.4,
-    },
+    opacity: 1,
+    boxShadow: "hsl(280deg 100% 22% / 55%) 5px 3px 0px",
   },
-  exit: (next: boolean) => ({
-    // opacity: 0,
-    zIndex: 0,
-    x: next ? 1200 : -1200,
-    transition: {
-      duration: 0.4,
-    },
-  }),
+  exit: (direction: number) => {
+    return {
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    };
+  },
 };
 
 const swipeConfidenceThreshold = 10000;
@@ -34,110 +37,75 @@ export interface ICardGalleryProps {
 }
 
 const CardGallery = ({ projects }: ICardGalleryProps) => {
-  const [selected, setSelected] = useState(0);
-  const [buttonAboutToBeClicked, setAboutToBeClicked] = useState("next");
+  const [[page, direction], setPage] = useState([0, 0]);
+  const imageIndex = wrap(0, projects.length, page);
 
-  const next = () => {
-    if (selected === projects.length - 1) {
-      setSelected(0);
-    } else {
-      setSelected((prev) => prev + 1);
-    }
-  };
-
-  const prev = () => {
-    if (selected === 0) {
-      setSelected(projects.length - 1);
-    } else {
-      setSelected((prev) => prev - 1);
-    }
+  const paginate = (newDirection: number) => {
+    setPage([page + newDirection, newDirection]);
   };
 
   const pages = Array.from(projects);
-  const indicatorSize = 10;
-  const indicatorAlpha = 0.3;
 
   return (
     <div className="gallery">
-      {projects.map(({ id, image, title, preview }, index) => (
-        <AnimatePresence key={id}>
-          {index === selected ? (
-            <Card
-              id={id}
-              image={image}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={cardVariants}
-              custom={buttonAboutToBeClicked === "next"}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
-              onDragEnd={(e, { offset, velocity }) => {
-                const swipe = swipePower(offset.x, velocity.x);
+      <AnimatePresence initial={false} custom={direction}>
+        <Card
+          key={page}
+          image={projects[imageIndex].image}
+          custom={direction}
+          variants={cardVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          style={{
+            cursor: "grab",
+          }}
+          transition={{
+            x: { type: "spring", stiffness: 500, damping: 30 },
+            opacity: { duration: 0.2 },
+          }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipe = swipePower(offset.x, velocity.x);
 
-                if (swipe < -swipeConfidenceThreshold) {
-                  setAboutToBeClicked("prev");
-                  prev();
-                } else if (swipe > swipeConfidenceThreshold) {
-                  setAboutToBeClicked("next");
-                  next();
-                }
-              }}
-            >
-              <Card.Content>
-                <Card.Header>{title}</Card.Header>
-                {/* <Divider
-                width={100}
-                color={themeColor}
-                variants={lineAnim}
-                initial="hidden"
-              /> */}
-                <Card.Body>{preview}</Card.Body>
-                <Card.Button
-                  //   color={themeColor}
-                  // onClick={() => history.push(`work/${id}`)}
-                  onClick={() => {}}
-                >
-                  🠚
-                </Card.Button>
-              </Card.Content>
-            </Card>
-          ) : null}
-        </AnimatePresence>
-      ))}
-      <div className="gallery-controls">
-        <motion.div
-          className="prev"
-          onClick={prev}
-          onMouseEnter={() => setAboutToBeClicked("prev")}
+            if (swipe < -swipeConfidenceThreshold) {
+              paginate(1);
+            } else if (swipe > swipeConfidenceThreshold) {
+              paginate(-1);
+            }
+          }}
         >
+          <Card.Content>
+            <Card.Header>{projects[imageIndex].title}</Card.Header>
+            {/* <Divider
+              width={100}
+              color={themeColor}
+              variants={lineAnim}
+              initial="hidden"
+            /> */}
+            <Card.Body>{projects[imageIndex].preview}</Card.Body>
+            <Card.Button onClick={() => {}}>🠚</Card.Button>
+          </Card.Content>
+        </Card>
+      </AnimatePresence>
+      <div className="gallery-controls">
+        <motion.div className="prev" onClick={() => paginate(1)}>
           <i className="ri-arrow-left-s-fill"></i>
         </motion.div>
         {pages.map((_, index: number) => {
           console.log(index);
           return (
             <motion.div
-              style={{
-                width: indicatorSize,
-                height: indicatorSize,
-                borderRadius: "50%",
-                backgroundColor: "#fff",
-                flex: 1,
-                margin: ".5rem",
-                opacity: indicatorAlpha,
-              }}
+              className="page-indicator"
               animate={{
-                opacity: selected === index ? 1 : indicatorAlpha,
+                opacity: imageIndex === index ? 1 : 0.3,
               }}
             />
           );
         })}
-        <motion.div
-          className="next"
-          onClick={next}
-          onMouseEnter={() => setAboutToBeClicked("next")}
-        >
+        <motion.div className="next" onClick={() => paginate(-1)}>
           <i className="ri-arrow-right-s-fill"></i>
         </motion.div>
       </div>

@@ -87,8 +87,9 @@ export const Header = styled(motion.h2)`
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
   font-weight: normal;
-  text-shadow: 2px 3px 16px rgb(0 0 0);
-  background: linear-gradient(hsl(0deg 0% 77%), hsl(206, 4%, 8%));
+  /* text-shadow: 2px 3px 16px rgb(0 0 0); */
+  /* background: linear-gradient(hsl(0deg 0% 77%), hsl(206, 4%, 8%)); */
+  background: linear-gradient(145deg, #72f, #c1b);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;

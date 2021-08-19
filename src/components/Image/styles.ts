@@ -11,8 +11,10 @@ export const ImageContainer = styled(motion.div)`
   position: relative;
   overflow: hidden;
   height: 100%;
-  box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
+  // box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
+  /* box-shadow: 40px 35px 26px -44px rgb(159 26 223); */
   border-radius: 1rem;
+  /* box-shadow: 40px 35px 26px -44px rgb(159 26 223); */
 
   .mask {
     width: 100%;
@@ -26,7 +28,7 @@ export const ImageContainer = styled(motion.div)`
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #ff0055;
+      background-color: #c1b;
     }
   }
 
@@ -62,6 +64,7 @@ export const ImageContainer = styled(motion.div)`
     }
   }
 
+  // animation
   @keyframes slide-in-right {
     0% {
       transform: translate3D(-100%, 0, 0);

@@ -78,7 +78,7 @@ const About = () => {
         initial="hidden"
         variants={contentAnim}
       >
-        <CardList history={history} projects={projects} inView={inView} />
+        <div>hi</div>
       </PageSlider.Content>
     </PageSlider>
   );
