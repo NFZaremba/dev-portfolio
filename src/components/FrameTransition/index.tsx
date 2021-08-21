@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-// Page Transition
+//header-lg
 export const Frame1 = styled(motion.div)`
   position: absolute;
   left: 0;

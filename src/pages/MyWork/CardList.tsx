@@ -1,9 +1,8 @@
 import { AnimateSharedLayout } from "framer-motion";
 import { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { Card, Divider } from "../../../components";
-import { cardAnim, lineAnim, springType } from "../../../shared/animation";
-import { setImageAnimClass } from "../../../shared/helpers";
+import { Card, Divider } from "../../components";
+import { cardAnim, lineAnim, springType } from "../../shared/animation";
 import { IProject } from "./types";
 
 export interface ICardListProps {

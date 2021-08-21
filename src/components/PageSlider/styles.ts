@@ -15,7 +15,6 @@ export const Content = styled(motion.div)`
   margin: 0px 5% 0 auto;
   align-items: center;
   justify-content: space-evenly;
-  /* padding: 2em; */
 
   @media (max-width: 1000px) {
     margin: 0px 5% 0 auto;

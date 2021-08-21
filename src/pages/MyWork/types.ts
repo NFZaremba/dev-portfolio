@@ -1,4 +1,4 @@
-import { Img } from "../../../shared/types";
+import { Img } from "../../shared/types";
 
 export interface IProject {
   id: string;

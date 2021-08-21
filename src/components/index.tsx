@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import FrameTransition from "./PageTransition";
+import FrameTransition from "./FrameTransition";
 import Banner from "./Banner";
 import Parallax from "./Parallax";
 import PageSlider from "./PageSlider";

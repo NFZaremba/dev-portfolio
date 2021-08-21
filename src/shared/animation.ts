@@ -92,7 +92,7 @@ export const scrollFade = {
 
 export const contentAnim = {
   hidden: {
-    scale: 0.9,
+    scale: 0.5,
     opacity: 0,
     x: 50,
     y: 100,
@@ -111,7 +111,7 @@ export const contentAnim = {
     // rotateY: "341deg",
     transition: {
       ease: "easeOut",
-      duration: 2,
+      duration: 1,
     },
   },
 };

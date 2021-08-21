@@ -1,13 +1,13 @@
-import { PageSlider } from "../../../components";
+import { PageSlider } from "../../components";
 import {
   fullpageAnimation,
   contentAnim,
   titleAnim,
-} from "../../../shared/animation";
+} from "../../shared/animation";
 import { IProject } from "./types";
-import athlete from "../../../assets/img/athlete-small.png";
-import theracer from "../../../assets/img/theracer-small.png";
-import useScroll from "../../../hooks/useScroll";
+import athlete from "../../assets/img/athlete-small.png";
+import theracer from "../../assets/img/theracer-small.png";
+import useScroll from "../../hooks/useScroll";
 import CardGallery from "./CardGallery";
 
 // TODO: change to include personal projects

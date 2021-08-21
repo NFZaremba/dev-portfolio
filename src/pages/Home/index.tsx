@@ -1,7 +1,7 @@
-import About from "./About";
-import MyWork from "./MyWork";
-import ContactUs from "./ContactUs";
-import Intro from "./Intro";
+import About from "../About";
+import MyWork from "../MyWork";
+import ContactUs from "../ContactUs";
+import Intro from "../Intro";
 import ReactFullpage from "@fullpage/react-fullpage";
 
 const Home = () => {

@@ -1,21 +1,12 @@
-import {
-  Button,
-  PageSlider,
-  Image,
-  Divider,
-  FrameTransition,
-} from "../../../components";
+import { Button, PageSlider, Image } from "../../components";
 import {
   titleAnim,
   contentAnim,
   fullpageAnimation,
-  lineAnim,
   subAnim,
-} from "../../../shared/animation";
-import programmer from "../../../assets/img/programmer.svg";
-import { Link } from "react-router-dom";
-import { setImageAnimClass } from "../../../shared/helpers";
-import useScroll from "../../../hooks/useScroll";
+} from "../../shared/animation";
+import programmer from "../../assets/img/programmer.svg";
+import useScroll from "../../hooks/useScroll";
 import { fullpageApi } from "@fullpage/react-fullpage";
 
 interface IIntroProps {
@@ -23,7 +14,7 @@ interface IIntroProps {
 }
 
 const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
-  const [ref, controls, inView] = useScroll();
+  const [ref, controls] = useScroll();
 
   return (
     <PageSlider
@@ -49,12 +40,7 @@ const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
         initial="hidden"
         variants={contentAnim}
       >
-        <Image
-          src={programmer}
-          alt="guy with camera"
-          classes={setImageAnimClass(inView)} // trigger image animation
-          initial="hidden"
-        />
+        <Image src={programmer} alt="guy with camera" initial="hidden" />
       </PageSlider.Content>
     </PageSlider>
   );

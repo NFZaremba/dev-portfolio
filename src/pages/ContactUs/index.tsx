@@ -1,14 +1,11 @@
 import {
   fullpageAnimation,
-  lineAnim,
   contentAnim,
   titleAnim,
   subAnim,
-} from "../../../shared/animation";
-import { Image, PageSlider, Button } from "../../../components";
-import webdev from "../../../assets/img/webdev.svg";
-import { setImageAnimClass } from "../../../shared/helpers";
-import useScroll from "../../../hooks/useScroll";
+} from "../../shared/animation";
+import { PageSlider, Button } from "../../components";
+import useScroll from "../../hooks/useScroll";
 import { fullpageApi } from "@fullpage/react-fullpage";
 
 export interface IContactLinks {
@@ -21,7 +18,7 @@ interface IContactProps {
 }
 
 const ContactUs: React.FC<IContactProps> = ({ moveUp }) => {
-  const [ref, controls, inVIew] = useScroll();
+  const [ref, controls] = useScroll();
 
   return (
     <PageSlider

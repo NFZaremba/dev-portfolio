@@ -1,10 +1,10 @@
-import { PageSlider } from "../../../components";
+import { PageSlider } from "../../components";
 import {
   fullpageAnimation,
   contentAnim,
   titleAnim,
-} from "../../../shared/animation";
-import useScroll from "../../../hooks/useScroll";
+} from "../../shared/animation";
+import useScroll from "../../hooks/useScroll";
 import InfoLayout from "./InfoLayout";
 
 const About = () => {
