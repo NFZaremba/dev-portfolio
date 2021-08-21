@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Card } from "../../components";
-import { IProject } from "./MyWork/types";
+import { Card } from "../../../components";
+import { IProject } from "./types";
 import { wrap } from "@popmotion/popcorn";
 
 const cardVariants = {
@@ -16,7 +16,7 @@ const cardVariants = {
     zIndex: 1,
     x: 0,
     opacity: 1,
-    boxShadow: "hsl(280deg 100% 22% / 55%) 5px 3px 0px",
+    // boxShadow: "hsl(280deg 100% 22% / 55%) 5px 3px 0px",
   },
   exit: (direction: number) => {
     return {

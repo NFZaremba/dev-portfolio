@@ -1,4 +1,10 @@
-import { Button, PageSlider, Image, Divider } from "../../../components";
+import {
+  Button,
+  PageSlider,
+  Image,
+  Divider,
+  FrameTransition,
+} from "../../../components";
 import {
   titleAnim,
   contentAnim,
@@ -43,25 +49,12 @@ const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
         initial="hidden"
         variants={contentAnim}
       >
-        <Link to="intro">
-          <Image
-            src={programmer}
-            alt="guy with camera"
-            classes={setImageAnimClass(inView)} // trigger image animation
-            initial="hidden"
-            variants={{
-              hidden: {
-                boxShadow: "none",
-              },
-              show: {
-                boxShadow: "hsl(280deg 100% 22% / 55%) 5px 3px 0px",
-                transition: {
-                  duration: 3,
-                },
-              },
-            }}
-          />
-        </Link>
+        <Image
+          src={programmer}
+          alt="guy with camera"
+          classes={setImageAnimClass(inView)} // trigger image animation
+          initial="hidden"
+        />
       </PageSlider.Content>
     </PageSlider>
   );

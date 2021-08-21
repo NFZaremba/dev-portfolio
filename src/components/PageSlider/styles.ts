@@ -5,35 +5,36 @@ export const Container = styled(motion.section)`
   height: 100vh;
   display: flex;
   align-items: center;
-
-  /* @media (max-width: 1300px) {
-    display: block;
-    padding: 2rem 2rem;
-    text-align: center;
-  } */
 `;
 
 export const Content = styled(motion.div)`
   position: relative;
-  /* width: 60%;
-  height: 75%; */
   width: 53.125%;
-  height: 74.81%;
+  height: 70%;
   overflow: hidden;
-  margin: 0px 8% 0 auto;
+  margin: 0px 5% 0 auto;
   align-items: center;
   justify-content: space-evenly;
-  padding: 2em;
+  /* padding: 2em; */
+
+  @media (max-width: 1000px) {
+    margin: 0px 5% 0 auto;
+    height: 55%;
+  }
 
   @media (max-width: 800px) {
-    margin: 0px 5% 0 auto;
+    margin: 0px 10% 0;
+    height: 50%;
+    width: 100%;
+    bottom: 10%;
+  }
+
+  @media (max-width: 600px) {
+    height: 50%;
   }
 
   @media (max-width: 420px) {
-    width: 100%;
-    height: 55%;
-    margin: 0;
-    bottom: 10%;
+    height: 40%;
   }
 `;
 
@@ -41,17 +42,17 @@ export const Title = styled(motion.div)`
   position: absolute;
   z-index: 999;
   overflow: hidden;
-  top: 23%;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
   margin-left: 10%;
 
   @media (max-width: 1300px) {
     padding: 0;
     h2 {
-      font-size: 4rem;
+      font-size: 5rem;
     }
-    h3,
-    a {
-      font-size: 3rem;
+    h3 {
+      font-size: 2rem;
     }
     button {
       margin: 2rem 0rem 5rem 0rem;
@@ -59,24 +60,22 @@ export const Title = styled(motion.div)`
   }
 
   @media (max-width: 800px) {
-    margin-left: 5%;
-    h3,
-    a {
-      font-size: 2rem;
-    }
-  }
-
-  @media (max-width: 420px) {
-    top: 65%;
+    top: 80%;
     h2 {
-      font-size: 3rem;
+      font-size: 5rem;
     }
-    h3,
-    a {
+    h3 {
       font-size: 2rem;
     }
     button {
       margin: 0 0 5rem 0;
+    }
+  }
+
+  @media (max-width: 420px) {
+    top: 70%;
+    h2 {
+      font-size: 3rem;
     }
   }
 `;
@@ -87,8 +86,6 @@ export const Header = styled(motion.h2)`
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
   font-weight: normal;
-  /* text-shadow: 2px 3px 16px rgb(0 0 0); */
-  /* background: linear-gradient(hsl(0deg 0% 77%), hsl(206, 4%, 8%)); */
   background: linear-gradient(145deg, #72f, #c1b);
   color: transparent;
   -webkit-background-clip: text;

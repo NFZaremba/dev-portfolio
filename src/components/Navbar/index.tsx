@@ -1,5 +1,4 @@
 import { Container } from "./styles";
-import { navLinks } from "./navLinks";
 import { INavLinks } from "./types";
 import { motion } from "framer-motion";
 import logo from "../../assets/img/letter-n.svg";
@@ -33,6 +32,21 @@ const iconsAnim = {
   hidden: { scale: 0, top: 70 },
   show: { scale: 1, top: 0 },
 };
+
+export const navLinks: INavLinks[] = [
+  {
+    icon: "ri-github-fill",
+    href: "https://github.com/NFZaremba",
+  },
+  {
+    icon: "ri-linkedin-box-fill",
+    href: "https://www.linkedin.com/in/nick-zaremba-4a441a87/",
+  },
+  {
+    icon: "ri-mail-fill",
+    href: "mailto: nfzaremba@gmail.com",
+  },
+];
 
 const Navbar = () => {
   return (

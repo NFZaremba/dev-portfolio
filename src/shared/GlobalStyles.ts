@@ -59,14 +59,14 @@ const GlobalStyle = createGlobalStyle`
         left: 50%;
         margin: auto;
         transform: translate(-50%, -50%);
-        bottom: -35px;
+        bottom: -12px;
         
-         @media (max-width: 800px){
-            bottom: -10px;
+        @media (max-width: 800px){
+            bottom: -18px;
         }
 
         @media (max-width: 420px){
-            bottom: -12px;
+            bottom: -30px;
         } 
     }
     .next, .prev {

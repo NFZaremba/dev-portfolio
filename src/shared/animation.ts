@@ -1,6 +1,3 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
-
 // base animation objects
 export const springType = {
   type: "spring",
@@ -143,57 +140,6 @@ export const cardAnim = {
       // delay: 0.15,
       // duration: 0.5,
       duration: 3,
-    },
-  },
-};
-
-// TODO: Delete
-// Page Transition
-export const Frame1 = styled(motion.div)`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #fffebf;
-  z-index: 999;
-`;
-
-export const Frame2 = styled(Frame1)`
-  background: #ff8efb;
-`;
-
-export const Frame3 = styled(Frame1)`
-  background: #8ed2ff;
-`;
-
-export const Frame4 = styled(Frame1)`
-  background: #8effa0;
-`;
-
-export const slider = {
-  hidden: {
-    x: "-130%",
-    skew: "45deg",
-  },
-  show: {
-    x: "100%",
-    skew: "0deg",
-    transition: {
-      ease: "easeOut",
-      duration: 1,
-    },
-  },
-};
-
-export const sliderContainer = {
-  hidden: {
-    opacity: 1,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
     },
   },
 };

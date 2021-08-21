@@ -1,5 +1,5 @@
 import Routes from "./routes";
-import { Navbar, Wave } from "./components";
+import { Navbar } from "./components";
 import GlobalStyle from "./shared/GlobalStyles";
 
 function App() {
@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Navbar />
-      {/* <Wave /> */}
       <Routes />
     </div>
   );

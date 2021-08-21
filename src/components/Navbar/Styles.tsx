@@ -38,7 +38,7 @@ export const Container = styled(motion.nav)`
     font-size: 2rem;
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     padding: 1rem;
     ul {

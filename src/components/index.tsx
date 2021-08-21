@@ -1,6 +1,5 @@
 import Navbar from "./Navbar";
-import Wave from "./Wave";
-import PageTransition from "./PageTransition";
+import FrameTransition from "./PageTransition";
 import Banner from "./Banner";
 import Parallax from "./Parallax";
 import PageSlider from "./PageSlider";
@@ -11,8 +10,7 @@ import Divider from "./Divider";
 
 export {
   Navbar,
-  Wave,
-  PageTransition,
+  FrameTransition,
   Banner,
   Parallax,
   PageSlider,

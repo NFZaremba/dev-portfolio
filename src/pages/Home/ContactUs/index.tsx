@@ -5,9 +5,8 @@ import {
   titleAnim,
   subAnim,
 } from "../../../shared/animation";
-import { Image, PageSlider, Divider, Button } from "../../../components";
+import { Image, PageSlider, Button } from "../../../components";
 import webdev from "../../../assets/img/webdev.svg";
-import { Link } from "react-router-dom";
 import { setImageAnimClass } from "../../../shared/helpers";
 import useScroll from "../../../hooks/useScroll";
 import { fullpageApi } from "@fullpage/react-fullpage";
@@ -46,13 +45,9 @@ const ContactUs: React.FC<IContactProps> = ({ moveUp }) => {
         initial="hidden"
         variants={contentAnim}
       >
-        <Link to="aboutme">
-          <Image
-            src={webdev}
-            alt="guy with camera"
-            classes={setImageAnimClass(inVIew)}
-          />
-        </Link>
+        <form>
+          <div>form here</div>
+        </form>
       </PageSlider.Content>
     </PageSlider>
   );

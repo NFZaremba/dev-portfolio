@@ -11,6 +11,7 @@ export const ImageContainer = styled(motion.div)`
   position: relative;
   overflow: hidden;
   height: 100%;
+  width: 100%;
   // box-shadow: 40px 35px 34px -33px rgb(0 0 0 / 70%);
   /* box-shadow: 40px 35px 26px -44px rgb(159 26 223); */
   border-radius: 1rem;
@@ -21,7 +22,7 @@ export const ImageContainer = styled(motion.div)`
     height: 100%;
     overflow: hidden;
 
-    &::after {
+    /* &::after {
       content: "";
       position: absolute;
       top: 0;
@@ -29,11 +30,11 @@ export const ImageContainer = styled(motion.div)`
       width: 100%;
       height: 100%;
       background-color: #c1b;
-    }
+    } */
   }
 
   // Triggers image reveal animation
-  &.enter {
+  /* &.enter {
     .mask {
       animation: 0.9s cubic-bezier(0.76, 0, 0.24, 1) 0s both slide-in-right;
 
@@ -45,9 +46,9 @@ export const ImageContainer = styled(motion.div)`
     .image {
       animation: 1.5s cubic-bezier(0.76, 0, 0.24, 1) 0.3s both scale-in-down;
     }
-  }
+  } */
 
-  &.leave {
+  /* &.leave {
     .mask {
       animation: 0.9s cubic-bezier(0.76, 0, 0.24, 1) 0s both paused
         slide-out-right;
@@ -62,7 +63,7 @@ export const ImageContainer = styled(motion.div)`
       animation: 0.9s cubic-bezier(0.76, 0, 0.24, 1) 0s both paused
         slide-out-left;
     }
-  }
+  } */
 
   // animation
   @keyframes slide-in-right {
