@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-//header-lg
+// Styles
 export const Frame1 = styled(motion.div)`
   position: absolute;
   left: 0;
@@ -28,6 +28,7 @@ export const Frame5 = styled(Frame1)`
   background: linear-gradient(135deg, #70f, #40f);
 `;
 
+// Animations
 export const slider = {
   hidden: {
     x: "-130%",

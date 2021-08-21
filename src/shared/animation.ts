@@ -100,6 +100,7 @@ export const contentAnim = {
     // rotateY: "360deg",
     transition: {
       ease: "easeOut",
+      duration: 2,
     },
   },
   show: {

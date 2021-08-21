@@ -9,6 +9,7 @@ import programmer from "../../assets/img/programmer.svg";
 import useScroll from "../../hooks/useScroll";
 import { fullpageApi } from "@fullpage/react-fullpage";
 
+//* Types
 interface IIntroProps {
   moveDown: fullpageApi["moveSectionDown"];
 }

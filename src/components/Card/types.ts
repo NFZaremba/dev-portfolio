@@ -1,5 +1,4 @@
-import { Img } from "../../shared/types";
-import { IBaseComponentPropsWithMotion } from "../types";
+import { IBaseComponentPropsWithMotion, Img } from "../../shared/types";
 
 export type ICardContainerProps = IBaseComponentPropsWithMotion;
 

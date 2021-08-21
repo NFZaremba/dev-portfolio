@@ -1,4 +1,4 @@
-import { IBaseComponentPropsWithMotion } from "../types";
+import { IBaseComponentPropsWithMotion } from "../../shared/types";
 
 export interface IDividerProps
   extends Omit<IBaseComponentPropsWithMotion, "children"> {

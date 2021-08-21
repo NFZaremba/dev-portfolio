@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Card } from "../../components";
 import { IProject } from "./types";
 import { wrap } from "@popmotion/popcorn";
 
+//* Animations
 const cardVariants = {
   enter: (direction: number) => {
     return {
@@ -31,19 +32,38 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
 
+//* Types
 export interface ICardGalleryProps {
   projects: IProject[];
 }
 
+/**
+ * Gallery component
+ *
+ * @param projects
+ * @returns
+ */
 const CardGallery = ({ projects }: ICardGalleryProps) => {
   const [[page, direction], setPage] = useState([0, 0]);
+
   const imageIndex = wrap(0, projects.length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
 
-  const pages = Array.from(projects);
+  const renderIndicators = useMemo(() => {
+    const pages = Array.from(projects);
+    return pages.map((_, index: number) => (
+      <motion.div
+        key={`page-${index}`}
+        className="page-indicator"
+        animate={{
+          opacity: imageIndex === index ? 1 : 0.3,
+        }}
+      />
+    ));
+  }, [projects, imageIndex]);
 
   return (
     <div className="gallery">
@@ -78,12 +98,6 @@ const CardGallery = ({ projects }: ICardGalleryProps) => {
         >
           <Card.Content>
             <Card.Header>{projects[imageIndex].title}</Card.Header>
-            {/* <Divider
-              width={100}
-              color={themeColor}
-              variants={lineAnim}
-              initial="hidden"
-            /> */}
             <Card.Body>{projects[imageIndex].preview}</Card.Body>
             <Card.Button onClick={() => {}}>🠚</Card.Button>
           </Card.Content>
@@ -93,17 +107,7 @@ const CardGallery = ({ projects }: ICardGalleryProps) => {
         <motion.div className="prev" onClick={() => paginate(1)}>
           <i className="ri-arrow-left-s-fill"></i>
         </motion.div>
-        {pages.map((_, index: number) => {
-          console.log(index);
-          return (
-            <motion.div
-              className="page-indicator"
-              animate={{
-                opacity: imageIndex === index ? 1 : 0.3,
-              }}
-            />
-          );
-        })}
+        {renderIndicators}
         <motion.div className="next" onClick={() => paginate(-1)}>
           <i className="ri-arrow-right-s-fill"></i>
         </motion.div>
