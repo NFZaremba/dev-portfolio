@@ -6,8 +6,8 @@ import {
   subAnim,
 } from "../../shared/animation";
 import programmer from "../../assets/img/programmer.svg";
-import useScroll from "../../hooks/useScroll";
 import { fullpageApi } from "@fullpage/react-fullpage";
+import { useScroll } from "../../utils";
 
 //* Types
 interface IIntroProps {

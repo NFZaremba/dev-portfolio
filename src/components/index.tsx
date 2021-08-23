@@ -3,9 +3,9 @@ import FrameTransition from "./FrameTransition";
 import Parallax from "./Parallax";
 import PageSlider from "./PageSlider";
 import Button from "./Button";
-import Card from "./Card";
 import ImageFrame from "./Image";
 import Divider from "./Divider";
+import Gallery from "./Gallery";
 
 export {
   Navbar,
@@ -13,7 +13,7 @@ export {
   Parallax,
   PageSlider,
   Button,
-  Card,
   ImageFrame as Image,
   Divider,
+  Gallery,
 };

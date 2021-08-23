@@ -1,4 +1,4 @@
-import { PageSlider } from "../../components";
+import { PageSlider, Gallery } from "../../components";
 import {
   fullpageAnimation,
   contentAnim,
@@ -7,8 +7,7 @@ import {
 import { IProject } from "./types";
 import athlete from "../../assets/img/athlete-small.png";
 import theracer from "../../assets/img/theracer-small.png";
-import useScroll from "../../hooks/useScroll";
-import CardGallery from "./CardGallery";
+import { useScroll } from "../../utils";
 
 // TODO: change to include personal projects
 export const projects: IProject[] = [
@@ -75,8 +74,12 @@ const MyWork = () => {
         initial="hidden"
         variants={contentAnim}
       >
-        {/* <CardList history={history} projects={projects} inView={inView} /> */}
-        <CardGallery projects={projects} />
+        <Gallery projects={projects}>
+          <Gallery.Image swipeThreshold={10000}>
+            <Gallery.Content />
+          </Gallery.Image>
+          <Gallery.Controls />
+        </Gallery>
       </PageSlider.Content>
     </PageSlider>
   );

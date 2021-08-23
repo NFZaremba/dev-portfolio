@@ -5,8 +5,8 @@ import {
   subAnim,
 } from "../../shared/animation";
 import { PageSlider, Button } from "../../components";
-import useScroll from "../../hooks/useScroll";
 import { fullpageApi } from "@fullpage/react-fullpage";
+import { useScroll } from "../../utils";
 
 export interface IContactLinks {
   title: string;

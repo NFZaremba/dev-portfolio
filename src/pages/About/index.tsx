@@ -4,7 +4,7 @@ import {
   contentAnim,
   titleAnim,
 } from "../../shared/animation";
-import useScroll from "../../hooks/useScroll";
+import { useScroll } from "../../utils";
 import InfoLayout from "./InfoLayout";
 
 const About = () => {
