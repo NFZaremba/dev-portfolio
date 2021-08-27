@@ -4,4 +4,5 @@ export interface IImageProps extends HTMLMotionProps<any> {
   src: string;
   alt: string;
   classes?: string;
+  animation?: boolean;
 }

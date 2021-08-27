@@ -31,7 +31,7 @@ const containerAnim = {
     width: "100%",
     transition: {
       ease: [0.76, 0, 0.24, 1],
-      duration: 0.9,
+      duration: 1,
     },
   },
 };
@@ -43,7 +43,7 @@ const imageAnim = {
   show: {
     opacity: 1,
     transition: {
-      duration: 5,
+      duration: 1,
     },
   },
 };
@@ -57,14 +57,20 @@ const imageAnim = {
  * @param props
  * @returns
  */
-const Image = ({ src, alt, classes, ...props }: IImageProps): JSX.Element => {
+const Image = ({
+  src,
+  alt,
+  classes,
+  animation = true,
+  ...props
+}: IImageProps): JSX.Element => {
   return (
     <ImageContainer
       className={classnames("image", classes)}
       variants={containerAnim}
       {...props}
     >
-      <FrameTransition />
+      {animation ? <FrameTransition /> : null}
       <ImageFrame variants={imageAnim} src={src} alt={alt} />
     </ImageContainer>
   );

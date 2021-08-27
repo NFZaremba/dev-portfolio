@@ -45,48 +45,6 @@ const GlobalStyle = createGlobalStyle`
         color: #fff;
     }
 
-    // Gallery
-    .gallery {
-        height: 100%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-    }
-    .gallery-controls {
-        display: flex;
-        position: absolute;
-        align-items: center;
-        left: 50%;
-        margin: auto;
-        transform: translate(-50%, -50%);
-        bottom: -12px;
-        
-        @media (max-width: 800px){
-            bottom: -18px;
-        }
-
-        @media (max-width: 420px){
-            bottom: -30px;
-        } 
-    }
-    .next, .prev {
-        display: flex;
-        cursor: pointer;
-        margin: .5rem;
-        flex: 1;
-        &:hover {
-            background: hsl(0deg 0% 29% / 21%);
-            box-shadow: 0 0px 15px -6px rgb(255 255 255 / 40%);
-            transition: 0.4s;
-        }
-        i {
-            color: #fff;
-            font-size: 2.1rem;
-        }
-
-    }
-
-
     // Overrides
     #fp-nav.fp-left {
         padding-left: 2rem;

@@ -5,10 +5,10 @@ import {
   titleAnim,
 } from "../../shared/animation";
 import { useScroll } from "../../utils";
-import InfoLayout from "./InfoLayout";
+import Profile from "./Profile";
 
 const About = () => {
-  const [ref, controls] = useScroll();
+  const [ref, controls, inView] = useScroll();
 
   return (
     <PageSlider
@@ -18,7 +18,7 @@ const About = () => {
       animate={controls}
     >
       <PageSlider.Title>
-        <PageSlider.Header variants={titleAnim}>About Me</PageSlider.Header>
+        <PageSlider.Header variants={titleAnim}>Profile</PageSlider.Header>
         <PageSlider.SubHeader variants={titleAnim}>
           Software Developer
         </PageSlider.SubHeader>
@@ -28,7 +28,7 @@ const About = () => {
         initial="hidden"
         variants={contentAnim}
       >
-        <InfoLayout></InfoLayout>
+        <Profile inView={inView} />
       </PageSlider.Content>
     </PageSlider>
   );

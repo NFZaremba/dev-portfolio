@@ -1,4 +1,4 @@
-import { PageSlider, Gallery } from "../../components";
+import { PageSlider } from "../../components";
 import {
   fullpageAnimation,
   contentAnim,
@@ -8,13 +8,13 @@ import { IProject } from "./types";
 import athlete from "../../assets/img/athlete-small.png";
 import theracer from "../../assets/img/theracer-small.png";
 import { useScroll } from "../../utils";
+import Gallery from "./Gallery";
 
 // TODO: change to include personal projects
 export const projects: IProject[] = [
   {
     id: "athlete",
     title: "The Athlete",
-    themeColor: "#ff0055",
     techStack: [
       "react",
       "typescript",
@@ -27,14 +27,14 @@ export const projects: IProject[] = [
       src: athlete,
       alt: "athlete",
     },
-    preview: "This is a preview project",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    githubLink: "/",
+    websiteLink: "/",
   },
   {
     id: "racer",
     title: "The Racer",
-    themeColor: "#0099ff",
     techStack: [
       "react",
       "typescript",
@@ -47,9 +47,10 @@ export const projects: IProject[] = [
       src: theracer,
       alt: "racer",
     },
-    preview: "This is a preview project",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    githubLink: "/",
+    websiteLink: "/",
   },
 ];
 
@@ -78,7 +79,6 @@ const MyWork = () => {
           <Gallery.Image swipeThreshold={10000}>
             <Gallery.Content />
           </Gallery.Image>
-          <Gallery.Controls />
         </Gallery>
       </PageSlider.Content>
     </PageSlider>

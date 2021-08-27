@@ -5,7 +5,6 @@ import PageSlider from "./PageSlider";
 import Button from "./Button";
 import ImageFrame from "./Image";
 import Divider from "./Divider";
-import Gallery from "./Gallery";
 
 export {
   Navbar,
@@ -15,5 +14,4 @@ export {
   Button,
   ImageFrame as Image,
   Divider,
-  Gallery,
 };
