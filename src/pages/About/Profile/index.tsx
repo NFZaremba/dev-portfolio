@@ -24,6 +24,7 @@ type overviewType = String[];
 type offsetType = {
   x: number;
   y: number;
+  rotate?: number;
 };
 
 interface IProfileData {
@@ -43,7 +44,8 @@ const profileData: IProfileData[] = [
     overview: [],
     offset: {
       x: 150,
-      y: 50,
+      y: 150,
+      rotate: 20,
     },
     color: "#f08",
   },
@@ -55,6 +57,7 @@ const profileData: IProfileData[] = [
     offset: {
       x: 50,
       y: 150,
+      rotate: 60,
     },
     color: "#d0e",
   },
@@ -64,8 +67,9 @@ const profileData: IProfileData[] = [
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     overview: [],
     offset: {
-      x: -100,
+      x: -120,
       y: 150,
+      rotate: -20,
     },
     color: "#91f",
   },
@@ -75,8 +79,9 @@ const profileData: IProfileData[] = [
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     overview: [],
     offset: {
-      x: -200,
-      y: 50,
+      x: -220,
+      y: 150,
+      rotate: -60,
     },
     color: "#70f",
   },
@@ -109,10 +114,15 @@ const cardAnim = {
 };
 
 const iconAnim = {
-  hidden: { x: -50, y: -50, opacity: 1, zIndex: -1 },
+  hidden: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+  },
   show: ([position, index]: [offsetType, number]) => ({
     x: position.x,
     y: position.y,
+    rotate: position.rotate,
     opacity: 1,
     transition: {
       delay: index * 0.3,
@@ -121,41 +131,6 @@ const iconAnim = {
 };
 
 // ======== Components ======== //
-
-interface ISectionIcon extends IBaseComponentPropsWithMotion {
-  color: string;
-  isHovered: boolean;
-  onClick: () => void;
-  icon: string;
-}
-
-const SectionIcon = ({
-  color,
-  isHovered,
-  onClick,
-  icon,
-  layoutId,
-  ...props
-}: ISectionIcon) => {
-  return (
-    <Icon
-      layoutId={layoutId}
-      onClick={onClick}
-      style={{ backgroundColor: color }}
-      {...props}
-    >
-      {isHovered && (
-        <motion.div
-          layoutId="outline"
-          className="outline"
-          initial={false}
-          animate={{ borderColor: color }}
-          transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        />
-      )}
-    </Icon>
-  );
-};
 
 const SectionModal = ({ id, onClick }: { id: string; onClick: () => void }) => {
   const item = profileData.find((item) => item.id === id);
@@ -186,16 +161,45 @@ const SectionModal = ({ id, onClick }: { id: string; onClick: () => void }) => {
   );
 };
 
+interface ISectionIcon extends IBaseComponentPropsWithMotion {
+  color: string;
+  onClick: () => void;
+  icon: string;
+}
+
+const SectionIcon = ({
+  color,
+  onClick,
+  icon,
+  layoutId,
+  ...props
+}: ISectionIcon) => {
+  return (
+    <Icon
+      layoutId={layoutId}
+      onClick={onClick}
+      style={{ backgroundColor: color }}
+      {...props}
+    >
+      <i className={`icon ri-${icon}-line`}></i>
+    </Icon>
+  );
+};
+
 const Profile = ({ inView }: { inView: boolean }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [isHovered, setIsHovered] = useState<string | null>(null);
   const [animateList, setAnimateList] = useState(false);
   const animation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       setAnimateList(false);
-      await animation.start({ scale: 1.5, transition: { duration: 1.2 } });
+      await animation.start({ x: -50, y: -50, opacity: 0 });
+      await animation.start({
+        scale: 1.5,
+        opacity: 1,
+        transition: { duration: 1.5 },
+      });
       await animation.start({
         scale: 1,
         y: -200,
@@ -207,18 +211,24 @@ const Profile = ({ inView }: { inView: boolean }) => {
   }, [inView, animation]);
 
   return (
-    <ProfileContainer initial="hidden" animate="show">
+    <ProfileContainer
+      className="profile-container"
+      initial="hidden"
+      animate="show"
+    >
       <AnimateSharedLayout>
-        <IconList animate={animation}>
-          <ProfileIcon image={profile} className="profile-icon" />
+        <IconList>
+          <ProfileIcon
+            animate={animation}
+            image={profile}
+            className="profile-icon"
+          />
           {profileData.map((itemData, index) => (
             <SectionIcon
               key={index}
               layoutId={itemData.id}
               color={itemData.color}
-              isHovered={selectedId === itemData.id}
-              onClick={() => setIsHovered(itemData.id)}
-              //whileHover={() => setIsHovered(itemData.id)}
+              onClick={() => setSelectedId(itemData.id)}
               icon={itemData.icon}
               custom={[itemData.offset, index]}
               variants={iconAnim}
@@ -228,11 +238,11 @@ const Profile = ({ inView }: { inView: boolean }) => {
           ))}
         </IconList>
 
-        {/* <AnimatePresence>
+        <AnimatePresence>
           {selectedId && (
             <SectionModal id={selectedId} onClick={() => setSelectedId(null)} />
           )}
-        </AnimatePresence> */}
+        </AnimatePresence>
       </AnimateSharedLayout>
 
       {/* <AnimateSharedLayout>

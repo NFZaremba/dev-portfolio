@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const ProfileContainer = styled(motion.div)`
-  position: "relative";
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +10,18 @@ export const ProfileContainer = styled(motion.div)`
   /* background: linear-gradient(135deg, #70f, #40f); */
   border: 1px solid #40f;
   border-radius: 1rem;
+`;
+
+export const ProfileIcon = styled(motion.div)<{ image: string }>`
+  position: absolute;
+  /* top: 50%;
+  left: 50%; */
+
+  width: 150px;
+  height: 150px;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  border-radius: 50%;
 `;
 
 // export const IconContainer = styled(motion.div)`
@@ -30,29 +42,27 @@ export const Icon = styled(motion.li)`
   background: #fff;
   list-style: none;
   z-index: 1;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  top: 50%;
-  left: 50%;
+  /* top: 50%;
+  left: 50%; */
   cursor: pointer;
 
-  .outline {
+  .icon {
+    font-size: 3rem;
+    color: #fff;
     position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    border: 10px solid white;
-    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
-
 export const IconList = styled(motion.ul)`
-  position: relative;
-  /* top: 50%;
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%);
   width: 100%; */
   height: 100%;
   /* padding: 4rem; */
@@ -179,16 +189,4 @@ export const ModalOverlay = styled(motion.div)`
   height: 100%;
   border-radius: 1rem;
   background: #000;
-`;
-
-export const ProfileIcon = styled(motion.div)<{ image: string }>`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
-  background-image: url(${(props) => props.image});
-  background-size: cover;
-  border-radius: 50%;
 `;

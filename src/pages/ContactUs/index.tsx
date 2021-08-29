@@ -42,9 +42,7 @@ const ContactUs: React.FC<IContactProps> = ({ moveUp }) => {
         initial="hidden"
         variants={contentAnim}
       >
-        <form>
-          <div>form here</div>
-        </form>
+        <h1 style={{ color: "#fff" }}>Use shared layout animation here</h1>
       </PageSlider.Content>
     </PageSlider>
   );
