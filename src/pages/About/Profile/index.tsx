@@ -11,9 +11,11 @@ import {
   ModalContainer,
   ProfileContainer,
   ModalOverlay,
-  Icon,
-  IconList,
   ProfileIcon,
+  Layout,
+  Card,
+  CardOverlay,
+  ModalText,
 } from "./styles";
 import profile from "../../../assets/img/profile.png";
 
@@ -29,6 +31,7 @@ type offsetType = {
 
 interface IProfileData {
   id: string;
+  title: string;
   icon: string;
   text: string;
   overview: overviewType;
@@ -39,6 +42,7 @@ interface IProfileData {
 const profileData: IProfileData[] = [
   {
     id: "about",
+    title: "About",
     icon: "earth",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     overview: [],
@@ -51,6 +55,7 @@ const profileData: IProfileData[] = [
   },
   {
     id: "skills",
+    title: "Skills",
     icon: "home",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     overview: [],
@@ -63,6 +68,7 @@ const profileData: IProfileData[] = [
   },
   {
     id: "experience",
+    title: "Experience",
     icon: "stack",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     overview: [],
@@ -75,6 +81,7 @@ const profileData: IProfileData[] = [
   },
   {
     id: "hobbies",
+    title: "Hobbies",
     icon: "award",
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     overview: [],
@@ -89,46 +96,47 @@ const profileData: IProfileData[] = [
 
 // ======== Animations ======== //
 
-const containerAnim = {
-  hidden: { opacity: 1 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
+// const containerAnim = {
+//   hidden: { opacity: 1 },
+//   show: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//       delayChildren: 0.3,
+//     },
+//   },
+// };
 
 const cardAnim = {
-  hidden: { y: 20, scale: 0 },
-  show: {
-    y: 0,
+  hidden: { top: 1000, scale: 0, transition: { duration: 1 } },
+  show: (index: number) => ({
     scale: 1,
+    top: 0,
     transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 20,
-    },
-  },
-};
-
-const iconAnim = {
-  hidden: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-  },
-  show: ([position, index]: [offsetType, number]) => ({
-    x: position.x,
-    y: position.y,
-    rotate: position.rotate,
-    opacity: 1,
-    transition: {
+      // type: "spring",
+      // stiffness: 100,
+      // damping: 20,
       delay: index * 0.3,
     },
   }),
 };
+
+// const iconAnim = {
+//   hidden: {
+//     x: 0,
+//     y: 0,
+//     opacity: 1,
+//   },
+//   show: ([position, index]: [offsetType, number]) => ({
+//     x: position.x,
+//     y: position.y,
+//     rotate: position.rotate,
+//     opacity: 1,
+//     transition: {
+//       delay: 0.3,
+//     },
+//   }),
+// };
 
 // ======== Components ======== //
 
@@ -144,10 +152,10 @@ const SectionModal = ({ id, onClick }: { id: string; onClick: () => void }) => {
           key={id}
           className="modal"
           layoutId={id}
-          animate={{ x: 0, y: 100 }}
-          exit={{ x: item?.offset.x, y: item?.offset.y }}
           transition={{ duration: 0.5 }}
-        />
+        >
+          <ModalText>{item?.text}</ModalText>
+        </Modal>
       </ModalContainer>
       <ModalOverlay
         className="modal__overlay"
@@ -161,30 +169,30 @@ const SectionModal = ({ id, onClick }: { id: string; onClick: () => void }) => {
   );
 };
 
-interface ISectionIcon extends IBaseComponentPropsWithMotion {
-  color: string;
-  onClick: () => void;
-  icon: string;
-}
+// interface ISectionIcon extends IBaseComponentPropsWithMotion {
+//   color: string;
+//   onClick: () => void;
+//   icon: string;
+// }
 
-const SectionIcon = ({
-  color,
-  onClick,
-  icon,
-  layoutId,
-  ...props
-}: ISectionIcon) => {
-  return (
-    <Icon
-      layoutId={layoutId}
-      onClick={onClick}
-      style={{ backgroundColor: color }}
-      {...props}
-    >
-      <i className={`icon ri-${icon}-line`}></i>
-    </Icon>
-  );
-};
+// const SectionIcon = ({
+//   color,
+//   onClick,
+//   icon,
+//   layoutId,
+//   ...props
+// }: ISectionIcon) => {
+//   return (
+//     <Icon
+//       layoutId={layoutId}
+//       onClick={onClick}
+//       style={{ backgroundColor: color }}
+//       {...props}
+//     >
+//       <i className={`icon ri-${icon}-line`}></i>
+//     </Icon>
+//   );
+// };
 
 const Profile = ({ inView }: { inView: boolean }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -194,7 +202,7 @@ const Profile = ({ inView }: { inView: boolean }) => {
   useEffect(() => {
     async function sequence() {
       setAnimateList(false);
-      await animation.start({ x: -50, y: -50, opacity: 0 });
+      // await animation.start({ x: -50, y: -50, opacity: 0 });
       await animation.start({
         scale: 1.5,
         opacity: 1,
@@ -202,7 +210,6 @@ const Profile = ({ inView }: { inView: boolean }) => {
       });
       await animation.start({
         scale: 1,
-        y: -200,
         transition: { duration: 0.7 },
       });
       setAnimateList(true);
@@ -213,10 +220,10 @@ const Profile = ({ inView }: { inView: boolean }) => {
   return (
     <ProfileContainer
       className="profile-container"
-      initial="hidden"
-      animate="show"
+      // initial="hidden"
+      // animate="show"
     >
-      <AnimateSharedLayout>
+      {/* <AnimateSharedLayout>
         <IconList>
           <ProfileIcon
             animate={animation}
@@ -243,26 +250,41 @@ const Profile = ({ inView }: { inView: boolean }) => {
             <SectionModal id={selectedId} onClick={() => setSelectedId(null)} />
           )}
         </AnimatePresence>
-      </AnimateSharedLayout>
+      </AnimateSharedLayout> */}
 
-      {/* <AnimateSharedLayout>
-        <Layout className="layout__grid" variants={containerAnim}>
-          <Card
-            key="profile-avatar"
-            className="layout__item"
-            layoutId="profile-avatar"
-            onClick={() => setSelectedId("profile-avatar")}
-            variants={cardAnim}
-          >
-            <CardOverlay
-              className="card__overlay"
-              header="'Profile'"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              exit={{ opacity: 0, transition: { duration: 0.5 } }}
-              transition={{ duration: 0.2, delay: 0.2 }}
-            />
-          </Card>
+      <AnimateSharedLayout>
+        <ProfileIcon
+          animate={animation}
+          image={profile}
+          className="profile-icon"
+        />
+        <Layout
+          className="layout__grid"
+          // variants={containerAnim}
+          // initial="hidden"
+          // animate={animateList ? "show" : "hidden"}
+        >
+          {profileData.map(({ id, title }, index) => (
+            <Card
+              key={id}
+              className="layout__item"
+              layoutId={id}
+              onClick={() => setSelectedId(id)}
+              variants={cardAnim}
+              custom={index}
+              initial="hidden"
+              animate={animateList ? "show" : "hidden"}
+            >
+              <CardOverlay
+                className="card__overlay"
+                header={`'${title}'`}
+                // initial={{ opacity: 0 }}
+                animate={{ opacity: 0.8 }}
+                exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                transition={{ duration: 0.2, delay: 0.2 }}
+              />
+            </Card>
+          ))}
         </Layout>
 
         <AnimatePresence>
@@ -270,7 +292,7 @@ const Profile = ({ inView }: { inView: boolean }) => {
             <SectionModal id={selectedId} onClick={() => setSelectedId(null)} />
           )}
         </AnimatePresence>
-      </AnimateSharedLayout> */}
+      </AnimateSharedLayout>
     </ProfileContainer>
   );
 };
