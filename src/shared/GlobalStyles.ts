@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
 
     p {
         color: #fff;
+        line-height: 26px;
     }
 
     // Overrides
