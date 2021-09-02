@@ -16,66 +16,33 @@ export const ProfileIcon = styled(motion.div)<{ image: string }>`
   position: absolute;
   /* top: 50%;
   left: 50%; */
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  width: 300px;
-  height: 300px;
+  /* transform: translate(-50%, -50%); */
+  transform: scale(0);
+  /* z-index: 1; */
+  width: 100%;
+  height: 100%;
   background-image: url(${(props) => props.image});
   background-size: cover;
-  border-radius: 50%;
+  border-radius: 0.6rem;
 
   &:after {
     content: "";
     position: absolute;
-    border-radius: 50%;
+    border-radius: 0.6rem;
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #70f, #40f);
     opacity: 0.4;
   }
-  /* 
-  @media (max-width: 1200px) {
-    width: 250px;
-    height: 250px;
-  }
 
-  @media (max-width: 1000px) {
-    width: 200px;
-    height: 200px;
-  } */
+  @media (max-width: 450px) {
+    background-size: cover;
+    /* object-fit: cover; */
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 `;
 
-// export const Icon = styled(motion.li)`
-//   position: absolute;
-//   background: #fff;
-//   list-style: none;
-//   z-index: 1;
-//   width: 100px;
-//   height: 100px;
-//   border-radius: 50%;
-//   /* top: 50%;
-//   left: 50%; */
-//   cursor: pointer;
-
-//   .icon {
-//     font-size: 3rem;
-//     color: #fff;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//   }
-// `;
-// export const IconList = styled(motion.ul)`
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   /* transform: translate(-50%, -50%);
-//   width: 100%; */
-//   height: 100%;
-//   /* padding: 4rem; */
-//   margin: 0;
-// `;
 export const Layout = styled(motion.div)`
   position: absolute;
   height: 100%;
@@ -111,7 +78,7 @@ export const Layout = styled(motion.div)`
 
   @media (max-width: 420px) {
     padding: 2rem;
-    grid-gap: 2rem;
+    grid-gap: 1rem;
   }
 `;
 
@@ -156,33 +123,20 @@ export const CardTitle = styled(motion.div)`
 `;
 
 export const CardText = styled(motion.div)`
-  padding: 7rem 5rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7rem 2rem 3rem;
   background: #000;
   max-width: 700px;
   color: #fff;
   height: 100%;
+  width: 100%;
+
+  p {
+    width: clamp(45ch, 50%, 75ch);
+  }
 `;
-
-// export const CardOverlay = styled(motion.div)<{ header: string }>`
-//   position: absolute;
-//   z-index: 0;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 1rem;
-//   background: linear-gradient(145deg, #72f, #c1b);
-
-//   &:after {
-//     content: ${(props) => props.header};
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     font-size: 2.5rem;
-//     color: #fff;
-//   }
-// `;
 
 export const CardExpandedContainer = styled(motion.div)`
   position: absolute;
@@ -223,23 +177,31 @@ export const CardExpanded = styled(motion.div)`
   width: 100%;
   height: 100%;
   z-index: 999;
-  /* flex: 1 1 auto; */
-  /* background: linear-gradient(145deg, #72f, #c1b); */
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1),
     0 10px min(calc(1rem * (15 / (20 + 0.167 * 0))), 15px) 0 rgba(0, 0, 0, 0.06);
   pointer-events: all;
   will-change: transform;
-  /* padding: 2rem; */
   border-radius: 1.2rem;
 `;
 
 export const Overlay = styled(motion.div)`
   position: absolute;
-  z-index: 0;
+  /* z-index: 0; */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border-radius: 1rem;
   background: #0f0f10;
+`;
+
+export const ListItem = styled.div`
+  display: flex;
+  align-items: center;
+  white-space: pre-wrap;
+
+  i {
+    margin-right: 1rem;
+    color: #c1b;
+  }
 `;

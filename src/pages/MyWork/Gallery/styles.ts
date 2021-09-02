@@ -7,6 +7,7 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  margin: 0 1rem;
 `;
 
 export const Controls = styled.div`
@@ -16,14 +17,14 @@ export const Controls = styled.div`
   left: 50%;
   margin: auto;
   transform: translate(-50%, -50%);
-  bottom: -12px;
+  bottom: -18px;
 
-  @media (max-width: 800px) {
+  /* @media (max-width: 800px) {
     bottom: -18px;
-  }
+  } */
 
   @media (max-width: 420px) {
-    bottom: -30px;
+    bottom: -25px;
   }
 `;
 

@@ -42,6 +42,7 @@ export const Content = styled(motion.div)`
 
   @media (max-width: 420px) {
     height: 40%;
+    margin: 0px 3% 0;
   }
 `;
 
