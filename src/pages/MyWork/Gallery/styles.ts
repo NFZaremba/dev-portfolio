@@ -19,10 +19,6 @@ export const Controls = styled.div`
   transform: translate(-50%, -50%);
   bottom: -18px;
 
-  /* @media (max-width: 800px) {
-    bottom: -18px;
-  } */
-
   @media (max-width: 420px) {
     bottom: -25px;
   }
