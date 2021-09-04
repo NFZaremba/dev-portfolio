@@ -5,7 +5,7 @@ import {
   fullpageAnimation,
   subAnim,
 } from "../../shared/animation";
-import programmer from "../../assets/img/programmer.svg";
+import seattle from "../../assets/img/seattle.jpg";
 import { fullpageApi } from "@fullpage/react-fullpage";
 import { useScroll } from "../../utils";
 
@@ -41,7 +41,7 @@ const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
         initial="hidden"
         variants={contentAnim}
       >
-        <Image src={programmer} alt="guy with camera" initial="hidden" />
+        <Image src={seattle} alt="seattle" initial="hidden" />
       </PageSlider.Content>
     </PageSlider>
   );

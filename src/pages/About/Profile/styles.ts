@@ -12,11 +12,7 @@ export const Container = styled(motion.div)`
 
 export const Icon = styled(motion.div)<{ image: string }>`
   position: absolute;
-  /* top: 50%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
   transform: scale(0);
-  /* z-index: 1; */
   width: 100%;
   height: 100%;
   background-image: url(${(props) => props.image});

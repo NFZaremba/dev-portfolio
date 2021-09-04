@@ -11,7 +11,7 @@ import {
   titleAnim,
 } from "../../shared/animation";
 import { useScroll } from "../../utils";
-import ProfileCard from "./Card";
+import ProfileCard from "./Profile/Card";
 import Profile from "./Profile";
 import { profileData } from "./__data__";
 import profile from "../../assets/img/profile.png";
@@ -60,16 +60,16 @@ const About = () => {
       await animation.start({
         scale: 1.5,
         opacity: 1,
-        transition: { duration: 0.9 },
+        transition: { duration: 0.5 },
       });
       await animation.start({
         scale: 1,
-        transition: { duration: 0.7 },
+        transition: { duration: 0.5 },
       });
       await animation.start({
         top: 0,
         left: 0,
-        transition: { duration: 0.7 },
+        transition: { duration: 0.5 },
       });
       setAnimateList(true);
     }

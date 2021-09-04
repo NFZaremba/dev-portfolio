@@ -1,25 +1,8 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
 import classnames from "classnames";
 import { IImageProps } from "./types";
 import { FrameTransition } from "..";
+import { Container, ImageFrame } from "./styles";
 
-//* Styles
-export const ImageFrame = styled(motion.img)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-export const ImageContainer = styled(motion.div)`
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  border-radius: 1rem;
-`;
-
-//* Animations
 const containerAnim = {
   hidden: {
     width: 0,
@@ -65,14 +48,14 @@ const Image = ({
   ...props
 }: IImageProps): JSX.Element => {
   return (
-    <ImageContainer
+    <Container
       className={classnames("image", classes)}
       variants={containerAnim}
       {...props}
     >
       {animation ? <FrameTransition /> : null}
       <ImageFrame variants={imageAnim} src={src} alt={alt} />
-    </ImageContainer>
+    </Container>
   );
 };
 
