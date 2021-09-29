@@ -36,12 +36,8 @@ const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
           Learn More
         </Button>
       </PageSlider.Title>
-      <PageSlider.Content
-        animate={controls}
-        initial="hidden"
-        variants={contentAnim}
-      >
-        <Image src={seattle} alt="seattle" initial="hidden" />
+      <PageSlider.Content variants={contentAnim}>
+        <Image src={seattle} alt="seattle" />
       </PageSlider.Content>
     </PageSlider>
   );

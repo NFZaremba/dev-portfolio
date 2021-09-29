@@ -168,7 +168,6 @@ const PageSliderContent = ({
   return (
     <Content className={classnames("page-slider__content", classes)} {...props}>
       {children}
-      {/* <PageTransition /> */}
     </Content>
   );
 };

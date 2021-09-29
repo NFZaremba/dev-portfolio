@@ -7,7 +7,7 @@ const containerAnim = {
   hidden: {
     width: 0,
     transition: {
-      duration: 2,
+      duration: 0.6,
     },
   },
   show: {
