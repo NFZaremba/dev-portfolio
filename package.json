@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "start": "react-scripts start",
-    "test": "react-scripts test"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -27,6 +27,7 @@
     ]
   },
   "dependencies": {
+    "@craco/craco": "^6.3.0",
     "@fullpage/react-fullpage": "0.1.19",
     "@popmotion/popcorn": "0.4.4",
     "classnames": "2.3.1",
@@ -52,6 +53,9 @@
     "@types/react-dom": "17.0.9",
     "@types/react-router-dom": "5.3.0",
     "@types/styled-components": "5.1.14",
+    "autoprefixer": "^9.8.7",
+    "postcss": "^7.0.38",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16",
     "typescript": "^4.4.3"
   }
 }

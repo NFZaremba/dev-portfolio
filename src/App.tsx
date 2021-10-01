@@ -6,11 +6,14 @@ import About from "./pages/About";
 import MyWork from "./pages/MyWork";
 import ContactUs from "./pages/ContactUs";
 
+import "remixicon/fonts/remixicon.css";
+import "./App.css";
+
 function App() {
   console.log(process.env.NODE_ENV);
   return (
     <div className="App">
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Navbar />
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}

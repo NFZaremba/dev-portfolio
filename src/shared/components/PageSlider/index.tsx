@@ -46,6 +46,39 @@ export const Content = styled(motion.div)`
   }
 `;
 
+export const Header = styled(motion.h2)`
+  font-size: 8rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  background: linear-gradient(145deg, #72f, #c1b);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  z-index: 999;
+`;
+
+export const SubHeader = styled(motion.h3)`
+  padding: 0 2rem 3rem 2rem;
+  font-size: 3rem;
+  line-height: 150%;
+`;
+
+const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
+  ({ children, classes, ...props }: IPageSliderProps, ref): JSX.Element => {
+    return (
+      <Container
+        ref={ref}
+        className={classnames("page-slider", classes)}
+        {...props}
+      >
+        {children}
+      </Container>
+    );
+  }
+) as IPageSliderComp;
+
 export const Title = styled(motion.div)`
   position: absolute;
   z-index: 999;
@@ -87,53 +120,22 @@ export const Title = styled(motion.div)`
     }
   }
 `;
-
-export const Header = styled(motion.h2)`
-  font-size: 8rem;
-  line-height: 1;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
-  font-weight: normal;
-  background: linear-gradient(145deg, #72f, #c1b);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  z-index: 999;
-`;
-
-export const SubHeader = styled(motion.h3)`
-  padding: 0 2rem 3rem 2rem;
-  font-size: 3rem;
-  line-height: 150%;
-`;
-
-/**
-  Page Slider 
-
-  used for Full Page Sections
-*/
-const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
-  ({ children, classes, ...props }: IPageSliderProps, ref): JSX.Element => {
-    return (
-      <Container
-        ref={ref}
-        className={classnames("page-slider", classes)}
-        {...props}
-      >
-        {children}
-      </Container>
-    );
-  }
-) as IPageSliderComp;
-
 const PageSliderTitle = ({
   children,
-  classes,
   ...props
 }: IPageSliderProps): JSX.Element => (
-  <Title className={classnames("page-slider__title", classes)} {...props}>
-    {children}
-  </Title>
+  <>
+    {/* <Title {...props}>{children}</Title> */}
+    <div
+      className="
+    absolute overflow-hidden transform -translate-y-1/2 ml-20
+    sm:top-3/4
+    lg:top-2/4 
+    "
+    >
+      {children}
+    </div>
+  </>
 );
 
 const PageSliderHeader = ({
