@@ -1,4 +1,4 @@
-import { IBaseComponentPropsWithMotion } from "../../shared/types";
+import { IBaseComponentPropsWithMotion } from "../../types";
 
 export type IPageSliderProps = IBaseComponentPropsWithMotion;
 

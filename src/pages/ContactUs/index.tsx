@@ -4,9 +4,9 @@ import {
   titleAnim,
   subAnim,
 } from "../../shared/animation";
-import { PageSlider, Button, Image } from "../../components";
+import { PageSlider, Button, Image } from "../../shared/components";
 import { fullpageApi } from "@fullpage/react-fullpage";
-import { useScroll } from "../../utils";
+import { useScroll } from "../../shared/utils";
 import cell from "../../assets/img/phone.jpg";
 
 export interface IContactLinks {

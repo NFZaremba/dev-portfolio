@@ -1,3 +1,118 @@
+// import classnames from "classnames";
+// import { IBaseComponentPropsWithMotion } from "../../../../shared/types";
+// import { IProfileData } from "../../__data__";
+// import {
+//   Background,
+//   Container,
+//   ExpandedCard,
+//   ExpandedContainer,
+//   Title,
+//   Text,
+//   Overlay,
+//   ListItem,
+// } from "./styles";
+
+// export interface IProfileCardProps extends IBaseComponentPropsWithMotion {}
+// export interface IProfileHeaderProps extends IBaseComponentPropsWithMotion {}
+// export interface IExpandedProps {
+//   item: IProfileData | undefined;
+//   onClick: () => void;
+// }
+
+// const ProfileCard = ({
+//   id,
+//   children,
+//   classes,
+//   onClick,
+//   ...props
+// }: IProfileCardProps) => {
+//   return (
+//     <Container
+//       // layoutId={`background-${id}`}
+//       className={classnames("Profile-Card", classes)}
+//       onClick={onClick}
+//       {...props}
+//     >
+//       <Background
+//         className="expanded-card__background"
+//         layoutId={`background-${id}`}
+//         layout
+//       />
+//       {children}
+//     </Container>
+//   );
+// };
+
+// const Header = ({ id, children, ...props }: IProfileHeaderProps) => {
+//   return (
+//     <Title
+//       className="expanded-card__title"
+//       layoutId={`title-${id}`}
+//       layout
+//       {...props}
+//     >
+//       {children}
+//     </Title>
+//   );
+// };
+
+// const Expanded = ({ item, onClick, ...props }: IExpandedProps) => {
+//   const id = item?.id;
+//   return (
+//     <>
+//       <ExpandedContainer className="expanded__container ">
+//         <ExpandedCard
+//           className="expanded-card open"
+//           // layoutId={`background-card-${layoutId}`}
+//           //layout
+//         >
+//           <Background
+//             className="expanded-card__background"
+//             layoutId={`background-${id}`}
+//             layout
+//             style={{ height: "22%" }}
+//           />
+//           <Header
+//             className="expanded-card__title open"
+//             layoutId={`title-${id}`}
+//             layout
+//           >
+//             <h3>{item?.title}</h3>
+//           </Header>
+//           <Text
+//             className="expanded-card__text open"
+//             animate
+//             layoutId={`text-${id}`}
+//             layout
+//           >
+//             <div>
+//               {item?.list.map((text: string) => (
+//                 <ListItem key={text} className="expanded-card__list-item">
+//                   <i className="ri-checkbox-circle-fill"></i>
+//                   <p>{text}</p>
+//                 </ListItem>
+//               ))}
+//             </div>
+//           </Text>
+//         </ExpandedCard>
+//       </ExpandedContainer>
+//       <Overlay
+//         className="modal__overlay"
+//         initial={{ opacity: 0 }}
+//         animate={{ opacity: 0.8 }}
+//         exit={{ opacity: 0, transition: { duration: 0.5 } }}
+//         transition={{ duration: 0.2, delay: 0.2 }}
+//         onClick={onClick}
+//       />
+//     </>
+//   );
+// };
+
+// ProfileCard.Expanded = Expanded;
+// ProfileCard.Header = Header;
+
+// export default ProfileCard;
+
 import classnames from "classnames";
 import { IBaseComponentPropsWithMotion } from "../../../../shared/types";
 import { IProfileData } from "../../__data__";
@@ -25,6 +140,7 @@ const ProfileCard = ({
     <Container
       className={classnames("Profile-Card", classes)}
       onClick={onClick}
+      layoutId={`container-${id}`}
       {...props}
     >
       <Background
@@ -42,8 +158,8 @@ const Header = ({ id, children, ...props }: IProfileHeaderProps) => {
   return (
     <Title
       className="expanded-card__title"
-      layoutId={`title-${id}`}
-      layout
+      // layoutId={`title-${id}`}
+      // layout
       {...props}
     >
       {children}
@@ -73,14 +189,14 @@ const Expanded = ({ item, onClick }: IExpandedProps) => {
           <Header
             className="expanded-card__title open"
             layoutId={`title-${item?.id}`}
-            layout
+            // layout
           >
             <h3>{item?.title}</h3>
           </Header>
           <Text className="expanded-card__text open" animate>
             <div>
               {item?.list.map((text: string) => (
-                <ListItem className="expanded-card__list-item">
+                <ListItem key={text} className="expanded-card__list-item">
                   <i className="ri-checkbox-circle-fill"></i>
                   <p>{text}</p>
                 </ListItem>

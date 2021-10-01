@@ -11,7 +11,7 @@ import { IProject } from "../types";
 import { AnimatePresence } from "framer-motion";
 import { IBaseComponentPropsWithMotion } from "../../../shared/types";
 import classnames from "classnames";
-import { swipePower } from "../../../utils";
+import { swipePower } from "../../../shared/utils";
 import {
   Preview,
   Content,

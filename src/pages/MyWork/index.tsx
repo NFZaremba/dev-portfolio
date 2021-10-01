@@ -1,4 +1,4 @@
-import { PageSlider } from "../../components";
+import { PageSlider } from "../../shared/components";
 import {
   fullpageAnimation,
   contentAnim,
@@ -7,7 +7,7 @@ import {
 import { IProject } from "./types";
 import athlete from "../../assets/img/athlete-small.png";
 import theracer from "../../assets/img/theracer-small.png";
-import { useScroll } from "../../utils";
+import { useScroll } from "../../shared/utils";
 import Gallery from "./Gallery";
 
 // TODO: change to include personal projects

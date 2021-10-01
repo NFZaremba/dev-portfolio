@@ -1,6 +1,6 @@
 import { INavLinks } from "./types";
 import { motion } from "framer-motion";
-import logo from "../../assets/img/letter-n.svg";
+import logo from "../../../assets/img/letter-n.svg";
 import styled from "styled-components";
 
 //* Styles

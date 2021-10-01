@@ -1,4 +1,4 @@
-import { Button, PageSlider, Image } from "../../components";
+import { Button, PageSlider, Image } from "../../shared/components";
 import {
   titleAnim,
   contentAnim,
@@ -7,7 +7,7 @@ import {
 } from "../../shared/animation";
 import seattle from "../../assets/img/seattle.jpg";
 import { fullpageApi } from "@fullpage/react-fullpage";
-import { useScroll } from "../../utils";
+import { useScroll } from "../../shared/utils";
 
 //* Types
 interface IIntroProps {

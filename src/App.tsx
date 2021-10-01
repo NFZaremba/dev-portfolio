@@ -1,4 +1,4 @@
-import { Navbar } from "./components";
+import { Navbar } from "./shared/components";
 import GlobalStyle from "./shared/GlobalStyles";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Intro from "./pages/Intro";
@@ -19,7 +19,6 @@ function App() {
         easing="easeInOutCubic"
         navigation
         render={({ state, fullpageApi }) => {
-          console.log(state);
           return (
             <ReactFullpage.Wrapper>
               <div className="section">

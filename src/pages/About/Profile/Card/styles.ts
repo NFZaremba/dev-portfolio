@@ -44,7 +44,7 @@ export const Text = styled(motion.div)`
   align-items: center;
   padding: 7rem 2rem 3rem;
   background: #000;
-  max-width: 700px;
+  /* max-width: 700px; */
   color: #fff;
   height: 100%;
   width: 100%;
