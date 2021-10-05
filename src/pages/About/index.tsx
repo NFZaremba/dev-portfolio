@@ -271,11 +271,7 @@ const About = () => {
           Software Developer
         </PageSlider.SubHeader>
       </PageSlider.Title>
-      <PageSlider.Content
-        animate={controls}
-        initial="hidden"
-        variants={contentAnim}
-      >
+      <PageSlider.Content animate={controls} variants={contentAnim}>
         <Profile>
           <AnimateSharedLayout>
             <Profile.Layout>
@@ -292,7 +288,6 @@ const About = () => {
                   onClick={() => setSelectedId(id)}
                   variants={cardAnim}
                   custom={index}
-                  initial="hidden"
                   animate={animationList}
                 >
                   <ProfileCard.Header layout layoutId={`title-${id}`}>

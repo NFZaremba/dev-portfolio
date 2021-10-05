@@ -11,3 +11,33 @@
     @apply text-2xl text-white;
   }
 }
+
+/* Override Fullpage */
+#fp-nav.fp-left {
+  padding-left: 2rem;
+  animation: fadeIn 3s;
+}
+
+@media (max-width: 1300px) {
+  #fp-nav.fp-left {
+    width: auto;
+    top: auto;
+    left: 50%;
+    bottom: 32px;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  #fp-nav ul {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

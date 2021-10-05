@@ -112,7 +112,7 @@ export const contentAnim = {
     // rotateY: "341deg",
     transition: {
       ease: "easeOut",
-      duration: 1,
+      duration: 0.6,
     },
   },
 };

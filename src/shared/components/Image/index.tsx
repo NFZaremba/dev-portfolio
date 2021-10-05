@@ -2,6 +2,7 @@ import classnames from "classnames";
 import { IImageProps } from "./types";
 import { FrameTransition } from "..";
 import { Container, ImageFrame } from "./styles";
+import { motion } from "framer-motion";
 
 const containerAnim = {
   hidden: {
@@ -31,15 +32,6 @@ const imageAnim = {
   },
 };
 
-/**
- * Image component
- *
- * @param src
- * @param alt
- * @param classes
- * @param props
- * @returns
- */
 const Image = ({
   src,
   alt,
@@ -48,14 +40,20 @@ const Image = ({
   ...props
 }: IImageProps): JSX.Element => {
   return (
-    <Container
-      className={classnames("image", classes)}
+    <motion.div
+      className="relative overflow-hidden h-full w-full z-0 bg-gray-700"
       variants={containerAnim}
+      style={{
+        background: `url(${src}) no-repeat center`,
+        backgroundSize: "cover",
+        backgroundBlendMode: "luminosity",
+        backgroundColor: "aliceblue",
+      }}
       {...props}
     >
       {animation ? <FrameTransition /> : null}
-      <ImageFrame variants={imageAnim} src={src} alt={alt} />
-    </Container>
+      {/* <ImageFrame variants={imageAnim} src={src} alt={alt} /> */}
+    </motion.div>
   );
 };
 

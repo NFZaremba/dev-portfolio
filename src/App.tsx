@@ -1,18 +1,24 @@
 import { Navbar } from "./shared/components";
-import GlobalStyle from "./shared/GlobalStyles";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Intro from "./pages/Intro";
 import About from "./pages/About";
 import MyWork from "./pages/MyWork";
 import ContactUs from "./pages/ContactUs";
 
+import background from "./assets/img/cool-background.svg";
 import "remixicon/fonts/remixicon.css";
 import "./App.css";
 
 function App() {
   console.log(process.env.NODE_ENV);
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        background: `url(${background}) no-repeat center center fixed`,
+        backgroundSize: "cover",
+      }}
+    >
       {/* <GlobalStyle /> */}
       <Navbar />
       <ReactFullpage
