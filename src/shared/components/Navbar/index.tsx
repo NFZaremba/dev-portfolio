@@ -2,7 +2,6 @@ import { INavLinks } from "./types";
 import { motion } from "framer-motion";
 import logo from "../../../assets/img/letter-n.svg";
 
-// Data
 export const navLinks: INavLinks[] = [
   {
     icon: "ri-github-fill",
@@ -18,7 +17,6 @@ export const navLinks: INavLinks[] = [
   },
 ];
 
-// Animations
 const containerAnim = {
   hidden: { opacity: 0 },
   show: {
@@ -52,7 +50,7 @@ const iconsAnim = {
 const Navbar = () => {
   return (
     <motion.nav
-      className="max-w-screen-lg mx-auto absolute z-50 top-0 left-0 right-0 flex justify-between items-center flex-col py-10 sm:flex-row"
+      className="max-w-screen-xl mx-auto absolute z-50 top-0 left-0 right-0 flex justify-between items-center flex-col py-10 sm:flex-row"
       data-testid="navbar"
       variants={containerAnim}
       initial="hidden"
@@ -74,7 +72,7 @@ const Navbar = () => {
             variants={iconsAnim}
           >
             <a href={href} rel="noopener noreferrer" target="_blank">
-              <i className={icon}></i>
+              <i className={`${icon} text-blue-600`}></i>
             </a>
           </motion.li>
         ))}

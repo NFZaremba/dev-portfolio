@@ -265,49 +265,51 @@ const About = () => {
       initial="hidden"
       animate={controls}
     >
+      <PageSlider.Content animate={controls} variants={contentAnim}>
+        <div className="flex justify-center items-center bg-white my-28 w-2/4 relative z-10 rounded-tr-xl sm:rounded-t-xl lg:rounded-xl shadow-lg -mr-8 ml-4 ">
+          <Profile>
+            <AnimateSharedLayout>
+              <Profile.Layout>
+                <Profile.Icon
+                  animate={animation}
+                  image={profile}
+                  className="profile-icon layout__item"
+                />
+                {profileData.map(({ id, title }, index) => (
+                  <ProfileCard
+                    id={id}
+                    key={id}
+                    className="layout__item"
+                    onClick={() => setSelectedId(id)}
+                    variants={cardAnim}
+                    custom={index}
+                    animate={animationList}
+                  >
+                    <ProfileCard.Header layout layoutId={`title-${id}`}>
+                      <h3>{title}</h3>
+                    </ProfileCard.Header>
+                  </ProfileCard>
+                ))}
+              </Profile.Layout>
+
+              <AnimatePresence>
+                {selectedId && (
+                  <ProfileCard.Expanded
+                    item={getItem(selectedId)}
+                    onClick={() => setSelectedId(null)}
+                  />
+                )}
+              </AnimatePresence>
+            </AnimateSharedLayout>
+          </Profile>
+        </div>
+      </PageSlider.Content>
       <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Profile</PageSlider.Header>
         <PageSlider.SubHeader variants={titleAnim}>
           Software Developer
         </PageSlider.SubHeader>
       </PageSlider.Title>
-      <PageSlider.Content animate={controls} variants={contentAnim}>
-        <Profile>
-          <AnimateSharedLayout>
-            <Profile.Layout>
-              <Profile.Icon
-                animate={animation}
-                image={profile}
-                className="profile-icon layout__item"
-              />
-              {profileData.map(({ id, title }, index) => (
-                <ProfileCard
-                  id={id}
-                  key={id}
-                  className="layout__item"
-                  onClick={() => setSelectedId(id)}
-                  variants={cardAnim}
-                  custom={index}
-                  animate={animationList}
-                >
-                  <ProfileCard.Header layout layoutId={`title-${id}`}>
-                    <h3>{title}</h3>
-                  </ProfileCard.Header>
-                </ProfileCard>
-              ))}
-            </Profile.Layout>
-
-            <AnimatePresence>
-              {selectedId && (
-                <ProfileCard.Expanded
-                  item={getItem(selectedId)}
-                  onClick={() => setSelectedId(null)}
-                />
-              )}
-            </AnimatePresence>
-          </AnimateSharedLayout>
-        </Profile>
-      </PageSlider.Content>
     </PageSlider>
   );
 };

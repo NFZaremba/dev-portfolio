@@ -28,17 +28,39 @@ const ContactUs: React.FC<IContactProps> = ({ moveUp }) => {
       initial="hidden"
       animate={controls}
     >
-      <PageSlider.Title>
+      <PageSlider.Content variants={contentAnim}>
+        <PageSlider.Left>
+          <PageSlider.Header>By Email</PageSlider.Header>
+          <div className="p-4 text-lg font-medium w-full divide-y">
+            <p className="pb-4">
+              The best way to contact me is by email! But you can also reach me
+              via direct message on{" "}
+              <a
+                href="https://www.linkedin.com/in/nick-zaremba-4a441a87/"
+                className="text-purple-500"
+              >
+                LinkedIn
+              </a>
+              .
+            </p>
+            <div className="pt-16">
+              <a
+                className="text-3xl text-purple-700"
+                href="mailto: nfzaremba@gmail.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                nfzaremba@gmail.com
+              </a>
+            </div>
+          </div>
+        </PageSlider.Left>
+        <PageSlider.Right>
+          <Image src={cell} alt="contact" />
+        </PageSlider.Right>
+      </PageSlider.Content>
+      {/* <PageSlider.Title>
         <PageSlider.Header variants={titleAnim}>Contact</PageSlider.Header>
-        <PageSlider.SubHeader variants={titleAnim}>
-          <a
-            href="mailto: nfzaremba@gmail.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            nfzaremba@gmail.com
-          </a>
-        </PageSlider.SubHeader>
         <Button
           variants={subAnim}
           onClick={moveUp}
@@ -46,10 +68,7 @@ const ContactUs: React.FC<IContactProps> = ({ moveUp }) => {
         >
           Up
         </Button>
-      </PageSlider.Title>
-      <PageSlider.Content variants={contentAnim}>
-        <Image src={cell} alt="contact" />
-      </PageSlider.Content>
+      </PageSlider.Title> */}
     </PageSlider>
   );
 };

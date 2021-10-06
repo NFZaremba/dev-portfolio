@@ -41,7 +41,7 @@ const Image = ({
 }: IImageProps): JSX.Element => {
   return (
     <motion.div
-      className="relative overflow-hidden h-full w-full z-0 bg-gray-700"
+      className="relative overflow-hidden h-full w-full z-0 bg-gray-700 rounded-3xl"
       variants={containerAnim}
       style={{
         background: `url(${src}) no-repeat center`,

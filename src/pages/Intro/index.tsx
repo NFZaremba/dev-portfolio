@@ -9,7 +9,6 @@ import seattle from "../../assets/img/seattle.jpg";
 import { fullpageApi } from "@fullpage/react-fullpage";
 import { useScroll } from "../../shared/utils";
 
-//* Types
 interface IIntroProps {
   moveDown: fullpageApi["moveSectionDown"];
 }
@@ -25,9 +24,25 @@ const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
       animate={controls}
       data-testid="about-section"
     >
-      <PageSlider.Title>
-        <PageSlider.Header variants={titleAnim}>Nick</PageSlider.Header>
-        <PageSlider.Header variants={titleAnim}>Zaremba</PageSlider.Header>
+      <PageSlider.Content variants={contentAnim}>
+        <PageSlider.Left>
+          <PageSlider.Header>About Me</PageSlider.Header>
+          <div className="p-4 text-lg font-medium w-full divide-y">
+            <h1 className="pb-4 text-blue-600">Hi, I'm Nick! </h1>
+            <p className="pt-4">
+              I have a passion for creating software solutions with great user
+              experience in mind. Always looking to improve my skills, as well
+              as providing my services and experience in a team or solo
+              environment.
+            </p>
+          </div>
+        </PageSlider.Left>
+        <PageSlider.Right>
+          <Image src={seattle} alt="seattle" />
+        </PageSlider.Right>
+      </PageSlider.Content>
+      {/* <PageSlider.Title>
+        <PageSlider.Header variants={titleAnim}>Nick Zaremba</PageSlider.Header>
         <Button
           variants={subAnim}
           onClick={moveDown}
@@ -35,10 +50,7 @@ const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
         >
           Learn More
         </Button>
-      </PageSlider.Title>
-      <PageSlider.Content variants={contentAnim}>
-        <Image src={seattle} alt="seattle" />
-      </PageSlider.Content>
+      </PageSlider.Title> */}
     </PageSlider>
   );
 };

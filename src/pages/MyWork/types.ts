@@ -1,5 +1,11 @@
 import { Img } from "../../shared/types";
 
+export interface ILink {
+  site: string;
+  url: string;
+  icon: string;
+}
+
 export interface IProject {
   id: string;
   title: string;
@@ -7,6 +13,5 @@ export interface IProject {
   image: Img;
   preview?: string;
   description?: string;
-  githubLink: string;
-  websiteLink: string;
+  links: ILink[];
 }

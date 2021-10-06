@@ -7,9 +7,13 @@ module.exports = {
       sans: ["Poppins", "sans-serif"],
     },
     extend: {
-      // backgroundImage: {
-      //   seattle: "url('http://localhost:3000/assets/seattle.jpg')",
-      // },
+      zIndex: {
+        "-10": "-10",
+      },
+      backgroundImage: {
+        gallery:
+          "linear-gradient(hsl(0 0% 0% / 0),hsl(20 0% 0% / 0.3) 20%,hsl(0 0% 0% / 1))",
+      },
     },
   },
   variants: {

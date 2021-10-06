@@ -201,7 +201,7 @@ const GalleryContent = ({
         }}
       >
         <ExternalLink
-          href={context.project.githubLink}
+          href={context.project.links[0].url}
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -209,7 +209,7 @@ const GalleryContent = ({
           Github
         </ExternalLink>
         <ExternalLink
-          href={context.project.websiteLink}
+          href={context.project.links[1].url}
           rel="noopener noreferrer"
           target="_blank"
         >
