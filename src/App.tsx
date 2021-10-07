@@ -8,9 +8,11 @@ import ContactUs from "./pages/ContactUs";
 import background from "./assets/img/cool-background.svg";
 import "remixicon/fonts/remixicon.css";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  console.log(process.env.NODE_ENV);
+  const [sectionTitle, setSectionTitle] = useState<string>("Nick Zaremba");
+
   return (
     <div
       className="App"
@@ -19,8 +21,7 @@ function App() {
         backgroundSize: "cover",
       }}
     >
-      {/* <GlobalStyle /> */}
-      <Navbar />
+      <Navbar sectionTitle={sectionTitle} />
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
         navigationPosition="left"
@@ -31,16 +32,22 @@ function App() {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
-                <Intro moveDown={() => fullpageApi.moveTo(2, 0)} />
+                <Intro
+                  moveDown={() => fullpageApi.moveTo(2, 0)}
+                  setSectionTitle={setSectionTitle}
+                />
               </div>
               <div className="section">
-                <About />
+                <About setSectionTitle={setSectionTitle} />
               </div>
               <div className="section">
-                <MyWork />
+                <MyWork setSectionTitle={setSectionTitle} />
               </div>
               <div className="section">
-                <ContactUs moveUp={() => fullpageApi.moveTo(1, 0)} />
+                <ContactUs
+                  moveUp={() => fullpageApi.moveTo(1, 0)}
+                  setSectionTitle={setSectionTitle}
+                />
               </div>
             </ReactFullpage.Wrapper>
           );

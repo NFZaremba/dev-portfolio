@@ -152,7 +152,7 @@ const GalleryImage = ({
     <AnimatePresence initial={false} custom={context.direction}>
       <Image
         key={context.page}
-        image={context.project.image.src}
+        image={context.project.image}
         custom={context.direction}
         variants={cardVariants}
         initial="enter"

@@ -41,8 +41,8 @@ const Image = ({
 }: IImageProps): JSX.Element => {
   return (
     <motion.div
-      className="relative overflow-hidden h-full w-full z-0 bg-gray-700 rounded-3xl"
-      variants={containerAnim}
+      className="h-full w-full rounded-3xl shadow-xl"
+      // variants={containerAnim}
       style={{
         background: `url(${src}) no-repeat center`,
         backgroundSize: "cover",
@@ -51,7 +51,7 @@ const Image = ({
       }}
       {...props}
     >
-      {animation ? <FrameTransition /> : null}
+      {/* {animation ? <FrameTransition /> : null} */}
       {/* <ImageFrame variants={imageAnim} src={src} alt={alt} /> */}
     </motion.div>
   );

@@ -1,12 +1,10 @@
-import {
-  fullpageAnimation,
-  contentAnim,
-  titleAnim,
-  subAnim,
-} from "../../shared/animation";
-import { PageSlider, Button, Image } from "../../shared/components";
+import { Dispatch, useEffect } from "react";
+import { fullpageAnimation, contentAnim } from "../../shared/animation";
+import { PageSlider, Image } from "../../shared/components";
 import { fullpageApi } from "@fullpage/react-fullpage";
 import { useScroll } from "../../shared/utils";
+
+import photo from "../../assets/img/profile.png";
 import cell from "../../assets/img/phone.jpg";
 
 export interface IContactLinks {
@@ -16,10 +14,15 @@ export interface IContactLinks {
 
 interface IContactProps {
   moveUp: fullpageApi["moveSectionUp"];
+  setSectionTitle: Dispatch<string>;
 }
 
-const ContactUs: React.FC<IContactProps> = ({ moveUp }) => {
+const ContactUs: React.FC<IContactProps> = ({ moveUp, setSectionTitle }) => {
   const [ref, controls] = useScroll();
+
+  useEffect(() => {
+    setSectionTitle("Contact Me");
+  }, [setSectionTitle]);
 
   return (
     <PageSlider
@@ -43,7 +46,11 @@ const ContactUs: React.FC<IContactProps> = ({ moveUp }) => {
               </a>
               .
             </p>
-            <div className="pt-16">
+
+            <div className="pt-8 rounded-3xl flex flex-col justify-center items-center">
+              <div className="w-48 h-48 pb-4 ">
+                <Image src={photo} alt="pic" />
+              </div>
               <a
                 className="text-3xl text-purple-700"
                 href="mailto: nfzaremba@gmail.com"

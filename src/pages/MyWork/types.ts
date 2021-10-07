@@ -1,5 +1,3 @@
-import { Img } from "../../shared/types";
-
 export interface ILink {
   site: string;
   url: string;
@@ -9,8 +7,8 @@ export interface ILink {
 export interface IProject {
   id: string;
   title: string;
-  techStack: Array<string>;
-  image: Img;
+  stackIcon: React.ReactElement;
+  image: string;
   preview?: string;
   description?: string;
   links: ILink[];

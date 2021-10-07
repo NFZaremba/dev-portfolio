@@ -115,7 +115,8 @@
 
 import classnames from "classnames";
 import { IBaseComponentPropsWithMotion } from "../../../../shared/types";
-import { IProfileData } from "../../__data__";
+import { IProfileData } from "../../types";
+
 import {
   Background,
   Container,

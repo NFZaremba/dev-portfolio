@@ -1,20 +1,25 @@
-import { Button, PageSlider, Image } from "../../shared/components";
-import {
-  titleAnim,
-  contentAnim,
-  fullpageAnimation,
-  subAnim,
-} from "../../shared/animation";
-import seattle from "../../assets/img/seattle.jpg";
+import { Dispatch, useEffect } from "react";
+import { PageSlider, Image } from "../../shared/components";
+import { contentAnim, fullpageAnimation } from "../../shared/animation";
 import { fullpageApi } from "@fullpage/react-fullpage";
 import { useScroll } from "../../shared/utils";
 
+import seattle from "../../assets/img/seattle.jpg";
+
 interface IIntroProps {
   moveDown: fullpageApi["moveSectionDown"];
+  setSectionTitle: Dispatch<string>;
 }
 
-const Intro: React.FC<IIntroProps> = ({ moveDown }) => {
-  const [ref, controls] = useScroll();
+const Intro: React.FC<IIntroProps> = ({ moveDown, setSectionTitle }) => {
+  const [ref, controls, inView] = useScroll();
+
+  useEffect(() => {
+    if (inView) {
+      console.log("Name");
+      setSectionTitle("Nick Zaremba");
+    }
+  }, [setSectionTitle, inView]);
 
   return (
     <PageSlider

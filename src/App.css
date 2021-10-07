@@ -14,7 +14,10 @@
 
 /* Override Fullpage */
 #fp-nav.fp-left {
-  padding-left: 2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(calc(-50% - 42rem), -50%);
   animation: fadeIn 3s;
 }
 
