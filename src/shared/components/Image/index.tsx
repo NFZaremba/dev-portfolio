@@ -1,36 +1,33 @@
-import classnames from "classnames";
-import { IImageProps } from "./types";
-import { FrameTransition } from "..";
-import { Container, ImageFrame } from "./styles";
 import { motion } from "framer-motion";
+import { IImageProps } from "./types";
 
-const containerAnim = {
-  hidden: {
-    width: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-  show: {
-    width: "100%",
-    transition: {
-      ease: [0.76, 0, 0.24, 1],
-      duration: 1,
-    },
-  },
-};
+// const containerAnim = {
+//   hidden: {
+//     width: 0,
+//     transition: {
+//       duration: 0.6,
+//     },
+//   },
+//   show: {
+//     width: "100%",
+//     transition: {
+//       ease: [0.76, 0, 0.24, 1],
+//       duration: 1,
+//     },
+//   },
+// };
 
-const imageAnim = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-    },
-  },
-};
+// const imageAnim = {
+//   hidden: {
+//     opacity: 0,
+//   },
+//   show: {
+//     opacity: 1,
+//     transition: {
+//       duration: 1,
+//     },
+//   },
+// };
 
 const Image = ({
   src,
@@ -42,7 +39,6 @@ const Image = ({
   return (
     <motion.div
       className="h-full w-full rounded-3xl shadow-xl"
-      // variants={containerAnim}
       style={{
         background: `url(${src}) no-repeat center`,
         backgroundSize: "cover",

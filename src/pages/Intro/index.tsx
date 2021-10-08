@@ -1,23 +1,20 @@
 import { Dispatch, useEffect } from "react";
-import { PageSlider, Image } from "../../shared/components";
+import { Image, PageSlider } from "../../shared/components";
 import { contentAnim, fullpageAnimation } from "../../shared/animation";
-import { fullpageApi } from "@fullpage/react-fullpage";
 import { useScroll } from "../../shared/utils";
 
 import seattle from "../../assets/img/seattle.jpg";
 
 interface IIntroProps {
-  moveDown: fullpageApi["moveSectionDown"];
   setSectionTitle: Dispatch<string>;
 }
 
-const Intro: React.FC<IIntroProps> = ({ moveDown, setSectionTitle }) => {
+const Intro: React.FC<IIntroProps> = ({ setSectionTitle }) => {
   const [ref, controls, inView] = useScroll();
 
   useEffect(() => {
     if (inView) {
-      console.log("Name");
-      setSectionTitle("Nick Zaremba");
+      setSectionTitle("Nick Z");
     }
   }, [setSectionTitle, inView]);
 
@@ -46,16 +43,6 @@ const Intro: React.FC<IIntroProps> = ({ moveDown, setSectionTitle }) => {
           <Image src={seattle} alt="seattle" />
         </PageSlider.Right>
       </PageSlider.Content>
-      {/* <PageSlider.Title>
-        <PageSlider.Header variants={titleAnim}>Nick Zaremba</PageSlider.Header>
-        <Button
-          variants={subAnim}
-          onClick={moveDown}
-          style={{ position: "relative" }}
-        >
-          Learn More
-        </Button>
-      </PageSlider.Title> */}
     </PageSlider>
   );
 };

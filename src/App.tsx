@@ -11,7 +11,8 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [sectionTitle, setSectionTitle] = useState<string>("Nick Zaremba");
+  const [sectionTitle, setSectionTitle] = useState<string>("Nick Z");
+  const [direction, setDirection] = useState<string>("");
 
   return (
     <div
@@ -21,21 +22,19 @@ function App() {
         backgroundSize: "cover",
       }}
     >
-      <Navbar sectionTitle={sectionTitle} />
+      <Navbar sectionTitle={sectionTitle} direction={direction} />
       <ReactFullpage
         licenseKey={"YOUR_KEY_HERE"}
         navigationPosition="left"
         scrollingSpeed={1500}
         easing="easeInOutCubic"
         navigation
-        render={({ state, fullpageApi }) => {
+        onLeave={(_origin, _destination, direction) => setDirection(direction)}
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">
-                <Intro
-                  moveDown={() => fullpageApi.moveTo(2, 0)}
-                  setSectionTitle={setSectionTitle}
-                />
+                <Intro setSectionTitle={setSectionTitle} />
               </div>
               <div className="section">
                 <About setSectionTitle={setSectionTitle} />
@@ -44,10 +43,7 @@ function App() {
                 <MyWork setSectionTitle={setSectionTitle} />
               </div>
               <div className="section">
-                <ContactUs
-                  moveUp={() => fullpageApi.moveTo(1, 0)}
-                  setSectionTitle={setSectionTitle}
-                />
+                <ContactUs setSectionTitle={setSectionTitle} />
               </div>
             </ReactFullpage.Wrapper>
           );

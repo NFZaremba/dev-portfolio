@@ -1,7 +1,6 @@
 import { Dispatch, useEffect } from "react";
 import { fullpageAnimation, contentAnim } from "../../shared/animation";
 import { PageSlider, Image } from "../../shared/components";
-import { fullpageApi } from "@fullpage/react-fullpage";
 import { useScroll } from "../../shared/utils";
 
 import photo from "../../assets/img/profile.png";
@@ -13,16 +12,17 @@ export interface IContactLinks {
 }
 
 interface IContactProps {
-  moveUp: fullpageApi["moveSectionUp"];
   setSectionTitle: Dispatch<string>;
 }
 
-const ContactUs: React.FC<IContactProps> = ({ moveUp, setSectionTitle }) => {
-  const [ref, controls] = useScroll();
+const ContactUs: React.FC<IContactProps> = ({ setSectionTitle }) => {
+  const [ref, controls, inView] = useScroll();
 
   useEffect(() => {
-    setSectionTitle("Contact Me");
-  }, [setSectionTitle]);
+    if (inView) {
+      setSectionTitle("Contact");
+    }
+  }, [setSectionTitle, inView]);
 
   return (
     <PageSlider
@@ -66,16 +66,6 @@ const ContactUs: React.FC<IContactProps> = ({ moveUp, setSectionTitle }) => {
           <Image src={cell} alt="contact" />
         </PageSlider.Right>
       </PageSlider.Content>
-      {/* <PageSlider.Title>
-        <PageSlider.Header variants={titleAnim}>Contact</PageSlider.Header>
-        <Button
-          variants={subAnim}
-          onClick={moveUp}
-          style={{ position: "relative" }}
-        >
-          Up
-        </Button>
-      </PageSlider.Title> */}
     </PageSlider>
   );
 };

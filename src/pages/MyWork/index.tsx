@@ -1,7 +1,6 @@
 import { Dispatch, useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { wrap } from "@popmotion/popcorn";
-import { PageSlider } from "../../shared/components";
 import { fullpageAnimation, contentAnim } from "../../shared/animation";
 import { IProject } from "./types";
 import { swipePower, useScroll } from "../../shared/utils";
@@ -10,6 +9,7 @@ import spotifyImg from "../../assets/img/spotify-visualization-app.png";
 import theracer from "../../assets/img/theracer-small.png";
 import TypeScriptIcon from "../../shared/icons/TypeScriptIcon";
 import ReactIcon from "../../shared/icons/ReactIcon";
+import { PageSlider } from "../../shared/components";
 
 export const projects: IProject[] = [
   {
@@ -79,13 +79,15 @@ export interface IMyWork {
 }
 
 const MyWork = ({ setSectionTitle }: IMyWork) => {
-  const [ref, controls] = useScroll();
+  const [ref, controls, inView] = useScroll();
   const [[page, direction], setPage] = useState([0, 0]);
   const [project, setProject] = useState(projects[0]);
 
   useEffect(() => {
-    setSectionTitle("Projects");
-  }, [setSectionTitle]);
+    if (inView) {
+      setSectionTitle("Projects");
+    }
+  }, [setSectionTitle, inView]);
 
   useEffect(() => {
     const index = wrap(0, projects.length, page);
@@ -205,12 +207,6 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
           </div>
         </PageSlider.Right>
       </PageSlider.Content>
-      {/* <PageSlider.Title>
-        <PageSlider.Header variants={titleAnim}>Projects</PageSlider.Header>
-        <PageSlider.SubHeader variants={titleAnim}>
-          Most recent work
-        </PageSlider.SubHeader>
-      </PageSlider.Title> */}
     </PageSlider>
   );
 };

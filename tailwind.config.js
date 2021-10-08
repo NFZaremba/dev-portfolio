@@ -8,7 +8,11 @@ module.exports = {
     },
     extend: {
       zIndex: {
+        "-1": "-1",
         "-10": "-10",
+      },
+      margin: {
+        "-100": "-30rem",
       },
       backgroundImage: {
         gallery:

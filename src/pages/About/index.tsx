@@ -1,166 +1,3 @@
-// import {
-//   AnimatePresence,
-//   AnimateSharedLayout,
-//   motion,
-//   useAnimation,
-// } from "framer-motion";
-// import { useCallback, useEffect, useState } from "react";
-// import { PageSlider } from "../../components";
-// import {
-//   fullpageAnimation,
-//   contentAnim,
-//   titleAnim,
-// } from "../../shared/animation";
-// import { useScroll } from "../../utils";
-// import ProfileCard from "./Profile/Card";
-// import Profile from "./Profile";
-// import { profileData } from "./__data__";
-// import profile from "../../assets/img/profile.png";
-
-// const cardAnim = {
-//   hidden: {
-//     width: 0,
-//     opacity: 0,
-//     transition: {
-//       duration: 0.1,
-//     },
-//   },
-//   show: (index: number) => ({
-//     opacity: 1,
-//     width: "100%",
-//     transition: {
-//       type: "spring",
-//       stiffness: 300,
-//       damping: 20,
-//       delay: index * 0.3,
-//     },
-//   }),
-// };
-
-// const About = () => {
-//   const [ref, controls, inView] = useScroll();
-//   const [selectedId, setSelectedId] = useState<string | null>(null);
-//   const [animateList, setAnimateList] = useState<boolean>(false);
-//   const animation = useAnimation();
-//   const animationList = useAnimation();
-
-//   useEffect(() => {
-//     // if (!inView) {
-//     //   animation.stop();
-//     //   animationList.stop();
-//     //   setSelectedId(null);
-//     //   // setAnimateList(false);
-//     // }
-
-//     async function sequence() {
-//       // setAnimateList(false);
-
-//       await animation.start({
-//         top: "50%",
-//         left: "125%",
-//         scale: 0.5,
-//         opacity: 0,
-//       });
-//       console.log("first");
-//       await animation.start({
-//         scale: 1.5,
-//         opacity: 1,
-//         transition: { duration: 0.5 },
-//       });
-//       console.log("second");
-//       await animation.start({
-//         scale: 1,
-//         transition: { duration: 0.5 },
-//       });
-//       console.log("third");
-//       await animation.start({
-//         top: 0,
-//         left: 0,
-//         transition: { duration: 0.5 },
-//       });
-//       console.log("final");
-//       return await animationList.start("show");
-//       // setAnimateList(true);
-//     }
-//     if (inView) {
-//       sequence();
-//     }
-//     // return () => {
-//     //   animation.stop();
-//     //   setSelectedId(null);
-//     //   setAnimateList(false);
-//     // };
-
-//     return () => {
-//       console.log("test");
-//       animation.stop();
-//       animationList.start("hidden");
-//       setSelectedId(null);
-//       // setAnimateList(false);
-//     };
-//   }, [inView, animation, animationList]);
-
-//   const getItem = useCallback(
-//     (id: string) => profileData.find((item) => item.id === id),
-//     []
-//   );
-
-//   return (
-//     <PageSlider
-//       ref={ref}
-//       variants={fullpageAnimation}
-//       initial="hidden"
-//       animate={controls}
-//     >
-//       <PageSlider.Title>
-//         <PageSlider.Header variants={titleAnim}>Profile</PageSlider.Header>
-//         <PageSlider.SubHeader variants={titleAnim}>
-//           Software Developer
-//         </PageSlider.SubHeader>
-//       </PageSlider.Title>
-//       <PageSlider.Content variants={contentAnim}>
-// <Profile>
-// <AnimateSharedLayout>
-// <Profile.Layout>
-// <Profile.Icon
-// animate={animation}
-// image={profile}
-// className="profile-icon layout__item"
-// />
-// {profileData.map(({ id, title }, index) => (
-// <ProfileCard
-// id={id}
-// key={id}
-// className="layout__item"
-// onClick={() => setSelectedId(id)}
-// variants={cardAnim}
-// custom={index}
-// animate={animationList}
-// >
-// <ProfileCard.Header layout layoutId={`title-${id}`}>
-// <h3>{title}</h3>
-// </ProfileCard.Header>
-// </ProfileCard>
-// ))}
-// </Profile.Layout>
-//
-// <AnimatePresence>
-// {selectedId && (
-// <ProfileCard.Expanded
-// item={getItem(selectedId)}
-// onClick={() => setSelectedId(null)}
-// />
-// )
-// </AnimatePresence>
-// </AnimateSharedLayout>
-// </Profile>
-//       </PageSlider.Content>
-//     </PageSlider>
-//   );
-// };
-
-// export default About;
-
 import { Dispatch, useEffect, useState } from "react";
 import { AnimateSharedLayout, motion } from "framer-motion";
 import { PageSlider } from "../../shared/components";
@@ -216,7 +53,6 @@ const About = ({ setSectionTitle }: IAbout) => {
 
   useEffect(() => {
     if (inView) {
-      console.log("about");
       setSectionTitle("Profile");
     }
   }, [setSectionTitle, inView]);
@@ -233,9 +69,9 @@ const About = ({ setSectionTitle }: IAbout) => {
           <PageSlider.Header>Most Recent Work</PageSlider.Header>
           <div className="p-4 text-lg font-medium w-full divide-y">
             <h1 className="pb-4 text-blue-600">{profile.title} </h1>
-            <div className="flex flex-col pt-4">
+            <div className="flex flex-wrap pt-4">
               {profile.list.map((item) => (
-                <div key={item} className="flex">
+                <div key={item} className="flex flex-1 flex-grow-0 w-40">
                   <i className="ri-checkbox-circle-fill text-green-400 mb-1 mr-1"></i>
                   <p>{item}</p>
                 </div>
@@ -245,13 +81,13 @@ const About = ({ setSectionTitle }: IAbout) => {
         </PageSlider.Left>
         <PageSlider.Right>
           <AnimateSharedLayout>
-            <ul className="w-full h-full rounded-3xl bg-gray-600 flex flex-col justify-center items-center">
+            <ul className="w-full shadow-inner h-full rounded-3xl bg-gray-600 flex flex-col justify-center items-center">
               {profileData.map((data, i) => {
                 const isSelected = selected === colors[i];
                 return (
                   <motion.li
                     key={data.id}
-                    className="block w-72 h-28 rounded-3xl shadow-xl m-7 relative cursor-pointer flex-shrink-0"
+                    className="block w-48 lg:w-72 h-28 rounded-3xl shadow-xl m-4 lg:m-7 relative cursor-pointer flex-shrink-0"
                     onClick={() => {
                       setSelected(colors[i]);
                       setProfileData(data);
@@ -282,12 +118,6 @@ const About = ({ setSectionTitle }: IAbout) => {
           </AnimateSharedLayout>
         </PageSlider.Right>
       </PageSlider.Content>
-      {/* <PageSlider.Title>
-        <PageSlider.Header variants={titleAnim}>Profile</PageSlider.Header>
-        <PageSlider.SubHeader variants={titleAnim}>
-          Software Developer
-        </PageSlider.SubHeader>
-      </PageSlider.Title> */}
     </PageSlider>
   );
 };

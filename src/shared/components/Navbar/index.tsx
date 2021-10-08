@@ -1,7 +1,6 @@
+import { useEffect, useState } from "react";
 import { INavLinks } from "./types";
-import { motion } from "framer-motion";
-import logo from "../../../assets/img/letter-n.svg";
-import { titleAnim } from "../../animation";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const navLinks: INavLinks[] = [
   {
@@ -29,51 +28,73 @@ const navMotion = {
   },
 };
 
-const logoMotion = {
-  hidden: { scale: 0, top: 70 },
-  show: {
-    scale: 1,
-    top: 0,
-    rotate: 180,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 20,
-    },
-  },
-};
-
 const iconsMotion = {
   hidden: { scale: 0, top: 70 },
   show: { scale: 1, top: 0 },
 };
 
+export const titleAnim = {
+  enter: (direction: number) => {
+    return {
+      y: direction < 0 ? 100 : -100,
+      opacity: 0,
+    };
+  },
+  center: {
+    y: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => {
+    return {
+      y: direction > 0 ? 100 : -100,
+      opacity: 0,
+    };
+  },
+};
+
 export interface INavbar {
   sectionTitle: string;
+  direction: string;
 }
 
-const Navbar = ({ sectionTitle }: INavbar) => {
+const Navbar = ({ sectionTitle, direction }: INavbar) => {
+  const [title, setTitle] = useState<string>("");
+  const [customDirection, setCustomDirection] = useState<number>(0);
+
+  useEffect(() => {
+    setTitle(sectionTitle);
+  }, [sectionTitle]);
+
+  useEffect(() => {
+    setCustomDirection(direction === "up" ? 1 : -1);
+  }, [direction]);
+
   return (
     <motion.nav
-      className="max-w-screen-xl mx-auto absolute z-50 top-0 left-0 right-0 flex justify-between items-center flex-col py-10 sm:flex-row"
+      className="max-w-screen-xl mx-8 relative z-50 top-0 left-0 right-0 flex justify-between items-center flex-col py-10 sm:flex-row lg:mx-auto"
       data-testid="navbar"
       variants={navMotion}
       initial="hidden"
       animate="show"
     >
-      {/* <motion.img
-        className="relative"
-        variants={logoMotion}
-        src={logo}
-        alt="logo"
-        width="35px"
-      /> */}
-      <motion.h1
-        className="p-4 rounded-l-xl w-48 flex-none bg-purple-50 text-blue-500 text-xl"
-        variants={titleAnim}
-      >
-        {sectionTitle}
-      </motion.h1>
+      <AnimatePresence initial={false} custom={customDirection}>
+        <motion.h1
+          key={title}
+          className="absolute left-0 mx-auto font-bold text-5xl w-48"
+          variants={titleAnim}
+          custom={customDirection}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            y: { type: "spring", stiffness: 500, damping: 100 },
+            opacity: { duration: 0.2 },
+          }}
+        >
+          {title}
+        </motion.h1>
+      </AnimatePresence>
+
       <ul className="flex pt-4 justify-around w-full sm:justify-end sm:pt-0">
         {navLinks?.map(({ href, icon }: INavLinks) => (
           <motion.li

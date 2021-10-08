@@ -1,4 +1,5 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
+import { motion } from "framer-motion";
 import {
   IPageSliderComp,
   IPageSliderContentLeft,
@@ -6,25 +7,6 @@ import {
   IPageSliderContentRight,
   IPageSliderProps,
 } from "./types";
-import { motion, useAnimation, useCycle } from "framer-motion";
-import { FrameTransition } from "..";
-
-const containerMotion = {
-  hidden: {
-    // overflow: "hidden",
-    // backgroundColor: "#374151",
-    transition: {
-      duration: 0.1,
-    },
-  },
-  show: {
-    // overflow: "visible",
-    // backgroundColor: "none",
-    transition: {
-      delay: 1.5,
-    },
-  },
-};
 
 const rightContainerMotion = {
   hidden: {
@@ -114,9 +96,9 @@ const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
   }
 ) as IPageSliderComp;
 
-const PageSliderTitle = ({ children }: IPageSliderProps): JSX.Element => (
-  <div className="overflow-hidden z-10 mx-auto mt-10">{children}</div>
-);
+// const PageSliderTitle = ({ children }: IPageSliderProps): JSX.Element => (
+//   <div className="overflow-hidden z-10 mx-auto mt-10">{children}</div>
+// );
 
 const PageSliderContent = ({
   children,
@@ -125,7 +107,7 @@ const PageSliderContent = ({
 }: IPageSliderContentProps): JSX.Element => {
   return (
     <motion.div
-      className="relative flex h-2/5 w-full mx-auto lg:h-4/6"
+      className="relative justify-center mb-60 items-center mx-8 flex flex-col-reverse h-5/6 w-full lg:mx-0 lg:flex-row lg:h-4/6 lg:mb-64 lg:items-stretch lg:justify-start"
       {...props}
     >
       {children}
@@ -147,20 +129,9 @@ const PageSliderHeader = ({
 }: IPageSliderProps): JSX.Element => {
   return (
     <motion.h3
-      className="p-4 rounded-l-xl w-48 flex-none bg-purple-50 text-blue-500 text-xl"
+      className="p-4 rounded-l-xl  flex-none bg-purple-50 text-blue-500 text-xl lg:w-48"
       {...props}
     >
-      {children}
-    </motion.h3>
-  );
-};
-
-const PageSliderSubHeader = ({
-  children,
-  ...props
-}: IPageSliderProps): JSX.Element => {
-  return (
-    <motion.h3 className="text-3xl pt-0 px-4" {...props}>
       {children}
     </motion.h3>
   );
@@ -169,7 +140,7 @@ const PageSliderSubHeader = ({
 const PageSliderLeft = ({ children }: IPageSliderContentLeft) => {
   return (
     <motion.div
-      className="flex justify-center bg-white my-28 w-2/4 relative z-50 lg:rounded-xl shadow-xl -mr-8 ml-4 "
+      className="flex flex-col z-10 -mt-40 h-4/6 sm:justify-center bg-white lg:my-28 w-4/5 relative  rounded-xl shadow-xl sm:ml-4 sm:flex-row lg:-mr-8 lg:w-2/4 lg:h-auto lg:z-50"
       variants={leftContainerMotion}
     >
       {children}
@@ -180,31 +151,14 @@ const PageSliderLeft = ({ children }: IPageSliderContentLeft) => {
 const PageSliderRight = ({ children }: IPageSliderContentRight) => {
   return (
     <motion.div
-      // variants={containerMotion}
       variants={rightContainerMotion}
-      className="w-2/4 z-2 rounded-3xl relative "
-      // animate={{
-      //   // x: 0,
-      //   // backgroundColor: "#374151",
-      //   // boxShadow: "10px 10px 0 rgba(0, 0, 0, 0.2)",
-      //   overflow: "hidden",
-      //   transitionEnd: {
-      //     overflow: "visible",
-      //   },
-      // }}
-      // initial={{}}
+      className="w-full h-2/4 z-2 rounded-3xl relative lg:h-full lg:w-2/4"
     >
-      {/* <motion.div className="w-full h-full" variants={rightContainerMotion}>
-        {children}
-      </motion.div> */}
       {children}
-      {/* <FrameTransition /> */}
     </motion.div>
   );
 };
 
-PageSlider.Title = PageSliderTitle;
-PageSlider.SubHeader = PageSliderSubHeader;
 PageSlider.Header = PageSliderHeader;
 PageSlider.Content = PageSliderContent;
 PageSlider.Left = PageSliderLeft;
