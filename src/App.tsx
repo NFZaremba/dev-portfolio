@@ -1,5 +1,6 @@
-import { Navbar } from "./shared/components";
+import { useState } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
+import { Navbar } from "./shared/components";
 import Intro from "./pages/Intro";
 import About from "./pages/About";
 import MyWork from "./pages/MyWork";
@@ -8,7 +9,6 @@ import ContactUs from "./pages/ContactUs";
 import background from "./assets/img/cool-background.svg";
 import "remixicon/fonts/remixicon.css";
 import "./App.css";
-import { useState } from "react";
 
 function App() {
   const [sectionTitle, setSectionTitle] = useState<string>("Nick Z");

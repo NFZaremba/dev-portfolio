@@ -80,7 +80,7 @@ const Navbar = ({ sectionTitle, direction }: INavbar) => {
       <AnimatePresence initial={false} custom={customDirection}>
         <motion.h1
           key={title}
-          className="absolute left-0 mx-auto font-bold text-5xl w-48"
+          className="absolute left-0 mx-auto font-bold text-5xl w-48 top-2.5 sm:top-auto"
           variants={titleAnim}
           custom={customDirection}
           initial="enter"
@@ -95,7 +95,7 @@ const Navbar = ({ sectionTitle, direction }: INavbar) => {
         </motion.h1>
       </AnimatePresence>
 
-      <ul className="flex pt-4 justify-around w-full sm:justify-end sm:pt-0">
+      <ul className=" hidden sm:flex pt-4 justify-around w-full sm:justify-end sm:pt-0">
         {navLinks?.map(({ href, icon }: INavLinks) => (
           <motion.li
             className="relative text-3xl sm:pl-10 "
@@ -104,7 +104,7 @@ const Navbar = ({ sectionTitle, direction }: INavbar) => {
           >
             <motion.div whileHover={{ scale: 1.25, rotate: 10 }}>
               <a href={href} rel="noopener noreferrer" target="_blank">
-                <i className={`${icon} shadow-xl `}></i>
+                <i className={`${icon} `}></i>
               </a>
             </motion.div>
           </motion.li>

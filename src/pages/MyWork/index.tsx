@@ -1,56 +1,12 @@
 import { Dispatch, useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { wrap } from "@popmotion/popcorn";
-import { fullpageAnimation, contentAnim } from "../../shared/animation";
-import { IProject } from "./types";
-import { swipePower, useScroll } from "../../shared/utils";
-
-import spotifyImg from "../../assets/img/spotify-visualization-app.png";
-import theracer from "../../assets/img/theracer-small.png";
-import TypeScriptIcon from "../../shared/icons/TypeScriptIcon";
-import ReactIcon from "../../shared/icons/ReactIcon";
+import swipePower from "../../shared/utils/swipePower";
+import useScroll from "../../shared/utils/useScroll";
 import { PageSlider } from "../../shared/components";
+import { projects } from "./__data__";
 
-export const projects: IProject[] = [
-  {
-    id: "spotify-app",
-    title: "Spotify Visualization App",
-    stackIcon: <TypeScriptIcon />,
-    image: spotifyImg,
-    description:
-      "A web app that lets users visualize their personalized Spotify data built with Node.js, Express, React, Styled Components, and the Spotify API.",
-    links: [
-      {
-        site: "Github",
-        url: "/https://github.com/NFZaremba/spotify-app",
-        icon: "ri-github-line",
-      },
-      {
-        site: "Site",
-        url: "/https://spotify-visualization-app.herokuapp.com/",
-        icon: "ri-global-line",
-      },
-    ],
-  },
-  {
-    id: "racer",
-    title: "React Query Table",
-    stackIcon: <ReactIcon />,
-    image: theracer,
-    description:
-      "Custom Table utilizing React-Query with the compound component pattern. Including custom hooks profividing Search, Sorting, and filtering functionality.",
-    links: [
-      {
-        site: "Github",
-        url: "/https://github.com/NFZaremba/react-query-table",
-        icon: "ri-github-line",
-      },
-      { site: "Site", url: "", icon: "ri-global-line" },
-    ],
-  },
-];
-
-export const cardVariants = {
+export const swipeMotion = {
   enter: (direction: number) => {
     return {
       boxShadow: "none",
@@ -102,25 +58,51 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
   );
 
   return (
-    <PageSlider
-      ref={ref}
-      variants={fullpageAnimation}
-      initial="hidden"
-      animate={controls}
-    >
-      <PageSlider.Content
-        animate={controls}
-        initial="hidden"
-        variants={contentAnim}
-      >
+    <PageSlider ref={ref} initial="hidden" animate={controls}>
+      <PageSlider.Content animate={controls} initial="hidden">
         <PageSlider.Left>
           <PageSlider.Header>Most Recent Work</PageSlider.Header>
           <div className="p-4 text-lg font-medium w-full divide-y">
             <div className="flex justify-between">
-              <h1 className="pb-4 text-blue-600">{project.title} </h1>
+              <h1 className=" text-lg sm:text-xl pb-4 text-blue-600">
+                {project.title}
+              </h1>
               {project.stackIcon}
             </div>
-            <p className="py-4">{project.description}</p>
+            <div>
+              <p className=" text-base sm:text-lg py-4">
+                {project.description}
+              </p>
+              <div className="flex justify-center items-center m-auto ">
+                <motion.div
+                  className="flex cursor-pointer m-2"
+                  onClick={() => paginate(1)}
+                >
+                  <i className="ri-arrow-left-s-fill text-gray-900  hover:bg-blue-300"></i>
+                </motion.div>
+                {useMemo(
+                  () =>
+                    projects.map(
+                      ({ id }): JSX.Element => (
+                        <motion.div
+                          key={`page-${id}`}
+                          className="w-3 h-3 rounded-full m-2 opacity-30 bg-blue-700"
+                          animate={{
+                            opacity: project.id === id ? 1 : 0.3,
+                          }}
+                        />
+                      )
+                    ),
+                  [project.id]
+                )}
+                <motion.div
+                  className="flex cursor-pointer m-2"
+                  onClick={() => paginate(-1)}
+                >
+                  <i className="ri-arrow-right-s-fill text-gray-900 hover:bg-blue-300"></i>
+                </motion.div>
+              </div>
+            </div>
             <div className="flex pt-4">
               {project.links.map((link) => {
                 return link.url !== "" ? (
@@ -145,7 +127,7 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
               className="absolute left-0 right-0 mx-auto rounded-3xl h-full border-blue-500"
               key={page}
               custom={direction}
-              variants={cardVariants}
+              variants={swipeMotion}
               initial="enter"
               animate="center"
               exit="exit"
@@ -171,40 +153,13 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
                 }
               }}
             >
-              <motion.div className="flex flex-col justify-end h-full p-6 rounded-2xl bg-gallery">
-                <h2 className="text-3xl pb-4">{project.title}</h2>
+              <motion.div className="flex flex-col justify-start h-full p-6 rounded-3xl bg-gallery ">
+                <h2 className=" hidden text-3xl p-4 w-max bg-gray-900 shadow-2xl sm:inline-block -ml-8">
+                  {project.title}
+                </h2>
               </motion.div>
             </motion.div>
           </AnimatePresence>
-          <div className="flex absolute items-center left-2/4 m-auto transform -translate-y-2/4 -translate-x-2/4 -bottom-20">
-            <motion.div
-              className="flex cursor-pointer m-2 flex-1"
-              onClick={() => paginate(1)}
-            >
-              <i className="ri-arrow-left-s-fill text-gray-900  hover:bg-blue-300"></i>
-            </motion.div>
-            {useMemo(
-              () =>
-                projects.map(
-                  ({ id }): JSX.Element => (
-                    <motion.div
-                      key={`page-${id}`}
-                      className="w-3 h-3 rounded-full flex-1 m-2 opacity-30 bg-blue-700"
-                      animate={{
-                        opacity: project.id === id ? 1 : 0.3,
-                      }}
-                    />
-                  )
-                ),
-              [project.id]
-            )}
-            <motion.div
-              className="flex cursor-pointer m-2 flex-1"
-              onClick={() => paginate(-1)}
-            >
-              <i className="ri-arrow-right-s-fill text-gray-900 hover:bg-blue-300"></i>
-            </motion.div>
-          </div>
         </PageSlider.Right>
       </PageSlider.Content>
     </PageSlider>

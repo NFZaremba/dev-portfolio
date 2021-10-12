@@ -1,8 +1,6 @@
 import { Dispatch, useEffect } from "react";
 import { Image, PageSlider } from "../../shared/components";
-import { contentAnim, fullpageAnimation } from "../../shared/animation";
-import { useScroll } from "../../shared/utils";
-
+import useScroll from "../../shared/utils/useScroll";
 import seattle from "../../assets/img/seattle.jpg";
 
 interface IIntroProps {
@@ -21,14 +19,13 @@ const Intro: React.FC<IIntroProps> = ({ setSectionTitle }) => {
   return (
     <PageSlider
       ref={ref}
-      variants={fullpageAnimation}
       initial="hidden"
       animate={controls}
       data-testid="about-section"
     >
-      <PageSlider.Content variants={contentAnim}>
+      <PageSlider.Content>
         <PageSlider.Left>
-          <PageSlider.Header>About Me</PageSlider.Header>
+          <PageSlider.Header>Who am I</PageSlider.Header>
           <div className="p-4 text-lg font-medium w-full divide-y">
             <h1 className="pb-4 text-blue-600">Hi, I'm Nick! </h1>
             <p className="pt-4">

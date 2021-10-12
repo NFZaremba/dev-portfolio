@@ -16,7 +16,10 @@ module.exports = {
       },
       backgroundImage: {
         gallery:
-          "linear-gradient(hsl(0 0% 0% / 0),hsl(20 0% 0% / 0.3) 20%,hsl(0 0% 0% / 1))",
+          "linear-gradient(hsl(0 0% 0% / 0),hsl(20 0% 0% / 0.3) 0%,hsl(0 0% 0% / .5))",
+      },
+      colors: {
+        tab: "#f3f3f3",
       },
     },
   },

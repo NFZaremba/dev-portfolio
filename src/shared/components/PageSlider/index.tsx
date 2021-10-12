@@ -8,9 +8,46 @@ import {
   IPageSliderProps,
 } from "./types";
 
+// Initial fullpage animation
+export const fullpageAnimation = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.17,
+      delayChildren: 0.06,
+    },
+  },
+};
+
+export const contentAnim = {
+  hidden: {
+    scale: 0.5,
+    opacity: 0,
+    x: 50,
+    y: 100,
+    transition: {
+      ease: "easeOut",
+      duration: 2,
+    },
+  },
+  show: {
+    scale: 1,
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      ease: "easeOut",
+      duration: 0.6,
+    },
+  },
+};
+
 const rightContainerMotion = {
   hidden: {
-    // width: 0,
     opacity: 0,
     x: -500,
     transition: {
@@ -18,11 +55,9 @@ const rightContainerMotion = {
     },
   },
   show: {
-    // width: "50%",
     opacity: 1,
     x: 0,
     transition: {
-      // ease: [0.76, 0, 0.24, 1],
       duration: 1.1,
     },
   },
@@ -38,7 +73,6 @@ const leftContainerMotion = {
   show: {
     x: 0,
     transition: {
-      // ease: [0.76, 0, 0.24, 1],
       duration: 1.1,
     },
   },
@@ -87,7 +121,8 @@ const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
     return (
       <motion.section
         ref={ref}
-        className="flex justify-center items-center h-screen max-w-screen-xl mx-auto "
+        className="flex justify-center items-center h-screen max-w-screen-xl mx-auto"
+        variants={fullpageAnimation}
         {...props}
       >
         {children}
@@ -95,10 +130,6 @@ const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
     );
   }
 ) as IPageSliderComp;
-
-// const PageSliderTitle = ({ children }: IPageSliderProps): JSX.Element => (
-//   <div className="overflow-hidden z-10 mx-auto mt-10">{children}</div>
-// );
 
 const PageSliderContent = ({
   children,
@@ -108,15 +139,16 @@ const PageSliderContent = ({
   return (
     <motion.div
       className="relative justify-center mb-60 items-center mx-8 flex flex-col-reverse h-5/6 w-full lg:mx-0 lg:flex-row lg:h-4/6 lg:mb-64 lg:items-stretch lg:justify-start"
+      variants={contentAnim}
       {...props}
     >
       {children}
       <motion.div
-        className="absolute bg-gray-100 top-2/4 right-0 left-0 rounded-3xl -z-10 h-3/4 "
+        className="absolute w-4/5 bg-gray-100 lg:w-full h-5/6 top-2/4  rounded-3xl -z-10 lg:h-3/4 "
         variants={backLayerMotion1}
       />
       <motion.div
-        className="absolute w-full rounded-3xl -z-10 top-2/4 h-3/4 transform shadow-lg bg-gradient-to-br from-blue-500 to-rose-500 -rotate-2"
+        className="absolute w-4/5 lg:w-full h-5/6 rounded-3xl -z-10  top-2/4 lg:h-3/4 transform shadow-lg bg-gradient-to-br from-blue-500 to-rose-500 -rotate-2"
         variants={backLayerMotion2}
       />
     </motion.div>
@@ -129,7 +161,7 @@ const PageSliderHeader = ({
 }: IPageSliderProps): JSX.Element => {
   return (
     <motion.h3
-      className="p-4 rounded-l-xl  flex-none bg-purple-50 text-blue-500 text-xl lg:w-48"
+      className="p-4 rounded-xl sm:rounded-r-none sm:rounded-l-xl flex-none bg-purple-50 text-blue-500 text-xl lg:w-48"
       {...props}
     >
       {children}
@@ -140,7 +172,7 @@ const PageSliderHeader = ({
 const PageSliderLeft = ({ children }: IPageSliderContentLeft) => {
   return (
     <motion.div
-      className="flex flex-col z-10 -mt-40 h-4/6 sm:justify-center bg-white lg:my-28 w-4/5 relative  rounded-xl shadow-xl sm:ml-4 sm:flex-row lg:-mr-8 lg:w-2/4 lg:h-auto lg:z-50"
+      className="flex flex-col z-10 -mt-56 min-h-[50%] sm:h-3/6 sm:justify-center bg-white lg:my-28 w-4/5 relative  rounded-xl shadow-xl ml-4 sm:flex-row lg:-mr-8 lg:w-2/4 lg:h-auto lg:z-50"
       variants={leftContainerMotion}
     >
       {children}

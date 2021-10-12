@@ -1,34 +1,6 @@
 import { motion } from "framer-motion";
 import { IImageProps } from "./types";
 
-// const containerAnim = {
-//   hidden: {
-//     width: 0,
-//     transition: {
-//       duration: 0.6,
-//     },
-//   },
-//   show: {
-//     width: "100%",
-//     transition: {
-//       ease: [0.76, 0, 0.24, 1],
-//       duration: 1,
-//     },
-//   },
-// };
-
-// const imageAnim = {
-//   hidden: {
-//     opacity: 0,
-//   },
-//   show: {
-//     opacity: 1,
-//     transition: {
-//       duration: 1,
-//     },
-//   },
-// };
-
 const Image = ({
   src,
   alt,
@@ -46,10 +18,7 @@ const Image = ({
         backgroundColor: "aliceblue",
       }}
       {...props}
-    >
-      {/* {animation ? <FrameTransition /> : null} */}
-      {/* <ImageFrame variants={imageAnim} src={src} alt={alt} /> */}
-    </motion.div>
+    ></motion.div>
   );
 };
 

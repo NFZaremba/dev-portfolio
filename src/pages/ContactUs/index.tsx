@@ -1,10 +1,7 @@
 import { Dispatch, useEffect } from "react";
-import { fullpageAnimation, contentAnim } from "../../shared/animation";
 import { PageSlider, Image } from "../../shared/components";
-import { useScroll } from "../../shared/utils";
-
-import photo from "../../assets/img/profile.png";
-import cell from "../../assets/img/phone.jpg";
+import useScroll from "../../shared/utils/useScroll";
+import profile from "../../assets/img/profile.png";
 
 export interface IContactLinks {
   title: string;
@@ -25,13 +22,8 @@ const ContactUs: React.FC<IContactProps> = ({ setSectionTitle }) => {
   }, [setSectionTitle, inView]);
 
   return (
-    <PageSlider
-      ref={ref}
-      variants={fullpageAnimation}
-      initial="hidden"
-      animate={controls}
-    >
-      <PageSlider.Content variants={contentAnim}>
+    <PageSlider ref={ref} initial="hidden" animate={controls}>
+      <PageSlider.Content>
         <PageSlider.Left>
           <PageSlider.Header>By Email</PageSlider.Header>
           <div className="p-4 text-lg font-medium w-full divide-y">
@@ -48,11 +40,8 @@ const ContactUs: React.FC<IContactProps> = ({ setSectionTitle }) => {
             </p>
 
             <div className="pt-8 rounded-3xl flex flex-col justify-center items-center">
-              <div className="w-48 h-48 pb-4 ">
-                <Image src={photo} alt="pic" />
-              </div>
               <a
-                className="text-3xl text-purple-700"
+                className="text-xl sm:text-3xl text-purple-700"
                 href="mailto: nfzaremba@gmail.com"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -63,7 +52,7 @@ const ContactUs: React.FC<IContactProps> = ({ setSectionTitle }) => {
           </div>
         </PageSlider.Left>
         <PageSlider.Right>
-          <Image src={cell} alt="contact" />
+          <Image src={profile} alt="contact" />
         </PageSlider.Right>
       </PageSlider.Content>
     </PageSlider>
