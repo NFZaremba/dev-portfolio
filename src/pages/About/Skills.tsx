@@ -6,6 +6,7 @@ import StorybookIcon from "../../shared/icons/StorybookIcon";
 import ReactHookFormIcon from "../../shared/icons/ReactHookFormIcon";
 import TailwindIcon from "../../shared/icons/TailwindIcon";
 import { motion } from "framer-motion";
+import NodeIcon from "../../shared/icons/NodeIcon";
 
 const containerMotion = {
   hidden: {},
@@ -78,6 +79,13 @@ const Skills = () => {
       >
         <TailwindIcon className="mx-auto" />
         <p>TailwindCSS</p>
+      </motion.div>
+      <motion.div
+        variants={itemMotion}
+        className="text-center py-2 shadow-xl rounded-md"
+      >
+        <NodeIcon className="mx-auto" />
+        <p>Node.js</p>
       </motion.div>
     </motion.div>
   );

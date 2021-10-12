@@ -28,7 +28,7 @@ const About = ({ setSectionTitle }: IAbout) => {
           <div className="p-4 text-lg font-medium w-full divide-y">
             <AnimateSharedLayout>
               <ol className=" inline-flex m-0 p-1 rounded-xl divide-x bg-tab mb-2 flex-col sm:flex-row">
-                {["Experience", "Skills"].map((item) => {
+                {["Experience", "Favorite Stack"].map((item) => {
                   const sectionName = item.toLocaleLowerCase();
                   const isActive = sectionName === activeItem;
                   return (
@@ -57,7 +57,7 @@ const About = ({ setSectionTitle }: IAbout) => {
                 })}
               </ol>
             </AnimateSharedLayout>
-            <div className="pt-8">
+            <div className="pt-4">
               {useMemo((): JSX.Element => {
                 if (activeItem === "experience") return <Experience />;
                 return <Skills />;
