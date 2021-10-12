@@ -160,12 +160,12 @@ const PageSliderHeader = ({
   ...props
 }: IPageSliderProps): JSX.Element => {
   return (
-    <motion.h3
-      className="p-4 rounded-xl sm:rounded-r-none sm:rounded-l-xl flex-none bg-purple-50 text-blue-500 text-xl lg:w-48"
+    <motion.h2
+      className="p-4 rounded-xl sm:rounded-r-none sm:rounded-l-xl flex-none bg-purple-50 text-blue-700 font-bold text-xl lg:w-48"
       {...props}
     >
       {children}
-    </motion.h3>
+    </motion.h2>
   );
 };
 

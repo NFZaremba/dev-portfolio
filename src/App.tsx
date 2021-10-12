@@ -15,7 +15,7 @@ function App() {
   const [direction, setDirection] = useState<string>("");
 
   return (
-    <div
+    <main
       className="App"
       style={{
         background: `url(${background}) no-repeat center center fixed`,
@@ -33,23 +33,23 @@ function App() {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className="section">
+              <section className="section">
                 <Intro setSectionTitle={setSectionTitle} />
-              </div>
-              <div className="section">
+              </section>
+              <section className="section">
                 <About setSectionTitle={setSectionTitle} />
-              </div>
-              <div className="section">
+              </section>
+              <section className="section">
                 <MyWork setSectionTitle={setSectionTitle} />
-              </div>
-              <div className="section">
+              </section>
+              <section className="section">
                 <ContactUs setSectionTitle={setSectionTitle} />
-              </div>
+              </section>
             </ReactFullpage.Wrapper>
           );
         }}
       />
-    </div>
+    </main>
   );
 }
 

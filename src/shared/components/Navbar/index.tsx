@@ -6,14 +6,17 @@ export const navLinks: INavLinks[] = [
   {
     icon: "ri-github-fill",
     href: "https://github.com/NFZaremba",
+    text: "github link",
   },
   {
     icon: "ri-linkedin-box-fill",
     href: "https://www.linkedin.com/in/nick-zaremba-4a441a87/",
+    text: "linkedin link",
   },
   {
     icon: "ri-mail-fill",
     href: "mailto: nfzaremba@gmail.com",
+    text: "email link",
   },
 ];
 
@@ -92,11 +95,12 @@ const Navbar = ({ sectionTitle, direction }: INavbar) => {
           }}
         >
           {title}
+          <span className="sr-only">{title || "section header"}</span>
         </motion.h1>
       </AnimatePresence>
 
       <ul className=" hidden sm:flex pt-4 justify-around w-full sm:justify-end sm:pt-0">
-        {navLinks?.map(({ href, icon }: INavLinks) => (
+        {navLinks?.map(({ href, icon, text }: INavLinks) => (
           <motion.li
             className="relative text-3xl sm:pl-10 "
             key={href}
@@ -105,6 +109,7 @@ const Navbar = ({ sectionTitle, direction }: INavbar) => {
             <motion.div whileHover={{ scale: 1.25, rotate: 10 }}>
               <a href={href} rel="noopener noreferrer" target="_blank">
                 <i className={`${icon} `}></i>
+                <span className="sr-only">{text}</span>
               </a>
             </motion.div>
           </motion.li>

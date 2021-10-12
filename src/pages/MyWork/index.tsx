@@ -64,7 +64,7 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
           <PageSlider.Header>Most Recent Work</PageSlider.Header>
           <div className="p-4 text-lg font-medium w-full divide-y">
             <div className="flex justify-between">
-              <h1 className=" text-lg sm:text-xl pb-4 text-blue-600">
+              <h1 className=" text-lg sm:text-xl pb-4 text-blue-600 font-semibold">
                 {project.title}
               </h1>
               {project.stackIcon}

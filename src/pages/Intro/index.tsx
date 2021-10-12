@@ -27,7 +27,7 @@ const Intro: React.FC<IIntroProps> = ({ setSectionTitle }) => {
         <PageSlider.Left>
           <PageSlider.Header>Who am I</PageSlider.Header>
           <div className="p-4 text-lg font-medium w-full divide-y">
-            <h1 className="pb-4 text-blue-600">Hi, I'm Nick! </h1>
+            <h1 className="pb-4 text-blue-600 font-semibold">Hi, I'm Nick! </h1>
             <p className="pt-4">
               I have a passion for creating software solutions with great user
               experience in mind. Always looking to improve my skills, as well
