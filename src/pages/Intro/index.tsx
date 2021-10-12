@@ -12,7 +12,7 @@ const Intro: React.FC<IIntroProps> = ({ setSectionTitle }) => {
 
   useEffect(() => {
     if (inView) {
-      setSectionTitle("Nick Z");
+      setSectionTitle("Nick Z.");
     }
   }, [setSectionTitle, inView]);
 

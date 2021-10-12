@@ -4,7 +4,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ["Poppins", "sans-serif"],
+      sans: ["GT Walsheim", "sans-serif"],
     },
     extend: {
       zIndex: {

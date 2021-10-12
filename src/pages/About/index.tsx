@@ -42,7 +42,7 @@ const About = ({ setSectionTitle }: IAbout) => {
                           setActiveitem(sectionName.toLocaleLowerCase())
                         }
                         type="button"
-                        className="relative m-0 py-2 px-8 bg-transparent bg-none outline-none hover:cursor-pointer focus:cursor-pointer text-lg  "
+                        className="relative m-0 py-2 px-8 bg-transparent bg-none outline-none hover:cursor-pointer focus:cursor-pointer text-lg"
                       >
                         {isActive && (
                           <motion.div
