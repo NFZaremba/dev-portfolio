@@ -30,12 +30,12 @@ export const projects: IProject[] = [
     links: [
       {
         site: "Github",
-        url: "/https://github.com/NFZaremba/spotify-app",
+        url: "https://github.com/NFZaremba/spotify-app",
         icon: "ri-github-line",
       },
       {
         site: "Site",
-        url: "/https://spotify-visualization-app.herokuapp.com/",
+        url: "https://spotify-visualization-app.herokuapp.com/",
         icon: "ri-global-line",
       },
     ],
@@ -50,7 +50,7 @@ export const projects: IProject[] = [
     links: [
       {
         site: "Github",
-        url: "/https://github.com/NFZaremba/react-query-table",
+        url: "https://github.com/NFZaremba/react-query-table",
         icon: "ri-github-line",
       },
       { site: "Site", url: "", icon: "ri-global-line" },
