@@ -10,12 +10,12 @@
   h2 {
     @apply text-2xl text-white;
   }
+}
 
-  #fp-nav.fp-left {
-    @apply absolute w-auto bottom-8 xl:bottom-auto top-auto left-2/4 xl:top-2/4 transform -translate-x-2/4 xl:translate-x-fp-nav -translate-y-2/4 animate-fadeIn;
-  }
+#fp-nav.fp-left {
+  @apply absolute w-auto bottom-8 xl:bottom-auto top-auto left-2/4 xl:top-2/4 transform -translate-x-2/4 xl:translate-x-fp-nav -translate-y-2/4 animate-fadeIn;
+}
 
-  #fp-nav ul {
-    @apply flex items-end xl:block;
-  }
+#fp-nav ul {
+  @apply flex items-end xl:block;
 }

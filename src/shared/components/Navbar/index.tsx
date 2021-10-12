@@ -74,7 +74,7 @@ const Navbar = ({ sectionTitle, direction }: INavbar) => {
 
   return (
     <motion.nav
-      className="max-w-screen-xl mx-8 relative z-50 top-0 left-0 right-0 flex justify-between items-center flex-col py-10 sm:flex-row xl:mx-auto"
+      className="fixed max-w-screen-xl mx-8 z-50 top-0 left-0 right-0 flex justify-between items-center flex-col py-10 sm:flex-row xl:mx-auto"
       data-testid="navbar"
       variants={navMotion}
       initial="hidden"
