@@ -24,7 +24,7 @@ function App() {
     >
       <Navbar sectionTitle={sectionTitle} direction={direction} />
       <ReactFullpage
-        licenseKey={"YOUR_KEY_HERE"}
+        licenseKey={process.env.REACT_APP_FULL_PAGE_LICSENCE}
         navigationPosition="left"
         scrollingSpeed={1500}
         easing="easeInOutCubic"

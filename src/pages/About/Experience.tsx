@@ -49,6 +49,7 @@ const Experience = () => {
       <div className="flex justify-center  flex-col">
         {experienceData.map((item, i) => (
           <motion.div
+            key={item.jobTitle}
             variants={itemMotion}
             className={`relative flex items-center opacity-100 ${
               i !== 0 ? " sm:mt-14" : ""
