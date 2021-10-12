@@ -138,8 +138,8 @@ const PageSliderContent = ({
 }: IPageSliderContentProps): JSX.Element => {
   return (
     <motion.div
-      className="relative justify-center mb-60 items-center mx-8 flex flex-col-reverse h-5/6 w-full lg:mx-0 lg:flex-row lg:h-4/6 lg:mb-64 lg:items-stretch lg:justify-start"
-      variants={contentAnim}
+      className="relative justify-center mb-60 items-center mx-8 flex flex-col-reverse h-5/6 w-full xl:mx-0 lg:flex-row lg:h-4/6 lg:mb-64 lg:items-stretch lg:justify-start"
+      // variants={contentAnim}
       {...props}
     >
       {children}

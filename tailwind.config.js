@@ -7,6 +7,9 @@ module.exports = {
       sans: ["Poppins", "sans-serif"],
     },
     extend: {
+      translate: {
+        "fp-nav": "calc(-50% - 42rem)",
+      },
       zIndex: {
         "-1": "-1",
         "-10": "-10",
@@ -20,6 +23,15 @@ module.exports = {
       },
       colors: {
         tab: "#f3f3f3",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 3s",
       },
     },
   },

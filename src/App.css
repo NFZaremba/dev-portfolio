@@ -10,37 +10,12 @@
   h2 {
     @apply text-2xl text-white;
   }
-}
 
-/* Override Fullpage */
-#fp-nav.fp-left {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(calc(-50% - 42rem), -50%);
-  animation: fadeIn 3s;
-}
-
-@media (max-width: 1300px) {
   #fp-nav.fp-left {
-    width: auto;
-    top: auto;
-    left: 50%;
-    bottom: 32px;
-    transform: translate3d(-50%, 0, 0);
+    @apply absolute w-auto bottom-8 xl:bottom-auto top-auto left-2/4 xl:top-2/4 transform -translate-x-2/4 xl:translate-x-fp-nav -translate-y-2/4 animate-fadeIn;
   }
 
   #fp-nav ul {
-    display: flex;
-    align-items: flex-end;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+    @apply flex items-end xl:block;
   }
 }
