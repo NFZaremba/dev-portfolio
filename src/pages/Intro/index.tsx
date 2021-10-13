@@ -2,9 +2,11 @@ import { Dispatch, useEffect } from "react";
 import { Image, PageSlider } from "../../shared/components";
 import useScroll from "../../shared/utils/useScroll";
 import seattle from "../../assets/img/seattle.jpg";
+import { ISectionTitle } from "../../shared/types";
+import { COLORS } from "../../shared/constants";
 
 interface IIntroProps {
-  setSectionTitle: Dispatch<string>;
+  setSectionTitle: Dispatch<ISectionTitle>;
 }
 
 const Intro: React.FC<IIntroProps> = ({ setSectionTitle }) => {
@@ -12,7 +14,7 @@ const Intro: React.FC<IIntroProps> = ({ setSectionTitle }) => {
 
   useEffect(() => {
     if (inView) {
-      setSectionTitle("Nick Z.");
+      setSectionTitle({ title: "Who am I", color: COLORS.intro.color });
     }
   }, [setSectionTitle, inView]);
 
@@ -23,18 +25,22 @@ const Intro: React.FC<IIntroProps> = ({ setSectionTitle }) => {
       animate={controls}
       data-testid="about-section"
     >
-      <PageSlider.Content>
+      <PageSlider.Content gradient={COLORS.intro.gradient}>
         <PageSlider.Left>
-          <PageSlider.Header>Who am I</PageSlider.Header>
-          <div className="p-4 text-lg font-medium w-full divide-y">
-            <h1 className="pb-4 text-blue-600 font-semibold">Hi, I'm Nick! </h1>
-            <p className="pt-4">
+          <PageSlider.Header>
+            <PageSlider.Title
+              color={COLORS.intro.color}
+              bgColor={COLORS.intro.bgColor}
+            >
+              Hi, I'm Nick!
+            </PageSlider.Title>
+            <p className="p-4">
               I have a passion for creating software solutions with great user
               experience in mind. Always looking to improve my skills, as well
               as providing my services and experience in a team or solo
               environment.
             </p>
-          </div>
+          </PageSlider.Header>
         </PageSlider.Left>
         <PageSlider.Right>
           <Image src={seattle} alt="seattle" />

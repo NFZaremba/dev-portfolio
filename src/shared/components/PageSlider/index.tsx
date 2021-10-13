@@ -1,12 +1,6 @@
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
-import {
-  IPageSliderComp,
-  IPageSliderContentLeft,
-  IPageSliderContentProps,
-  IPageSliderContentRight,
-  IPageSliderProps,
-} from "./types";
+import { IPageSliderComp, IPageSliderProps } from "./types";
 
 // Initial fullpage animation
 export const fullpageAnimation = {
@@ -117,7 +111,7 @@ const backLayerMotion2 = {
 };
 
 const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
-  ({ children, classes, ...props }: IPageSliderProps, ref): JSX.Element => {
+  ({ children, ...props }: IPageSliderProps, ref): JSX.Element => {
     return (
       <motion.section
         ref={ref}
@@ -131,48 +125,57 @@ const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
   }
 ) as IPageSliderComp;
 
-const PageSliderContent = ({
+const Content = ({
   children,
-  classes,
+  gradient,
   ...props
-}: IPageSliderContentProps): JSX.Element => {
+}: IPageSliderProps): JSX.Element => {
   return (
     <motion.div
-      className="relative justify-center  items-center mx-8 flex flex-col-reverse h-5/6 w-full xl:mx-0 lg:flex-row lg:h-4/6  lg:items-stretch lg:justify-start"
-      // variants={contentAnim}
+      className="relative justify-center items-center mx-8 flex flex-col-reverse h-[90%] w-full xl:mx-0 lg:flex-row lg:h-4/6  lg:items-stretch lg:justify-start"
+      variants={contentAnim}
       {...props}
     >
       {children}
       <motion.div
-        className="absolute w-4/5 bg-gray-100 lg:w-full h-5/6 top-2/4  rounded-3xl -z-10 lg:h-3/4 "
+        className="absolute w-4/5 bg-gray-100 lg:w-full h-[87%] top-2/4 rounded-3xl -z-10 lg:h-3/4 "
         variants={backLayerMotion1}
       />
       <motion.div
-        className="absolute w-4/5 lg:w-full h-5/6 rounded-3xl -z-10  top-2/4 lg:h-3/4 transform shadow-lg bg-gradient-to-br from-blue-500 to-rose-500 -rotate-2"
+        className={`absolute w-4/5 lg:w-full h-[87%] rounded-3xl -z-10  top-2/4 lg:h-3/4 transform shadow-lg bg-gradient-to-br to-rose-500 -rotate-2 ${gradient}`}
         variants={backLayerMotion2}
       />
     </motion.div>
   );
 };
 
-const PageSliderHeader = ({
-  children,
-  ...props
-}: IPageSliderProps): JSX.Element => {
+// const Header = ({ children, ...props }: IPageSliderProps): JSX.Element => {
+//   return (
+//     <motion.h3
+//       className="p-4 rounded-xl sm:rounded-r-none sm:rounded-l-xl flex-none bg-purple-50 text-blue-700 text-xl lg:w-48"
+//       {...props}
+//     >
+//       {children}
+//     </motion.h3>
+//   );
+// };
+
+const Header = ({ children }: IPageSliderProps): JSX.Element => {
+  return <div className="text-lg font-medium w-full divide-y">{children}</div>;
+};
+
+const Title = ({ children, color, bgColor }: IPageSliderProps) => {
   return (
-    <motion.h2
-      className="p-4 rounded-xl sm:rounded-r-none sm:rounded-l-xl flex-none bg-purple-50 text-blue-700 font-bold text-xl lg:w-48"
-      {...props}
-    >
+    <h1 className={`p-4 ${color} ${bgColor} font-semibold  rounded-t-xl`}>
       {children}
-    </motion.h2>
+    </h1>
   );
 };
 
-const PageSliderLeft = ({ children }: IPageSliderContentLeft) => {
+const Left = ({ children }: IPageSliderProps) => {
   return (
     <motion.div
-      className="flex flex-col z-10 -mt-56 min-h-[50%] sm:h-3/6 sm:justify-center bg-white lg:my-28 w-4/5 relative  rounded-xl shadow-xl ml-4 sm:flex-row lg:-mr-8 lg:w-2/4 lg:h-auto lg:z-50"
+      className="flex flex-col z-10 -mt-40 min-h-[50%] sm:h-3/6 sm:justify-center bg-white lg:my-28 w-4/5 relative  rounded-xl shadow-xl ml-4 sm:flex-row lg:-mr-8 lg:w-2/4 lg:h-auto lg:z-50"
       variants={leftContainerMotion}
     >
       {children}
@@ -180,7 +183,7 @@ const PageSliderLeft = ({ children }: IPageSliderContentLeft) => {
   );
 };
 
-const PageSliderRight = ({ children }: IPageSliderContentRight) => {
+const Right = ({ children }: IPageSliderProps) => {
   return (
     <motion.div
       variants={rightContainerMotion}
@@ -191,9 +194,10 @@ const PageSliderRight = ({ children }: IPageSliderContentRight) => {
   );
 };
 
-PageSlider.Header = PageSliderHeader;
-PageSlider.Content = PageSliderContent;
-PageSlider.Left = PageSliderLeft;
-PageSlider.Right = PageSliderRight;
+PageSlider.Header = Header;
+PageSlider.Title = Title;
+PageSlider.Content = Content;
+PageSlider.Left = Left;
+PageSlider.Right = Right;
 
 export default PageSlider;

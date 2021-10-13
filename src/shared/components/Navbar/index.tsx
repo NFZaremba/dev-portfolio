@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { INavLinks } from "./types";
 import { AnimatePresence, motion } from "framer-motion";
+import { ISectionTitle } from "../../types";
 
 export const navLinks: INavLinks[] = [
   {
@@ -56,16 +57,18 @@ export const titleAnim = {
 };
 
 export interface INavbar {
-  sectionTitle: string;
+  sectionTitle: ISectionTitle;
   direction: string;
 }
 
 const Navbar = ({ sectionTitle, direction }: INavbar) => {
   const [title, setTitle] = useState<string>("");
+  const [color, setColor] = useState<string>("");
   const [customDirection, setCustomDirection] = useState<number>(0);
 
   useEffect(() => {
-    setTitle(sectionTitle);
+    setTitle(sectionTitle.title);
+    setColor(sectionTitle.color);
   }, [sectionTitle]);
 
   useEffect(() => {
@@ -74,30 +77,33 @@ const Navbar = ({ sectionTitle, direction }: INavbar) => {
 
   return (
     <motion.nav
-      className="fixed max-w-screen-xl mx-8 z-50 top-0 left-0 right-0 flex justify-between items-center flex-col py-10 sm:flex-row xl:mx-auto"
+      className="fixed max-w-screen-xl mx-8 z-50 top-0 left-0 right-0 flex justify-between items-start sm:items-center flex-col py-10 sm:flex-row xl:mx-auto"
       data-testid="navbar"
       variants={navMotion}
       initial="hidden"
       animate="show"
     >
-      <AnimatePresence initial={false} custom={customDirection}>
-        <motion.h1
-          key={title}
-          className="absolute left-0 mx-auto font-bold text-5xl w-48 top-2.5 sm:top-auto"
-          variants={titleAnim}
-          custom={customDirection}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            y: { type: "spring", stiffness: 500, damping: 100 },
-            opacity: { duration: 0.2 },
-          }}
-        >
-          {title}
-          <span className="sr-only">{title || "section header"}</span>
-        </motion.h1>
-      </AnimatePresence>
+      <div className="flex">
+        <h1 className="min-w-max ">Nick Zaremba |</h1>
+        <AnimatePresence initial={false} custom={customDirection}>
+          <motion.h1
+            key={title}
+            className={`absolute left-44 mx-auto font-semibold text-3xl w-48 sm:top-auto ${color}`}
+            variants={titleAnim}
+            custom={customDirection}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              y: { type: "spring", stiffness: 500, damping: 100 },
+              opacity: { duration: 0.2 },
+            }}
+          >
+            {title}
+            <span className="sr-only">{title || "section header"}</span>
+          </motion.h1>
+        </AnimatePresence>
+      </div>
 
       <ul className=" hidden sm:flex pt-4 justify-around w-full sm:justify-end sm:pt-0">
         {navLinks?.map(({ href, icon, text }: INavLinks) => (

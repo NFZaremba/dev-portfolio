@@ -46,12 +46,12 @@ const Experience = () => {
       animate="show"
       className="flex justify-center"
     >
-      <div className="flex justify-center  flex-col">
+      <div className="flex justify-center  flex-col ">
         {experienceData.map((item, i) => (
           <motion.div
             key={item.jobTitle}
             variants={itemMotion}
-            className={`relative flex items-center opacity-100 ${
+            className={`relative flex items-center opacity-100  ${
               i !== 0 ? " sm:mt-14" : ""
             } `}
           >
@@ -60,7 +60,7 @@ const Experience = () => {
             ) : null}
             <div className="w-2 h-2 bg-gray-700 rounded-full "></div>
             <div className="ml-8 text-black-700 ">
-              <p className="text-base font-medium">{item.jobTitle}</p>
+              <p className="text-base font-medium ">{item.jobTitle}</p>
               <p className="text-base">{item.companyName}</p>
               <p className="flex items-center text-sm mt-0.5 dark:text-white-500">
                 {item.location}

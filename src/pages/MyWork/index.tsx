@@ -5,6 +5,8 @@ import swipePower from "../../shared/utils/swipePower";
 import useScroll from "../../shared/utils/useScroll";
 import { PageSlider } from "../../shared/components";
 import { projects } from "./__data__";
+import { ISectionTitle } from "../../shared/types";
+import { COLORS } from "../../shared/constants";
 
 export const swipeMotion = {
   enter: (direction: number) => {
@@ -31,7 +33,7 @@ export const swipeMotion = {
 const swipeThreshold = 10000;
 
 export interface IMyWork {
-  setSectionTitle: Dispatch<string>;
+  setSectionTitle: Dispatch<ISectionTitle>;
 }
 
 const MyWork = ({ setSectionTitle }: IMyWork) => {
@@ -41,7 +43,7 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
 
   useEffect(() => {
     if (inView) {
-      setSectionTitle("Projects");
+      setSectionTitle({ title: "Projects", color: COLORS.myWork.color });
     }
   }, [setSectionTitle, inView]);
 
@@ -59,17 +61,20 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
 
   return (
     <PageSlider ref={ref} initial="hidden" animate={controls}>
-      <PageSlider.Content animate={controls} initial="hidden">
+      <PageSlider.Content
+        animate={controls}
+        initial="hidden"
+        gradient={COLORS.myWork.gradient}
+      >
         <PageSlider.Left>
-          <PageSlider.Header>Most Recent Work</PageSlider.Header>
-          <div className="p-4 text-lg font-medium w-full divide-y">
-            <div className="flex justify-between">
-              <h1 className=" text-lg sm:text-xl pb-4 text-blue-600 font-semibold">
-                {project.title}
-              </h1>
-              {project.stackIcon}
-            </div>
-            <div>
+          <PageSlider.Header>
+            <PageSlider.Title
+              color={COLORS.myWork.color}
+              bgColor={COLORS.myWork.bgColor}
+            >
+              {project.title}
+            </PageSlider.Title>
+            <div className="p-4">
               <p className=" text-base sm:text-lg py-4">
                 {project.description}
               </p>
@@ -103,7 +108,7 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
                 </motion.div>
               </div>
             </div>
-            <div className="flex pt-4">
+            <div className="flex p-4">
               {project.links.map((link) => {
                 return link.url !== "" ? (
                   <motion.a
@@ -119,7 +124,7 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
                 ) : null;
               })}
             </div>
-          </div>
+          </PageSlider.Header>
         </PageSlider.Left>
         <PageSlider.Right>
           <AnimatePresence initial={false} custom={direction}>
@@ -154,9 +159,9 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
               }}
             >
               <motion.div className="flex flex-col justify-start h-full p-6 rounded-3xl bg-gallery ">
-                <h2 className=" hidden text-3xl p-4 w-max bg-gray-900 shadow-2xl sm:inline-block -ml-8">
-                  {project.title}
-                </h2>
+                <div className=" hidden text-3xl p-4 w-max bg-gray-900 shadow-2xl sm:inline-block -ml-8 rounded-2xl">
+                  {project.stackIcon}
+                </div>
               </motion.div>
             </motion.div>
           </AnimatePresence>

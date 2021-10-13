@@ -2,6 +2,8 @@ import { Dispatch, useEffect } from "react";
 import { PageSlider, Image } from "../../shared/components";
 import useScroll from "../../shared/utils/useScroll";
 import profile from "../../assets/img/profile.png";
+import { ISectionTitle } from "../../shared/types";
+import { COLORS } from "../../shared/constants";
 
 export interface IContactLinks {
   title: string;
@@ -9,7 +11,7 @@ export interface IContactLinks {
 }
 
 interface IContactProps {
-  setSectionTitle: Dispatch<string>;
+  setSectionTitle: Dispatch<ISectionTitle>;
 }
 
 const ContactUs: React.FC<IContactProps> = ({ setSectionTitle }) => {
@@ -17,17 +19,22 @@ const ContactUs: React.FC<IContactProps> = ({ setSectionTitle }) => {
 
   useEffect(() => {
     if (inView) {
-      setSectionTitle("Contact");
+      setSectionTitle({ title: "Contact", color: COLORS.contact.color });
     }
   }, [setSectionTitle, inView]);
 
   return (
     <PageSlider ref={ref} initial="hidden" animate={controls}>
-      <PageSlider.Content>
+      <PageSlider.Content gradient={COLORS.contact.gradient}>
         <PageSlider.Left>
-          <PageSlider.Header>By Email</PageSlider.Header>
-          <div className="p-4 text-lg font-medium w-full divide-y">
-            <p className="pb-4">
+          <PageSlider.Header>
+            <PageSlider.Title
+              color={COLORS.contact.color}
+              bgColor={COLORS.contact.bgColor}
+            >
+              How to contact me
+            </PageSlider.Title>
+            <p className="p-4">
               The best way to contact me is by email! But you can also reach me
               via direct message on{" "}
               <a
@@ -49,7 +56,7 @@ const ContactUs: React.FC<IContactProps> = ({ setSectionTitle }) => {
                 nfzaremba@gmail.com
               </a>
             </div>
-          </div>
+          </PageSlider.Header>
         </PageSlider.Left>
         <PageSlider.Right>
           <Image src={profile} alt="contact" />

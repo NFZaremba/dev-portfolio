@@ -13,3 +13,5 @@ export interface Img {
   src: string;
   alt: string;
 }
+
+export type ISectionTitle = { [key: string]: string };

@@ -7,11 +7,13 @@ import MyWork from "./pages/MyWork";
 import ContactUs from "./pages/ContactUs";
 
 import background from "./assets/img/cool-background.svg";
+// import background from "./assets/img/cool-background-triangle.png";
 import "remixicon/fonts/remixicon.css";
 import "./App.css";
+import { ISectionTitle } from "./shared/types";
 
 function App() {
-  const [sectionTitle, setSectionTitle] = useState<string>("Nick Z");
+  const [sectionTitle, setSectionTitle] = useState<ISectionTitle>({});
   const [direction, setDirection] = useState<string>("");
 
   return (
