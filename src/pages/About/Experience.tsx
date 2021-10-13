@@ -46,7 +46,7 @@ const Experience = () => {
       animate="show"
       className="flex justify-center"
     >
-      <div className="flex justify-center  flex-col ">
+      <div className="flex justify-center flex-col ">
         {experienceData.map((item, i) => (
           <motion.div
             key={item.jobTitle}

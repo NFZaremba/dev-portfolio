@@ -1,11 +1,11 @@
 import ReactIcon from "../../shared/icons/ReactIcon";
+import { motion } from "framer-motion";
 import TypeScriptIcon from "../../shared/icons/TypeScriptIcon";
 import ReactQueryIcon from "../../shared/icons/ReactQueryIcon";
 import reactTestingImg from "../../assets/img/react-testing-library.png";
 import StorybookIcon from "../../shared/icons/StorybookIcon";
 import ReactHookFormIcon from "../../shared/icons/ReactHookFormIcon";
 import TailwindIcon from "../../shared/icons/TailwindIcon";
-import { motion } from "framer-motion";
 import NodeIcon from "../../shared/icons/NodeIcon";
 
 const containerMotion = {
@@ -29,7 +29,7 @@ const Skills = () => {
       variants={containerMotion}
       initial="hidden"
       animate="show"
-      className="max-w-md mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6"
+      className="max-w-md lg:mt-8 grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-6"
     >
       <motion.div
         variants={itemMotion}

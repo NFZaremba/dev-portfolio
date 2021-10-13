@@ -5,6 +5,7 @@ import {
   IPageSliderLeftProps,
   IPageSliderProps,
 } from "./types";
+import { useIsLarge } from "../../utils/useMediaQuery";
 
 // Initial fullpage animation
 export const fullpageAnimation = {
@@ -118,6 +119,28 @@ const backLayerMotion2 = {
   },
 };
 
+const revealMotion = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 50% 100%)`,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2,
+    },
+  }),
+  closed: {
+    clipPath: "circle(45px at 50% 100%)",
+    opacity: 0,
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+    },
+  },
+};
+
 const PageSlider = forwardRef<HTMLDivElement, IPageSliderProps>(
   ({ children, ...props }: IPageSliderProps, ref): JSX.Element => {
     return (
@@ -140,7 +163,7 @@ const Content = ({
 }: IPageSliderProps): JSX.Element => {
   return (
     <motion.div
-      className="relative justify-center items-center mx-8 flex flex-col-reverse w-full xl:mx-0 lg:flex-row h-4/6  lg:items-stretch lg:justify-start"
+      className="relative justify-center items-center mx-8 flex flex-col-reverse  w-full xl:mx-0 lg:flex-row h-4/6  lg:items-stretch lg:justify-start"
       variants={contentAnim}
       {...props}
     >
@@ -180,15 +203,35 @@ const Title = ({ children, color, bgColor }: IPageSliderProps) => {
   );
 };
 
-const Left = ({ children, isOpen, ...props }: IPageSliderLeftProps) => {
+const Left = ({ children, ...props }: IPageSliderLeftProps) => {
   return (
     <motion.div
-      className={`absolute w-full top-2/4 transform md:-translate-y-2/4 z-10 min-h-[80%] lg:min-h-[65%] bg-white rounded-3xl shadow-xl lg:w-2/4 lg:z-50 lg:ml-4 `}
+      className={`absolute w-full top-2/4 transform md:-translate-y-2/4 z-10 min-h-[80%] lg:min-h-[65%]   rounded-3xl lg:w-2/4 lg:z-50 lg:ml-4 shadow-xl`}
       variants={leftContainerMotion}
     >
-      <motion.span className="h-full w-full " {...props}>
+      <motion.div
+        className="absolute inset-0 bg-white rounded-3xl"
+        variants={revealMotion}
+        {...props}
+      />
+      <motion.div
+        className="w-full h-full"
+        variants={{
+          open: {
+            opacity: 1,
+            transition: {
+              delay: 0.5,
+            },
+            transitionEnd: {
+              position: "absolute",
+            },
+          },
+          closed: { opacity: 0 },
+        }}
+        {...props}
+      >
         {children}
-      </motion.span>
+      </motion.div>
     </motion.div>
   );
 };

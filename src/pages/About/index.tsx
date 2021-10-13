@@ -1,12 +1,13 @@
 import { Dispatch, useEffect, useMemo, useState } from "react";
-import { AnimateSharedLayout, motion } from "framer-motion";
-import { PageSlider, Image } from "../../shared/components";
+import { AnimateSharedLayout, motion, useCycle } from "framer-motion";
+import { PageSlider, Image, Toggle } from "../../shared/components";
 import useScroll from "../../shared/utils/useScroll";
 import Experience from "./Experience";
 import Skills from "./Skills";
 import devPhoto from "../../assets/img/programmer.jpg";
 import { ISectionTitle } from "../../shared/types";
 import { COLORS } from "../../shared/constants";
+import { useIsLarge } from "../../shared/utils/useMediaQuery";
 
 const SegmentControl = ({
   activeItem,
@@ -18,7 +19,7 @@ const SegmentControl = ({
   return (
     <AnimateSharedLayout>
       <ol className=" inline-flex rounded-xl divide-x bg-tab mb-2 flex-col sm:flex-row">
-        {["Experience", "Favorite Stack"].map((item) => {
+        {["Experience", "Favorites"].map((item) => {
           const sectionName = item.toLocaleLowerCase();
           const isActive = sectionName === activeItem;
           return (
@@ -55,6 +56,8 @@ export interface IAbout {
 const About = ({ setSectionTitle }: IAbout) => {
   const [ref, controls, inView] = useScroll();
   const [activeItem, setActiveitem] = useState("experience");
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const isLarge = useIsLarge();
 
   useEffect(() => {
     if (inView) {
@@ -65,7 +68,7 @@ const About = ({ setSectionTitle }: IAbout) => {
   return (
     <PageSlider ref={ref} initial="hidden" animate={controls}>
       <PageSlider.Content animate={controls} gradient={COLORS.about.gradient}>
-        <PageSlider.Left>
+        <PageSlider.Left animate={isOpen || isLarge ? "open" : "closed"}>
           <PageSlider.Header>
             <PageSlider.Title
               color={COLORS.about.color}
@@ -86,6 +89,11 @@ const About = ({ setSectionTitle }: IAbout) => {
         </PageSlider.Left>
         <PageSlider.Right>
           <Image src={devPhoto} alt="contact" />
+          <Toggle
+            className="lg:hidden"
+            toggle={() => toggleOpen()}
+            animate={isOpen ? "open" : "closed"}
+          />
         </PageSlider.Right>
       </PageSlider.Content>
     </PageSlider>
