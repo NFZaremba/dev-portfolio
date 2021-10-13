@@ -1,6 +1,10 @@
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
-import { IPageSliderComp, IPageSliderProps } from "./types";
+import {
+  IPageSliderComp,
+  IPageSliderLeftProps,
+  IPageSliderProps,
+} from "./types";
 
 // Initial fullpage animation
 export const fullpageAnimation = {
@@ -43,6 +47,7 @@ export const contentAnim = {
 const rightContainerMotion = {
   hidden: {
     opacity: 0,
+    y: "-50%",
     x: -500,
     transition: {
       duration: 0.6,
@@ -50,6 +55,7 @@ const rightContainerMotion = {
   },
   show: {
     opacity: 1,
+    y: "-50%",
     x: 0,
     transition: {
       duration: 1.1,
@@ -60,12 +66,14 @@ const rightContainerMotion = {
 const leftContainerMotion = {
   hidden: {
     x: 500,
+    y: "-50%",
     transition: {
       duration: 0.6,
     },
   },
   show: {
     x: 0,
+    y: "-50%",
     transition: {
       duration: 1.1,
     },
@@ -132,17 +140,17 @@ const Content = ({
 }: IPageSliderProps): JSX.Element => {
   return (
     <motion.div
-      className="relative justify-center items-center mx-8 flex flex-col-reverse h-[90%] w-full xl:mx-0 lg:flex-row lg:h-4/6  lg:items-stretch lg:justify-start"
+      className="relative justify-center items-center mx-8 flex flex-col-reverse w-full xl:mx-0 lg:flex-row h-4/6  lg:items-stretch lg:justify-start"
       variants={contentAnim}
       {...props}
     >
       {children}
       <motion.div
-        className="absolute w-4/5 bg-gray-100 lg:w-full h-[87%] top-2/4 rounded-3xl -z-10 lg:h-3/4 "
+        className="absolute w-full bg-gray-100 h-full top-2/4 rounded-3xl -z-10 lg:h-3/4 "
         variants={backLayerMotion1}
       />
       <motion.div
-        className={`absolute w-4/5 lg:w-full h-[87%] rounded-3xl -z-10  top-2/4 lg:h-3/4 transform shadow-lg bg-gradient-to-br to-rose-500 -rotate-2 ${gradient}`}
+        className={`absolute w-full h-full rounded-3xl -z-10 top-2/4 lg:h-3/4 transform shadow-lg bg-gradient-to-br to-rose-500 -rotate-2 ${gradient}`}
         variants={backLayerMotion2}
       />
     </motion.div>
@@ -166,19 +174,21 @@ const Header = ({ children }: IPageSliderProps): JSX.Element => {
 
 const Title = ({ children, color, bgColor }: IPageSliderProps) => {
   return (
-    <h1 className={`p-4 ${color} ${bgColor} font-semibold  rounded-t-xl`}>
+    <h1 className={`p-4 ${color} ${bgColor} font-semibold  rounded-t-3xl`}>
       {children}
     </h1>
   );
 };
 
-const Left = ({ children }: IPageSliderProps) => {
+const Left = ({ children, isOpen, ...props }: IPageSliderLeftProps) => {
   return (
     <motion.div
-      className="flex flex-col z-10 -mt-40 min-h-[50%] sm:h-3/6 sm:justify-center bg-white lg:my-28 w-4/5 relative  rounded-xl shadow-xl ml-4 sm:flex-row lg:-mr-8 lg:w-2/4 lg:h-auto lg:z-50"
+      className={`absolute w-full top-2/4 transform md:-translate-y-2/4 z-10 min-h-[80%] lg:min-h-[65%] bg-white rounded-3xl shadow-xl lg:w-2/4 lg:z-50 lg:ml-4 `}
       variants={leftContainerMotion}
     >
-      {children}
+      <motion.span className="h-full w-full " {...props}>
+        {children}
+      </motion.span>
     </motion.div>
   );
 };
@@ -187,7 +197,7 @@ const Right = ({ children }: IPageSliderProps) => {
   return (
     <motion.div
       variants={rightContainerMotion}
-      className="w-full h-2/4 z-2 rounded-3xl relative lg:h-full lg:w-2/4"
+      className="absolute w-full h-[80%] top-2/4 transform md:-translate-y-2/4 z-2 rounded-3xl lg:right-0  lg:h-full lg:w-2/4 lg:mr-4"
     >
       {children}
     </motion.div>

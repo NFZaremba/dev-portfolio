@@ -6,6 +6,10 @@ export interface IPageSliderProps extends IBaseComponentPropsWithMotion {
   gradient?: string;
 }
 
+export interface IPageSliderLeftProps extends IPageSliderProps {
+  isOpen?: boolean;
+}
+
 export interface IPageSliderComp
   extends React.ForwardRefExoticComponent<
     IPageSliderProps & React.RefAttributes<HTMLDivElement>
@@ -14,6 +18,6 @@ export interface IPageSliderComp
   Header: React.FC<IPageSliderProps>;
   SubHeader: React.FC<IPageSliderProps>;
   Content: React.FC<IPageSliderProps>;
-  Left: React.FC<IPageSliderProps>;
+  Left: React.FC<IPageSliderLeftProps>;
   Right: React.FC<IPageSliderProps>;
 }

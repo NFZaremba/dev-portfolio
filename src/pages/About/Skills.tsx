@@ -36,56 +36,56 @@ const Skills = () => {
         className="text-center py-2 shadow-xl rounded-md"
       >
         <ReactIcon className="mx-auto" />
-        <p>React</p>
+        <p className="text-sm sm:text-base">React</p>
       </motion.div>
       <motion.div
         variants={itemMotion}
         className="text-center py-2 shadow-xl rounded-md"
       >
         <TypeScriptIcon className="mx-auto" />
-        <p>TypeScript</p>
+        <p className="text-sm sm:text-base">TypeScript</p>
       </motion.div>
       <motion.div
         variants={itemMotion}
         className="text-center py-2 shadow-xl rounded-md"
       >
         <ReactQueryIcon className="mx-auto" />
-        <p>React Query</p>
+        <p className="text-sm sm:text-base">React Query</p>
       </motion.div>
       <motion.div
         variants={itemMotion}
         className="text-center py-2 shadow-xl rounded-md"
       >
         <img className="w-9 h-9 mx-auto" src={reactTestingImg} alt="rtl" />
-        <p>React Testing Library</p>
+        <p className="text-sm sm:text-base">React Testing Library</p>
       </motion.div>
       <motion.div
         variants={itemMotion}
         className="text-center py-2 shadow-xl rounded-md"
       >
         <ReactHookFormIcon className="mx-auto" />
-        <p>React Hook Form</p>
+        <p className="text-sm sm:text-base">React Hook Form</p>
       </motion.div>
       <motion.div
         variants={itemMotion}
         className="text-center py-2 shadow-xl rounded-md"
       >
         <StorybookIcon className="mx-auto" />
-        <p>Storybook</p>
+        <p className="text-sm sm:text-base">Storybook</p>
       </motion.div>
       <motion.div
         variants={itemMotion}
         className="text-center py-2 shadow-xl rounded-md"
       >
         <TailwindIcon className="mx-auto" />
-        <p>TailwindCSS</p>
+        <p className="text-sm sm:text-base">TailwindCSS</p>
       </motion.div>
       <motion.div
         variants={itemMotion}
         className="text-center py-2 shadow-xl rounded-md"
       >
         <NodeIcon className="mx-auto" />
-        <p>Node.js</p>
+        <p className="text-sm sm:text-base">Node.js</p>
       </motion.div>
     </motion.div>
   );
