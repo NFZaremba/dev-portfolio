@@ -5,7 +5,6 @@ import {
   IPageSliderLeftProps,
   IPageSliderProps,
 } from "./types";
-import { useIsLarge } from "../../utils/useMediaQuery";
 
 // Initial fullpage animation
 export const fullpageAnimation = {
@@ -179,17 +178,6 @@ const Content = ({
     </motion.div>
   );
 };
-
-// const Header = ({ children, ...props }: IPageSliderProps): JSX.Element => {
-//   return (
-//     <motion.h3
-//       className="p-4 rounded-xl sm:rounded-r-none sm:rounded-l-xl flex-none bg-purple-50 text-blue-700 text-xl lg:w-48"
-//       {...props}
-//     >
-//       {children}
-//     </motion.h3>
-//   );
-// };
 
 const Header = ({ children }: IPageSliderProps): JSX.Element => {
   return <div className="text-lg font-medium w-full divide-y">{children}</div>;
