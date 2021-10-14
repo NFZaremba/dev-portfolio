@@ -194,7 +194,7 @@ const Title = ({ children, color, bgColor }: IPageSliderProps) => {
 const Left = ({ children, ...props }: IPageSliderLeftProps) => {
   return (
     <motion.div
-      className={`absolute w-full top-2/4 transform md:-translate-y-2/4 z-10 min-h-[80%] lg:min-h-[65%]   rounded-3xl lg:w-2/4 lg:z-50 lg:ml-4 shadow-xl`}
+      className={`absolute w-full top-2/4 transform md:-translate-y-2/4 z-10 min-h-[80%] lg:min-h-[65%] rounded-3xl lg:w-2/4 lg:z-50 lg:ml-4 shadow-xl`}
       variants={leftContainerMotion}
     >
       <motion.div

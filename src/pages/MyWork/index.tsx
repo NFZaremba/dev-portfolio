@@ -38,9 +38,9 @@ const Controls = ({
   project: IProject;
   paginate: (arg: number) => void;
 }) => (
-  <div className="absolute top-0 left-2/4 lg:left-1/4 transform -translate-x-2/4 flex justify-center items-center m-auto shadow-inner bg-purple-200 rounded-3xl">
+  <div className="absolute -top-5 lg:top-5 left-2/4 lg:left-1/4 transform -translate-x-2/4 flex justify-center items-center m-auto shadow-inner bg-purple-200 rounded-3xl shadow-2xl">
     <motion.div className="flex cursor-pointer m-2" onClick={() => paginate(1)}>
-      <i className="ri-arrow-left-s-fill text-4xl text-gray-900 hover:bg-purple-50 hover:rounded-full"></i>
+      <i className="ri-arrow-left-s-fill text-4xl text-gray-900 hover:bg-purple-100 rounded-full"></i>
     </motion.div>
     {useMemo(
       () =>
@@ -61,7 +61,7 @@ const Controls = ({
       className="flex cursor-pointer m-2"
       onClick={() => paginate(-1)}
     >
-      <i className="ri-arrow-right-s-fill text-4xl text-gray-900 hover:bg-purple-50"></i>
+      <i className="ri-arrow-right-s-fill text-4xl text-gray-900 hover:bg-purple-100 rounded-full"></i>
     </motion.div>
   </div>
 );
@@ -81,7 +81,7 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
 
   useEffect(() => {
     if (inView) {
-      setSectionTitle({ title: "Projects", color: COLORS.myWork.color });
+      setSectionTitle({ title: "Recent Work", color: COLORS.myWork.color });
     }
   }, [setSectionTitle, inView]);
 
@@ -133,7 +133,6 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
           </PageSlider.Header>
         </PageSlider.Left>
         <PageSlider.Right>
-          <Overlay color={COLORS.myWork.overlay} />
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               className="absolute left-0 right-0 mx-auto rounded-3xl h-full border-blue-500 z-50"
@@ -165,9 +164,13 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
                 }
               }}
             >
-              <motion.div className="flex flex-col justify-start h-full p-6 rounded-3xl bg-gallery ">
-                <div className=" hidden text-3xl p-4 w-max bg-gray-900 shadow-2xl sm:inline-block lg:-ml-8 rounded-2xl">
-                  {project.stackIcon}
+              <motion.div className="flex flex-col justify-start h-full p-6 rounded-3xl ">
+                <Overlay color={COLORS.myWork.overlay} />
+                <div className="flex flex-row items-center text-3xl p-4 w-max shadow-2xl -ml-8 rounded-2xl bg-gray-900">
+                  <div className="inline">{project.stackIcon}</div>
+                  <h3 className="inline ml-2 text-white text-lg">
+                    {project.title}
+                  </h3>
                 </div>
               </motion.div>
             </motion.div>
