@@ -1,7 +1,7 @@
 import { Dispatch, useEffect } from "react";
-import { Image, PageSlider, Toggle } from "../../shared/components";
+import { Image, Overlay, PageSlider, Toggle } from "../../shared/components";
 import useScroll from "../../shared/utils/useScroll";
-import seattle from "../../assets/img/seattle.jpg";
+import seattle from "../../assets/img/space-needle.jpg";
 import { ISectionTitle } from "../../shared/types";
 import { COLORS } from "../../shared/constants";
 import { useCycle } from "framer-motion";
@@ -47,6 +47,7 @@ const Intro: React.FC<IIntroProps> = ({ setSectionTitle }) => {
           </PageSlider.Header>
         </PageSlider.Left>
         <PageSlider.Right>
+          <Overlay color={COLORS.intro.overlay} />
           <Image src={seattle} alt="seattle" />
           <Toggle
             className="lg:hidden"

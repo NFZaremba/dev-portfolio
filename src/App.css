@@ -13,9 +13,9 @@
 }
 
 #fp-nav.fp-left {
-  @apply absolute w-auto bottom-8 xl:bottom-auto top-auto left-2/4 xl:top-2/4 transform -translate-x-2/4 xl:translate-x-fp-nav -translate-y-2/4 animate-fadeIn;
+  @apply absolute w-auto bottom-8 xl:bottom-auto top-auto left-2/4 xl:top-2/4 transform -translate-x-2/4 xl:translate-x-fp-nav -translate-y-2/4 animate-fadeIn !important;
 }
 
 #fp-nav ul {
-  @apply flex items-end xl:block;
+  @apply flex items-end xl:block !important;
 }

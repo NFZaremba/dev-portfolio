@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { wrap } from "@popmotion/popcorn";
 import swipePower from "../../shared/utils/swipePower";
 import useScroll from "../../shared/utils/useScroll";
-import { PageSlider, Toggle } from "../../shared/components";
+import { Overlay, PageSlider, Toggle } from "../../shared/components";
 import { projects, IProject } from "./__data__";
 import { ISectionTitle } from "../../shared/types";
 import { COLORS } from "../../shared/constants";
@@ -133,6 +133,7 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
           </PageSlider.Header>
         </PageSlider.Left>
         <PageSlider.Right>
+          <Overlay color={COLORS.myWork.overlay} />
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               className="absolute left-0 right-0 mx-auto rounded-3xl h-full border-blue-500 z-50"

@@ -1,5 +1,5 @@
 import { Dispatch, useEffect } from "react";
-import { PageSlider, Image, Toggle } from "../../shared/components";
+import { PageSlider, Image, Toggle, Overlay } from "../../shared/components";
 import useScroll from "../../shared/utils/useScroll";
 import profile from "../../assets/img/profile.png";
 import { ISectionTitle } from "../../shared/types";
@@ -63,6 +63,7 @@ const ContactUs = ({ setSectionTitle }: IContactProps) => {
           </PageSlider.Header>
         </PageSlider.Left>
         <PageSlider.Right>
+          <Overlay color={COLORS.contact.overlay} />
           <Image src={profile} alt="contact" />
           <Toggle
             className="lg:hidden"

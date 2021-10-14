@@ -1,10 +1,10 @@
 import { Dispatch, useEffect, useMemo, useState } from "react";
 import { AnimateSharedLayout, motion, useCycle } from "framer-motion";
-import { PageSlider, Image, Toggle } from "../../shared/components";
+import { PageSlider, Image, Toggle, Overlay } from "../../shared/components";
 import useScroll from "../../shared/utils/useScroll";
 import Experience from "./Experience";
 import Skills from "./Skills";
-import devPhoto from "../../assets/img/programmer.jpg";
+import devPhoto from "../../assets/img/desk-with-laptop-cup.jpg";
 import { ISectionTitle } from "../../shared/types";
 import { COLORS } from "../../shared/constants";
 import { useIsLarge } from "../../shared/utils/useMediaQuery";
@@ -18,7 +18,7 @@ const SegmentControl = ({
 }) => {
   return (
     <AnimateSharedLayout>
-      <ol className=" inline-flex rounded-xl divide-x bg-tab mb-2 flex-col sm:flex-row">
+      <ol className=" inline-flex rounded-xl divide-x bg-tab mb-2 flex-row">
         {["Experience", "Favorites"].map((item) => {
           const sectionName = item.toLocaleLowerCase();
           const isActive = sectionName === activeItem;
@@ -88,6 +88,7 @@ const About = ({ setSectionTitle }: IAbout) => {
           </PageSlider.Header>
         </PageSlider.Left>
         <PageSlider.Right>
+          <Overlay color={COLORS.about.overlay} />
           <Image src={devPhoto} alt="contact" />
           <Toggle
             className="lg:hidden"
