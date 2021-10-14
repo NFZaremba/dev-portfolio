@@ -38,7 +38,7 @@ const Controls = ({
   project: IProject;
   paginate: (arg: number) => void;
 }) => (
-  <div className="absolute -top-5 lg:top-5 left-2/4 lg:left-1/4 transform -translate-x-2/4 flex justify-center items-center m-auto shadow-inner bg-purple-200 rounded-3xl shadow-2xl">
+  <div className="absolute -top-5 lg:top-5 left-2/4 lg:left-1/4 transform -translate-x-2/4 flex justify-center items-center m-auto shadow-inner bg-purple-200 rounded-3xl shadow-2xl z-50">
     <motion.div className="flex cursor-pointer m-2" onClick={() => paginate(1)}>
       <i className="ri-arrow-left-s-fill text-4xl text-gray-900 hover:bg-purple-100 rounded-full"></i>
     </motion.div>
