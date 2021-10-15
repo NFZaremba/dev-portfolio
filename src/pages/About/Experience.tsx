@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { COLORS } from "../../shared/constants";
 
 export interface IExpereienceData {
   [key: string]: string;
@@ -7,12 +8,12 @@ export interface IExpereienceData {
 export const experienceData: IExpereienceData[] = [
   {
     companyName: "Hostwinds",
-    jobTitle: "Lead Engineer/Architect",
+    jobTitle: "Lead Engineer",
     location: "Seattle, WA",
   },
   {
     companyName: "QCM Media",
-    jobTitle: "Front End / React Developer",
+    jobTitle: "React Developer",
     location: "Seattle, WA",
   },
   {
@@ -44,31 +45,23 @@ const Experience = () => {
       variants={containerMotion}
       initial="hidden"
       animate="show"
-      className="flex justify-center"
+      className="grid grid-cols-skills gap-2 lg:gap-6"
     >
-      <div className="flex justify-center flex-col ">
-        {experienceData.map((item, i) => (
-          <motion.div
-            key={item.jobTitle}
-            variants={itemMotion}
-            className={`relative flex items-center opacity-100  ${
-              i !== 0 ? " sm:mt-14" : ""
-            } `}
-          >
-            {i !== experienceData.length - 1 ? (
-              <div className="absolute hidden sm:block h-20 top-14 w-0.5 bg-black left-1" />
-            ) : null}
-            <div className="w-2 h-2 bg-gray-700 rounded-full "></div>
-            <div className="ml-8 text-black-700 ">
-              <p className="text-base font-medium ">{item.jobTitle}</p>
-              <p className="text-base">{item.companyName}</p>
-              <p className="flex items-center text-sm mt-0.5 dark:text-white-500">
-                {item.location}
-              </p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+      {experienceData.map((item, i) => (
+        <motion.div
+          key={item.jobTitle}
+          variants={itemMotion}
+          className={`relative flex flex-col items-center p-4 shadow-xl rounded-2xl ${COLORS.about.bgColor} divide-y`}
+        >
+          <h3 className={`text-base font-medium ${COLORS.about.color}`}>
+            {item.jobTitle}
+          </h3>
+          <div className="flex flex-col items-center justify-center pt-4">
+            <p className="text-base">{item.companyName}</p>
+            <p className="flex items-center text-sm mt-0.5 ">{item.location}</p>
+          </div>
+        </motion.div>
+      ))}
     </motion.div>
   );
 };

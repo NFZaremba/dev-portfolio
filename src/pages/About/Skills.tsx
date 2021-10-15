@@ -7,6 +7,8 @@ import StorybookIcon from "../../shared/icons/StorybookIcon";
 import ReactHookFormIcon from "../../shared/icons/ReactHookFormIcon";
 import TailwindIcon from "../../shared/icons/TailwindIcon";
 import NodeIcon from "../../shared/icons/NodeIcon";
+import { COLORS } from "../../shared/constants";
+import React from "react";
 
 const containerMotion = {
   hidden: {},
@@ -23,70 +25,54 @@ const itemMotion = {
   show: { rotate: 0, scale: 1, top: 30 },
 };
 
+const SkillItem = ({
+  children,
+  text,
+}: {
+  children: React.ReactNode;
+  text: string;
+}) => (
+  <motion.div
+    variants={itemMotion}
+    className={`text-center py-2 shadow-xl rounded-2xl ${COLORS.about.bgColor}`}
+  >
+    {children}
+    <p className="text-sm sm:text-base">{text}</p>
+  </motion.div>
+);
+
 const Skills = () => {
   return (
     <motion.div
       variants={containerMotion}
       initial="hidden"
       animate="show"
-      className="max-w-md lg:mt-8 grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-6"
+      className=" grid grid-cols-skills gap-2 lg:gap-6"
     >
-      <motion.div
-        variants={itemMotion}
-        className="text-center py-2 shadow-xl rounded-md"
-      >
+      <SkillItem text="React">
         <ReactIcon className="mx-auto" />
-        <p className="text-sm sm:text-base">React</p>
-      </motion.div>
-      <motion.div
-        variants={itemMotion}
-        className="text-center py-2 shadow-xl rounded-md"
-      >
+      </SkillItem>
+      <SkillItem text="TypeScript">
         <TypeScriptIcon className="mx-auto" />
-        <p className="text-sm sm:text-base">TypeScript</p>
-      </motion.div>
-      <motion.div
-        variants={itemMotion}
-        className="text-center py-2 shadow-xl rounded-md"
-      >
+      </SkillItem>
+      <SkillItem text="React Query">
         <ReactQueryIcon className="mx-auto" />
-        <p className="text-sm sm:text-base">React Query</p>
-      </motion.div>
-      <motion.div
-        variants={itemMotion}
-        className="text-center py-2 shadow-xl rounded-md"
-      >
+      </SkillItem>
+      <SkillItem text="React Testing Library">
         <img className="w-9 h-9 mx-auto" src={reactTestingImg} alt="rtl" />
-        <p className="text-sm sm:text-base">React Testing Library</p>
-      </motion.div>
-      <motion.div
-        variants={itemMotion}
-        className="text-center py-2 shadow-xl rounded-md"
-      >
+      </SkillItem>
+      <SkillItem text="React Hook Form">
         <ReactHookFormIcon className="mx-auto" />
-        <p className="text-sm sm:text-base">React Hook Form</p>
-      </motion.div>
-      <motion.div
-        variants={itemMotion}
-        className="text-center py-2 shadow-xl rounded-md"
-      >
+      </SkillItem>
+      <SkillItem text="Storybook">
         <StorybookIcon className="mx-auto" />
-        <p className="text-sm sm:text-base">Storybook</p>
-      </motion.div>
-      <motion.div
-        variants={itemMotion}
-        className="text-center py-2 shadow-xl rounded-md"
-      >
+      </SkillItem>
+      <SkillItem text="TailwindCSS">
         <TailwindIcon className="mx-auto" />
-        <p className="text-sm sm:text-base">TailwindCSS</p>
-      </motion.div>
-      <motion.div
-        variants={itemMotion}
-        className="text-center py-2 shadow-xl rounded-md"
-      >
+      </SkillItem>
+      <SkillItem text="Node.js">
         <NodeIcon className="mx-auto" />
-        <p className="text-sm sm:text-base">Node.js</p>
-      </motion.div>
+      </SkillItem>
     </motion.div>
   );
 };

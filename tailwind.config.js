@@ -7,6 +7,9 @@ module.exports = {
       sans: ["Poppins", "sans-serif"],
     },
     extend: {
+      gridTemplateColumns: {
+        skills: "repeat(auto-fit, minmax(100px, 1fr))",
+      },
       translate: {
         "fp-nav": "calc(-50% - 42rem)",
       },
