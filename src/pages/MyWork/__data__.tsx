@@ -41,19 +41,23 @@ export const projects: IProject[] = [
     ],
   },
   {
-    id: "racer",
+    id: "react-query-table",
     title: "React Query Table",
     stackIcon: <ReactIcon />,
     image: customReactImg,
     description:
-      "Custom Table built from scratch utilizing React-Query with the compound component pattern. Including custom hooks profividing Search, Sorting, and filtering functionality.",
+      "Demo site featuring a custom table built utilizing React-Query with the compound component pattern. Including custom hooks providing Search, Sorting, and filtering functionality.",
     links: [
       {
         site: "Github",
         url: "https://github.com/NFZaremba/react-query-table",
         icon: "ri-github-line",
       },
-      { site: "Site", url: "", icon: "ri-global-line" },
+      {
+        site: "Site",
+        url: "https://react-query-table.netlify.app",
+        icon: "ri-global-line",
+      },
     ],
   },
 ];
