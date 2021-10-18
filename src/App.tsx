@@ -27,7 +27,7 @@ function App() {
       <ReactFullpage
         licenseKey={process.env.REACT_APP_FULL_PAGE_LICSENCE}
         navigationPosition="left"
-        scrollingSpeed={1500}
+        scrollingSpeed={1050}
         easing="easeInOutCubic"
         navigation
         onLeave={(_origin, _destination, direction) => setDirection(direction)}

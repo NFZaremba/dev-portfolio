@@ -14,9 +14,8 @@ export const fullpageAnimation = {
   show: {
     opacity: 1,
     transition: {
-      duration: 1,
       staggerChildren: 0.17,
-      delayChildren: 0.06,
+      // delayChildren: 0.06,
     },
   },
 };
@@ -58,7 +57,11 @@ const rightContainerMotion = {
     y: "-50%",
     x: 0,
     transition: {
-      duration: 1.1,
+      delay: 0.2,
+      type: "spring",
+      damping: 25,
+      mass: 3,
+      stiffness: 120,
     },
   },
 };
@@ -75,7 +78,11 @@ const leftContainerMotion = {
     x: 0,
     y: "-50%",
     transition: {
-      duration: 1.1,
+      delay: 0.2,
+      type: "spring",
+      damping: 25,
+      mass: 3,
+      stiffness: 120,
     },
   },
 };
@@ -94,7 +101,7 @@ const backLayerMotion1 = {
     opacity: 1,
     rotate: 0,
     transition: {
-      duration: 1.1,
+      duration: 1,
     },
   },
 };
@@ -113,7 +120,7 @@ const backLayerMotion2 = {
     opacity: 1,
     rotate: -2,
     transition: {
-      duration: 1.1,
+      duration: 1,
     },
   },
 };
