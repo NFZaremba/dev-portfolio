@@ -166,7 +166,7 @@ const MyWork = ({ setSectionTitle }: IMyWork) => {
             >
               <motion.div className="flex flex-col justify-start h-full p-6 rounded-3xl ">
                 <Overlay color={COLORS.myWork.overlay} />
-                <div className="flex flex-row items-center text-3xl p-4 w-max shadow-2xl -ml-8 rounded-2xl bg-gray-900">
+                <div className="flex flex-row items-center text-3xl p-4 w-max shadow-2xl -ml-8 rounded-2xl  bg-gray-900 z-50">
                   <div className="inline">{project.stackIcon}</div>
                   <h3 className="inline ml-2 text-white text-lg">
                     {project.title}
