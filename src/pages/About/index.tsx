@@ -18,19 +18,26 @@ const SegmentControl = ({
 }) => {
   return (
     <AnimateSharedLayout>
-      <ol className=" inline-flex rounded-xl divide-x bg-tab mb-2 flex-row">
+      <ol
+        role="tablist"
+        aria-label="Profile content"
+        className=" inline-flex rounded-xl divide-x bg-tab mb-2 flex-row"
+      >
         {["Experience", "Favorites"].map((item) => {
           const sectionName = item.toLocaleLowerCase();
           const isActive = sectionName === activeItem;
           return (
             <motion.li
+              key={item}
               className='"relative mb-0'
               whileTap={isActive ? { scale: 0.95 } : { opacity: 0.6 }}
-              key={item}
+              aria-selected={isActive}
+              id={sectionName}
+              tabIndex={isActive ? 0 : -1}
             >
               <button
-                onClick={() => setActiveitem(sectionName.toLocaleLowerCase())}
-                type="button"
+                role="tab"
+                onClick={() => setActiveitem(sectionName)}
                 className="relative m-0 py-2 px-8 bg-transparent bg-none outline-none hover:cursor-pointer focus:cursor-pointer text-lg"
               >
                 {isActive && (

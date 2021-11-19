@@ -31,6 +31,7 @@ export const Toggle = ({
     style={style}
     className={`animate-pulse flex justify-center items-center outline-none border-none cursor-pointer absolute rounded-full -bottom-14 left-2/4 transform -translate-x-2/4 ${className} p-4 `}
     onClick={toggle}
+    aria-label="show content"
     {...props}
   >
     <svg
